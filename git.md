@@ -33,7 +33,7 @@ Create repo @ github.com/new
 
 
 ```shell
-git remote add origin git@github.com:username/repo_name
+git remote add origin git@github.com:username/repo_name.git
 
 git remote add origin https://github.com/username/new_repo
 
