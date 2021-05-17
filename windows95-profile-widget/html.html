@@ -1,0 +1,66 @@
+
+
+ <!-- ─── PROFILE WIDGET ENCAPSULATED ──────────────────────────────────────────────── -->
+
+    <!-- Profile Widget -->
+    <script src="windows95-profile-widget/script.js"></script>
+    <script src="js/alternating-gif-panels.js"></script>
+    <link rel="stylesheet" href="windows95-profile-widget/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div id="profileModal" class="card" onmouseover="firstdim()">
+        <a href="https://github.com/trevor-reznik" target="_blank">
+          <div class="photo"></div>
+        </a>
+        <div id="gifBanner" class="banner"></div>
+        <ul>
+            <li style="font-family: adventure; font-size: 1.85em">[bymyself]</li>
+            <li style="font-family: berlinPixel; font-size: .358em; padding-top:.85em">github.com/trevor-reznik</li>
+        </ul>
+        <button class="contact" id="main-button">
+          <p id="btnTxt" class="notMono" style="margin-top: .015em">click to contact me</p>
+        </button>
+        <div class="social-media-banner">
+            <a href="https:://github.com/trevor-reznik" target="_blank"><i class="fa fa-github-square"></i></a>
+            <a href="https://bymyself.life" target="_blank"><i class="fa fa-hacker-news"></i></a>
+            <a href="https://codepen.io/bymyself" target="_blank"><i class="fa fa-codepen"></i></a>
+            <a href=""><i class="fa fa-linkedin"></i></a>
+        </div>
+        <form 
+          action="mailto:i@bymyself.life"
+          class="email-form"
+          method="post"
+          enctype="text/plain"
+          name="EmailForm"
+          >
+            <input id="name" type="text" placeholder="name">
+            <input id="email" type="text" placeholder="email">
+            <textarea id="comment" type="text" placeholder="comment"></textarea>
+            
+            <input type="submit" class="contact">
+            <button >
+              <p id="botBtnTxt" style="margin-top: .2em">send</p>
+            </button>
+         </form>
+      </div>
+      <script>
+        $(document).ready(function()
+        {
+            $('.contact').click(function (e) 
+            {
+                $('.card').toggleClass('active');
+                $('.banner').toggleClass('active');
+                $('.photo').toggleClass('active');
+                $('.social-media-banner').toggleClass('active');
+                $('.email-form').toggleClass('active');  
+
+                if ( document.getElementById("btnTxt").innerHTML == "back") {
+                document.getElementById("btnTxt").innerHTML = "click to contact me"
+                }
+                else { document.getElementById("btnTxt").innerHTML = "back" }
+            });
+        });
+      </script>
+
+<!-- ─────────────────────────────────────────────────────── END PROFILE WIDGET ───── -->
