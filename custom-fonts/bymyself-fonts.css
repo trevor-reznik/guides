@@ -1,0 +1,56 @@
+@font-face {
+font-family: retrosplice;
+src: url("fonts/font-SF\ RetroSplice\ SC\ Shaded.ttf") format("truetype");
+}
+@font-face {
+font-family: scifi;
+src: url('fonts/font-SFAlienEncounters-Italic.ttf') format("truetype");
+}
+@font-face {
+font-family: vapor;
+src: url('fonts/PLASMA\ SOUL\ 87.ttf') format("truetype");
+}
+@font-face {
+font-family: adventure;
+src: url('fonts/font-Adventurer.ttf') format("truetype");
+}
+@font-face {
+font-family: berlinPixel;
+src: url('fonts/font-BerlinFraktur-24.otf') format("truetype");
+}
+@font-face {
+font-family: glitch;
+src: url('fonts/font-glitch.ttf') format("truetype");
+}
+@font-face {
+font-family: minecraft;
+src: url('fonts/font-Minecraftia-Regular.ttf') format("truetype");
+}
+@font-face {
+font-family: pixelCowboy;
+src: url('fonts/font-Pixel\ Cowboy.otf') format("truetype");
+}
+@font-face {
+font-family: pixelLCD;
+src: url('fonts/font-Pixel\ LCD-7.fon') format("truetype");
+}
+@font-face {
+font-family: pixelByzantine;
+src: url('fonts/font-PixelByzantine.ttf') format("truetype");
+}
+@font-face {
+font-family: pressStart;
+src: url('fonts/font-PressStart2P-vaV7.ttf') format("truetype");
+}
+@font-face {
+font-family: retroGamer;
+src: url('fonts/font-Retro\ Gamer.otf') format("truetype");
+}
+@font-face {
+font-family: retroLab;
+src: url('fonts/font-Retrolab.ttf') format("truetype");
+}
+@font-face {
+font-family: retroville;
+src: url('fonts/font-Retroville\ NC.ttf') format("truetype");
+}
