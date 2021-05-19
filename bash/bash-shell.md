@@ -1,7 +1,7 @@
 
 <a name="table-of-contents"/>
 
-![Pictures](banners/bash-shell-usage.png)
+![Pictures](bash-shell-usage.png)
 
 
 ---
@@ -60,7 +60,7 @@
 
 ---
 
-![Pictures](banners/bash-shell-usage.png)
+![Pictures](bash-shell-usage.png)
 
 
 
@@ -115,14 +115,14 @@ tail
 setvtrgb 
 ```
 
-![List of Bash Commands](info-pics/linux_commands.jpg)
+![List of Bash Commands](../info-pics/linux_commands.jpg)
 
 
 
 <a name="Highly"/>
 
 
-![Pictures](banners/bash-shell-usage.png)
+![Pictures](bash-shell-usage.png)
 
 
 # HIGHLY USEFUL
@@ -794,7 +794,7 @@ cat /dev/clipboard > file                           # paste
 <div align="right" position="absolute" font-size=12 margin=0 opacity= .6 margin-right=0 margin-left=75%><a href="#table-of-contents">Very Top (目次)</a></div> 
 
 
-![Pictures](banners/bash-shell-usage.png)
+![Pictures](bash-shell-usage.png)
 
 
 
@@ -1662,7 +1662,7 @@ cat [options|grep|sed] $TEXT >> $FILE
 <div align="right" position="absolute" font-size=12 margin=0 opacity= .6 margin-right=0 margin-left=75%><a href="#table-of-contents">Very Top (目次)</a></div> 
 
 
-![Pictures](banners/bash-shell-usage.png)
+![Pictures](bash-shell-usage.png)
 
 
 
@@ -1896,7 +1896,7 @@ ipconfig      #  Windows
 <div align="right" position="absolute" font-size=12 margin=0 opacity= .6 margin-right=0 margin-left=75%><a href="#table-of-contents">Very Top (目次)</a></div>
 
 
-![Pictures](banners/bash-shell-usage.png)
+![Pictures](bash-shell-usage.png)
 
  
 # SOMETIMES USEFUL
@@ -2087,7 +2087,7 @@ gzip $FILE
 <div align="right" position="absolute" font-size=12 margin=0 opacity= .6 margin-right=0 margin-left=75%><a href="#table-of-contents">Very Top (目次)</a></div> 
 
 
-![Pictures](banners/bash-shell-usage.png)
+![Pictures](bash-shell-usage.png)
 
 
 # KIND OF USEFUL 🐷

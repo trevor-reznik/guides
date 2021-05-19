@@ -52,6 +52,28 @@ git push -u origin master
 3. $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 
 
+## Untracking
+
+##### 1. Remove file from the repository but keep it in your working directory
+
+```bash
+git rm --cached your_filename
+```
+
+##### 2. Make git not notice changes to a file
+
+This will keep the file in the repository, but it won't commit changes to it. It will stay unchanged in the repository:
+
+```bash
+git update-index --assume-unchanged your_filename
+```
+
+to undo the previous command(tell git that you do want to keep track of changes for the file), there's the opposite command, --no-assume-unchanged
+
+```bash
+git update-index --no-assume-unchanged your_filename
+```
+
 ## Repairing
 
 

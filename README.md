@@ -7,8 +7,23 @@
 - [**GIT**](git/git.md)
 - [**GITHUB PAGES**](git/github-pages.md)
 - [**NEW PROJECT CHECKLIST**](git/new-project.md)
+## Python
+- [**STYLE GUIDELINES**](python/python-style.md)
+- [**PYTHON BUILTINS FUNCTIONS**](python/python-builtin-functions.md)
+- [**MODULES REFERENCE**](python/python-modules-reference.md)
+## C++
+- [**LEARNING JOURNAL**](cpp/cpp-learning-journal.md)
+- **Work Environment Checklist**
+## Java
+## Kotlin
+- [**REFERENCE**](https://en.wikipedia.org/wiki/Kotlin_(programming_language))
+## Apps
+- [**OBS**](apps/obs-guide.md)
+## Operating Systems
+- [**Windows**](os/windows-usage.md)
+- [**Kali Linux**](remember/kali-guide.md)
+- [**Ubuntu**](computerusage.md)
 ## Web
-- [**NODE**](node-guide.md)
 #### Frontend
 ###### Design
 - [**DESIGN RESOURCES**](design-resources.md)
@@ -16,7 +31,23 @@
 - [**MARKDOWN**](markdown.md)
 - [**CSS**](css-tricks.md)
 - [**LATEX**](latex-guide.md)
-
+###### CSS Frameworks
+- [**BOOTSTRAP**](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+  - [MDbootstrap](https://mdbootstrap.com/docs/standard/layout/grid/)
+    - [*playground*](https://mdbootstrap.com/snippets/)
+- [**YAML**](https://github.com/yaml)
+#### Backend
+- [**NODE**](node-guide.md)
+###### Layout Engines
+- [**Webkit**](https://webkit.org/web-inspector/)
+- [**Gecko**]
+###### JS Frameworks
+- [**Vue.js**](https://vuejs.org/v2/guide/)
+- [**React**](https://reactjs.org/docs/getting-started.html)
+- [**Angular JS**](https://docs.angularjs.org/api)
+- [**Ruby on Rails**](https://guides.rubyonrails.org/)
+- [**Flask**](python/flask-guide.md)
+- [**Djando**](python/django-guide.md)
 
 ------------------------------------
 
@@ -70,3 +101,6 @@ Drescher took the paper that was offered him and put it into the toaster, saying
 -------------------------------------
 
 [From catb.org](http://www.catb.org/jargon/html/koans.html)
+
+  
+<div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div> 
