@@ -1,0 +1,27 @@
+@font-face {
+  font-family: windows;
+  src: url("windows-ttf") format("truetype");
+}
+@font-face {
+  font-family: vapor;
+  src: url("plasma-soul-87.ttf") format("truetype");
+}
+.windows-icon {
+  background-image: url("menu.png");
+}
+
+.down {
+  background-image: url("stepper-down.png");
+}
+
+.minimize {
+  background-image: url("minimize_focused_normal.png");
+}
+
+.maximize {
+  background-image: url("unmaximize_focused_normal.png");
+}
+
+.close {
+  background-image: url("close_focused_normal.png");
+}
