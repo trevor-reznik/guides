@@ -1,4 +1,5 @@
-body {
+body,
+.profile-header {
     background: url("windows-xp-bg.jpg") center;
     background-size: cover;
 }
