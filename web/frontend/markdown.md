@@ -1,12 +1,14 @@
 
-
 <a name="table-of-contents"/>
 
 
 ![Markdown Guide Banner](banners/markdown-guide-banner.png)
 
+*. . . this is a supplemented fork of [this popular cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) - credit to [Adam Pritchard](https://github.com/adam-p)* ❤️
+
 ---
 
+Table of Contents
  - [GitHub Flavored Markdown](#github)
  - [Headers](#headers)  
  - [Emphasis](#emphasis)  
@@ -26,9 +28,8 @@
  - [Inline HTML](#inlinehtml)
  - [CSS](#css)
 
----
 
-# Recent
+# Recently Learned
 
 ###### Converting Tables
 
@@ -55,22 +56,64 @@
 ![Markdown Guide Banner](banners/markdown-guide-banner.png)
 
 
-<a name="headers"/>
+<a name="github"/>
 
 # Github Flavored
 
-[White-Listed HTML/CSS](https://github.com/gjtorikian/html-pipeline/blob/main/lib/html/pipeline/sanitization_filter.rb)
+- #### [Docs](https://github.github.com/gfm/)
+- #### [Using CSS](https://gist.github.com/jojoldu/9cb1b6a5110619e221dfd4603f30ddd4)
+- #### [White-Listed HTML/CSS Tags & Attributes](https://github.com/gjtorikian/html-pipeline/blob/main/lib/html/pipeline/sanitization_filter.rb)
+- #### [Code Highlighting / Inline Code](https://rdmd.readme.io/docs/code-blocks)
+  - [See the Supported Languages](https://rdmd.readme.io/docs/code-blocks#language-support)
+
+###### HTML and Inline CSS Example - my footer signature
+
+```html
+<div
+  align="center"
+  style="text-align: center; font-family: monospace; allign: center"
+>
+  Made with
+  <g-emoji
+    class="g-emoji"
+    alias="heart"
+    fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png"
+  >
+    <img
+      class="emoji"
+      alt="heart"
+      height="20"
+      width="20"
+      src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png"
+  /></g-emoji>
+  <a href="https://www.bymyself.life/">bymyself</a>
+</div>
+
+<div
+  align="center"
+  style="font-size: 11px; margin: 0; opacity: 0.6"
+>
+  <a href="#table-of-contents">Top (目次)</a>
+</div>
+
+```
+
+**Rendered Result**: 
 
 
-[Docs](https://github.github.com/gfm/)
-
-[CSS](https://gist.github.com/jojoldu/9cb1b6a5110619e221dfd4603f30ddd4)
-
-
+  <div align="center" style="text-align: center; font-family: monospace; allign: center">
+    Made with <g-emoji class="g-emoji" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">
+  <img class="emoji" alt="heart" height="20" width="20" src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png"></g-emoji> <a href="https://www.bymyself.life">bymyself</a>
+  </div>
+  
+<div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div> 
 
 
 
 ---
+
+<a name="headers"/>
+
 
 # Headers
 
@@ -565,10 +608,6 @@ A bigger list of tools (that probably negates the need for this page) can be fou
 
 License: [CC-BY](https://creativecommons.org/licenses/by/3.0/)
 
--
--
--
--
 
 <a name="tipsandtricks"/>
 <div align="right" font-family="monospace">
@@ -678,7 +717,7 @@ Anyway, maybe this will help you and maybe it won't. It's probably more hassle t
 
 <a name="svg" href="#"></a>
 <a name="tex" href="#"></a>
-Using other TeX math formulae renderers
+Using other TeX math formula renderers
 ======================
 
 The default Google Charts service that Markdown Here uses for TeX math rendering doesn't support all math symbols (like [`\cong`](https://github.com/adam-p/markdown-here/issues/199)), and doesn't provide very crisp images. It was chosen because it was thought (by me) to be the least bad option, privacy-wise (because you're probably already using Google for your email). However, there are other possibilities, if you're willing to accept the implications. 
