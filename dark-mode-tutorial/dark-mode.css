@@ -1,4 +1,4 @@
 .palette {
-    background: url("dark-mode-palette.png");
+    background: url("dark-mode-palette.png") no-repeat;
     background-size: contain;
 }
