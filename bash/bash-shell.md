@@ -552,6 +552,60 @@ help | grep $KEYWORD
 compgen [-A action] [-W wordlist] [-F function] [-C command] [-P prefix] [-S suffix] [word]
 ```
 
+###### Difference between apt and apt-get
+
+Just a quick word for Linux Mint users. A few years ago, Linux Mint implemented a python wrapper called apt that actually uses apt-get but provides more friendly options. This apt which we are discussing here is not the same as the one in Linux Mint.
+
+Before we see the difference between apt and apt-get, let’s go into the backdrop of these commands and what exactly they try to achieve.
+
+*Why apt was introduced in the first place?*
+
+Debian, mother Linux of distributions like Ubuntu, Linux Mint, elementary OS etc, has a robust packaging system and every component and application is built into a package that is installed on your system. Debian uses a set of tools called Advanced Packaging Tool (APT) to manage this packaging system. Don’t confuse it with the command apt, it’s not the same.
+
+There are various tools that interact with APT and allow you to install, remove and manage packages in Debian based Linux distributions. apt-get is one such command-line tool which is widely popular. Another popular tool is Aptitude with both GUI and command-line options.
+
+If you have read my guide on apt-get commands, you might have come across a number of similar commands such as apt-cache. And this is where the problem arises.
+
+You see, these commands are way too low level and they have so many functionalities which are perhaps never used by an average Linux user. On the other hand, the most commonly used package management commands are scattered across apt-get and apt-cache.
+
+The apt commands have been introduced to solve this problem. apt consists some of the most widely used features from apt-get and apt-cache leaving aside obscure and seldom used features. It can also manage apt.conf file.
+
+With apt, you don’t have to fiddle your way from apt-get commands to apt-cache. apt is more structured and provides you with necessary options needed to manage packages.
+
+Bottom line: apt=most common used command options from apt-get and apt-cache.
+
+*Difference between apt and apt-get*
+
+So with apt, you get all the necessary tools in one place. You won’t be lost under tons of command options. The main aim of apt is to provide an efficient way of handling package in a way “pleasant for end users”.
+
+When Debian says “pleasant for end users”, it actually means that. It has fewer but sufficient command options but in a more organized way. On top of that, it enables a few options by default that is actually helpful for the end users.
+
+For example, you get to see the progress bar while installing or removing a program in apt.
+
+*Difference between apt and apt-get commands*
+
+While apt does have some similar command options as apt-get, it’s not backward compatible with apt-get. That means it won’t always work if you just replace the apt-get part of an apt-get command with apt.
+
+Let’s see which apt command replaces which apt-get and apt-cache command options.
+
+One point to note here is that apt is under continuous development. So you may see a few new options added to the command in the future versions.
+
+If you are interested in learning more, I recommend reading my guide that shows how to use apt commands with examples.
+
+*Is apt-get deprecated?*
+
+I didn’t find any information that says that apt-get will be discontinued. And it actually shouldn’t be. It still has a lot more functionalities to offer than apt.
+
+For low-level operations, in scripting etc, apt-get will still be used.
+
+*Should I use apt or apt-get?*
+
+You might be thinking if you should use apt or apt-get. And as a regular Linux user, my answer is to go with apt.
+
+apt is the command that is being recommended by the Linux distributions. It provides the necessary option to manage the packages. Most important of all, it is easier to use with its fewer but easy to remember options.
+
+I see no reason to stick with apt-get unless you are going to do specific operations that utilize more features of apt-get.
+
 ----
 
 <div align="right" font-family="monospace">

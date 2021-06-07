@@ -35,14 +35,21 @@ Website | Description
 
 ### Colors
 
-Website | Description
---------|------------
+| Website | Description |
+|:-------:|:------------|
 [Adobe Color](https://color.adobe.com/) | A color palette generator
 [Coolors](https://coolors.co/) | Generate or browse beautiful color combinations for your designs
 [Colormind](http://colormind.io/) | Colormind is a color scheme generator that uses deep learning. It can learn color styles from photographs, movies, and popular art.
 [Color Hunt](https://colorhunt.co/) | a free and open platform for color inspiration with thousands of trendy hand-picked color palettes
 [Google Material Color Tool](https://material.io/resources/color/) | Create and share color palettes for your UI, and measure the accessibility of any color combination.
 [ColorSpace](https://mycolor.space/) | Generate nice color palettes from one color
+[Solarized Pallette Cheat Sheet](https://www.zovirl.com/2011/07/22/solarized_cheat_sheet/)
+[Dark Mode UI](https://uxdesign.cc/dark-mode-ui-design-the-definitive-guide-part-1-color-53dcfaea5129) | The Definitive Guide 
+[Second Dark Mode Guide](https://www.mixingmetaphors.dev/dark-mode/) | Dark mode is an accessibility feature, along with an aesthetic choice. Both themes, dark and light, can cause eye strain under the wrong lighting conditions, so friendly sites provide an option.
+[getemoji](https://getemoji.com/) [emojipedia](https://emojipedia.org/) | emoji dictinoaries
+[Accessibility Checker](https://learnui.design/tools/accessible-color-generator.html) | 
+
+
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -61,6 +68,7 @@ Website | Description
 [Manypixels](https://www.manypixels.co/gallery) | 2,500+ royalty-free and editable illustrations to power up your design projects
 [Avataaars](https://avataaars.com) | Avatar Illustrations Sketch Library
 [Freellustrations](https://freellustrations.com/) | Collection of high-resolution vector or illustrations background images for modern websites and landing pages
+[Met Collection](https://www.metmuseum.org/art/collection) | Free Art Collection from the MET
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
