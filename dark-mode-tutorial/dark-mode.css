@@ -1,4 +1,4 @@
-.pallete {
-    background: url("https://trevor-reznik.github.io/guides/dark-mode-tutorial/dark-mode-palette.png") no-repeat center;
+.palette {
+    background: url("dark-mode-palette.png");
     background-size: contain;
 }
