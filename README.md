@@ -1,3 +1,4 @@
+
 <a name="table-of-contents"/>
 
 ![Banner](banners/guides.png)
@@ -83,7 +84,7 @@
   - [JSDoc](https://jsdoc.app/)
 - [**SWAGGER UI**](https://swagger.io/tools/swagger-ui/)
 - [**ASCII DECORATION**](ascii-decoration/headers-and-art.md)
-
+  - [Character Entity Reference](https://dev.w3.org/html5/html-author/charref)
 
 
 
@@ -109,19 +110,12 @@
 
 
 
-
-
-
-# Web
-
-
-### JavaScript
+## JavaScript
 - [**JS GUIDE**](web/js/js-guide.md)
 - [**JS REFERENCE SHEET**](web/js/javascript-w3-guide.docx)
 
----------------
 
-### Backend
+## Backend Web
 
 - [**NODE**](web/backend/node-guide.md)
 - [**FLASK**](python/flask-guide.md)
@@ -146,11 +140,9 @@
 - [**API**](https://api.rubyonrails.org/)
 
 
+<a name="frontend"/>
 
-----
-
-
-### Frontend
+## Frontend / GUI
 
 ##### Template Engines
 - [**MUSTACHE**](https://mustache.github.io/)
@@ -199,23 +191,25 @@
 - [**HTML TEMPLATES**](web/frontend/design-resources/html-templates.md)
 
 
-
-------------
+<a name="misc"/>
 
 
 ## Miscellaneous 
 
-- [Object-Oriented-Programming Concepts](misc/oop-concepts.md)
-- [Good Browser IDEs](https://replit.com/)
+- [**Object-Oriented-Programming Concepts**](misc/oop-concepts.md)
+- [**Browser/Cloud IDE**](https://codepen.io/)
   - [replit](https://replit.com/)
-  - [JSFiddle]()
-  - [CodeSandbox]()
-  - [CodeAnywhere]()
-  - [StackBlitz]()
-  - [AWS Cloud9]()
-  - [CodeEnvy]()
-  - [Gitpod]()
-  - [Theia]()
+  - [JSFiddle](https://jsfiddle.net/)
+  - [CodeSandbox](https://codesandbox.io/s/new)
+  - [CodeAnywhere](https://codeanywhere.com/)
+  - [StackBlitz](https://stackblitz.com/)
+  - [AWS Cloud9](https://aws.amazon.com/quickstart/architecture/aws-cloud9-ide/)
+  - [CodeEnvy](https://codenvy.com/)
+  - [Gitpod](https://www.gitpod.io/)
+  - [Theia](https://theia-ide.org/)
+- [**School**]()
+  - [CSC Exam Prep Process](school/exam-prep.md)
+  
 
 
 
@@ -223,10 +217,11 @@
 
 
 
-
+------------------------------------
 
 <div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div> 
-------------------------------------
+
+
 
 .
 
@@ -300,9 +295,9 @@ A disciple of another sect once came to Drescher as he was eating his morning me
 
 Drescher took the paper that was offered him and put it into the toaster, saying: “I wish the toaster to be happy, too.”
 
--------------------------------------
 
-[From catb.org](http://www.catb.org/jargon/html/koans.html)
+[. . . From catb.org](http://www.catb.org/jargon/html/koans.html)
 
   
-<div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div> 
+<div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top of Page (目次)</a></div> 
+-------------------------------------

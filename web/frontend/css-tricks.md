@@ -1,4 +1,3 @@
-
 <a name="table-of-contents"/>
 
 ![Pictures](banners/CSS-guide-banner.png)
@@ -45,7 +44,31 @@ https://www.w3schools.com/css/css_tooltip.asp
 - [Clean CSS | 20 CSS Cleanup Tools You Should Start Using](https://www.webdesigndev.com/clean-css-cleanup-tools/)
 
 
+###### Code Highlighting
 
+```html
+<link rel="stylesheet"
+      href="//unpkg.com/@highlightjs/cdn-assets@11.0.1/styles/default.min.css">
+<script src="//unpkg.com/@highlightjs/cdn-assets@11.0.1/highlight.min.js"></script>
+```
+
+Use these tags:
+
+```html
+<pre><code>
+```
+
+It tries to detect the language automatically. If automatic detection doesn’t work for you, or you simply prefer to be explicit, you can specify the language manually in the using the class attribute:
+
+```html
+<pre><code class="language-html">...</code></pre>
+```
+
+call highlight function
+
+```javascript
+$(document).ready( () => ) { hljs.highlightAll(); }
+```
 
 <a name="preprocessing"/>
 
@@ -119,7 +142,8 @@ https://medium.com/better-programming/modern-approach-of-javascript-bundling-wit
 - [15 Awesome Animated Background Effects](https://1stwebdesigner.com/15-css-background-effects/)
 
 
-
+###### Misc
+ - [Dark Mode - Material Design - Interactive Widget Board](https://codepen.io/8aev/pen/bGBWoqG)
 
 
 
