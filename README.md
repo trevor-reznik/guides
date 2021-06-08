@@ -10,6 +10,7 @@
   - [scripts](bash/bash-scripts.md)
   - [learning Journal](bash/bash-learning-journal.md)
 - [**Batch**](batch/batch-guide.md)
+  - [bash » batch equivalents](batch/batch-bash-equivalents.md)
   - [powershell](batch/powershell-guide.md)
   - [vbs](batch/vbs-guide.md)
 
