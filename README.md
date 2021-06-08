@@ -1,214 +1,216 @@
-
 <a name="table-of-contents"/>
 
-![Banner](banners/guides.png)
+![banner](banners/guides.png)
 
 -------------------
 
 
 ## Shell
-- [**BASH**](bash/bash-shell.md)
-  - [Scripts](bash/bash-scripts.md)
-  - [Learning Journal](bash/bash-learning-journal.md)
-- [**BATCH**](batch/batch-guide.md)
-  - [PowerShell](batch/powershell-guide.md)
-  - [VBS](batch/vbs-guide.md)
+- [**Bash**](bash/bash-shell.md)
+  - [scripts](bash/bash-scripts.md)
+  - [learning Journal](bash/bash-learning-journal.md)
+- [**Batch**](batch/batch-guide.md)
+  - [powershell](batch/powershell-guide.md)
+  - [vbs](batch/vbs-guide.md)
 
 
 
 ## Git
-- [**GIT GUIDE**](git/git.md)
-- [**GITHUB PAGES PROCESS**](git/github-pages.md)
-- [**NEW PROJECT CHECKLIST**](git/new-project.md)
+- [**Git Guide**](git/git.md)
+- [**Github Pages Process**](git/github-pages.md)
+- [**New Project Checklist**](git/new-project.md)
 
 
 
 
 ## Python
-- [**STYLE GUIDELINES**](python/python-style.md)
-- [**PYTHON BUILTIN FUNCTIONS**](python/python-builtin-functions.md)
-- [**MODULES REFERENCE**](python/python-modules-reference.md)
+- [**Style Guidelines**](python/python-style.md)
+- [**Python Builtin Functions**](python/python-builtin-functions.md)
+- [**Modules Reference**](python/python-modules-reference.md)
 
 
 
 
 ## C++
-- [**WORKFLOW CHECKLIST**](cpp/cpp-workflow-checklist.md)
-- [**LEARNING JOURNAL**](cpp/cpp-learning-journal.md)
+- [**Workflow Checklist**](cpp/cpp-workflow-checklist.md)
+- [**Learning Journal**](cpp/cpp-learning-journal.md)
 
 
 
 
 ## Java
-- [**NOTES**](java/java-guide.md)
-- [**WORKFLOW CHECKLIST**](java/java-workflow-checklist.md)
-- [**LEARNING JOURNAL**](java/java-learning-journal.md)
+- [**Notes**](java/java-guide.md)
+- [**Workflow Checklist**](java/java-workflow-checklist.md)
+- [**Learning Journal**](java/java-learning-journal.md)
 
 
 
 
 ## Kotlin
-- [**LEARNING JOURNAL**](kotlin/kotlin-learning-journal.md)
-- [**PRACTICE BROWSER-IDE**](https://play.kotlinlang.org/)
-- [**LANGUAGE FEATURES & CHARACTERISTICS**](https://en.wikipedia.org/wiki/Kotlin_(programming_language))
-- [**WORKFLOW CHECKLIST**](kotlin/kotlin-workflow-checklist.md)
+- [**Learning Journal**](kotlin/kotlin-learning-journal.md)
+- [**Practice Browser-Ide**](https://play.kotlinlang.org/)
+- [**Language Features & Characteristics**](https://en.wikipedia.org/wiki/Kotlin_(programming_language))
+- [**Workflow Checklist**](kotlin/kotlin-workflow-checklist.md)
 
 
 
 
 ## Ruby
-- [**DOCS**](https://www.ruby-lang.org/en/documentation/)
-- [**WORKFLOW CHECKLIST**](ruby/ruby-workflow-checklist.md)
-- [**LEARNING JOURNAL**](ruby/ruby-learning-journal.md)
+- [**Docs**](https://www.ruby-lang.org/en/documentation/)
+- [**Workflow Checklist**](ruby/ruby-workflow-checklist.md)
+- [**Learning Journal**](ruby/ruby-learning-journal.md)
 
 
 
 
 ## Rust
-- [**DOCS**](https://doc.rust-lang.org/std/)
+- [**Docs**](https://doc.rust-lang.org/std/)
 
 
 
 
 ## Comments & Documentation
-- [**DOCUMENTATION GENERATORS**](https://en.wikipedia.org/wiki/Documentation_generator#:~:text=A%20documentation%20generator%20is%20a,in%20some%20cases%2C%20binary%20files.)
-  - [GitBook](https://www.gitbook.com/)
-  - [REST](https://www.restapitutorial.com/)
-  - [Read the Docs](https://readthedocs.org/)
-  - [Apiary](https://apiary.io/)
-  - [Gatsby](https://www.gatsbyjs.com/starters/jannikbuschke/gatsby-antd-docs)
-  - [VuePress](https://vuepress.vuejs.org/)
-  - [Sphinx](https://www.sphinx-doc.org/en/master/index.html)
-  - [MkDocs](https://www.mkdocs.org/)
-  - [Docusaurus](https://docusaurus.io/)
-  - [JSDoc](https://jsdoc.app/)
-- [**SWAGGER UI**](https://swagger.io/tools/swagger-ui/)
-- [**ASCII DECORATION**](ascii-decoration/headers-and-art.md)
-  - [Character Entity Reference](https://dev.w3.org/html5/html-author/charref)
+- [**Documentation Generators**](https://en.wikipedia.org/wiki/Documentation_generator#:~:text=A%20documentation%20generator%20is%20a,in%20some%20cases%2C%20binary%20files.)
+  - [gitbook](https://www.gitbook.com/)
+  - [rest](https://www.restapitutorial.com/)
+  - [read the docs](https://readthedocs.org/)
+  - [apiary](https://apiary.io/)
+  - [gatsby](https://www.gatsbyjs.com/starters/jannikbuschke/gatsby-antd-docs)
+  - [vuepress](https://vuepress.vuejs.org/)
+  - [sphinx](https://www.sphinx-doc.org/en/master/index.html)
+  - [mkdocs](https://www.mkdocs.org/)
+  - [docusaurus](https://docusaurus.io/)
+  - [jsdoc](https://jsdoc.app/)
+- [**Swagger Ui**](https://swagger.io/tools/swagger-ui/)
+- [**Ascii Decoration**](ascii-decoration/headers-and-art.md)
+  - [character Entity Reference](https://dev.w3.org/html5/html-author/charref)
 
 
 
 ## Apps
-- [**VIM**](bash/vim-plugins.md)
-- [**OBS**](apps/obs-guide.md)
-- [**PROCESS**](https://www.process.st/)
-- [**SLACK**](apps/slack-guide.md)
-  - [Tutorial](https://slack.com/help/articles/360059928654-How-to-use-Slack--your-quick-start-guide)
-- [**TETRA**](https://tettra.com/)
+- [**Vim**](bash/vim-plugins.md)
+- [**Obs**](apps/obs-guide.md)
+- [**Process**](https://www.process.st/)
+- [**Slack**](apps/slack-guide.md)
+  - [tutorial](https://slack.com/help/articles/360059928654-How-to-use-Slack--your-quick-start-guide)
+- [**Tetra**](https://tettra.com/)
 
 
 
 
 ## Operating Systems
-- [**USEFUL HOTKEYS & ALIASES BY SYSTEM**](os/hotkeys-guide.md)
-- [**WINDOWS**](os/windows-usage.md)
-- [**KALI**](remember/kali-guide.md)
-- [**UBUNTU**](os/ubuntu-usage.md)
-  - [Linux of MS Surface](https://github.com/jakeday/linux-surface#instructions)
-- [**MAC OS**](os/mac/mac-os-guide.md)
-  - [Running Mac OS on VM](os/mac/mac-on-vm-guide.md)
+- [**Useful Hotkeys & Aliases By System**](os/hotkeys-guide.md)
+- [**Windows**](os/windows-usage.md)
+- [**Kali**](remember/kali-guide.md)
+- [**Ubuntu**](os/ubuntu-usage.md)
+  - [linux of Ms Surface](https://github.com/jakeday/linux-surface#instructions)
+- [**Mac Os**](os/mac/mac-os-guide.md)
+  - [running Mac Os on Vm](os/mac/mac-on-vm-guide.md)
 
 
 
-## JavaScript
-- [**JS GUIDE**](web/js/js-guide.md)
-- [**JS REFERENCE SHEET**](web/js/javascript-w3-guide.docx)
+## Javascript
+- [**Js Guide**](web/js/js-guide.md)
+- [**Js Reference Sheet**](web/js/javascript-w3-guide.docx)
 
 
-## Backend Web
+## Web - Backend
 
-- [**NODE**](web/backend/node-guide.md)
-- [**FLASK**](python/flask-guide.md)
-- [**DJANGO**](python/django-guide.md)
+- [**Node**](web/backend/node-guide.md)
+- [**Flask**](python/flask-guide.md)
+- [**Django**](python/django-guide.md)
 
 
-##### JS Frameworks
-- [**VUE**](https://vuejs.org/v2/guide/)
-- [**REACT**](https://reactjs.org/docs/getting-started.html)
-- [**ANGULAR**](https://docs.angularjs.org/api)
-- [**RUBY ON RAILS**](https://guides.rubyonrails.org/)
+##### Js Frameworks
+- [**Vue**](https://vuejs.org/v2/guide/)
+- [**React**](https://reactjs.org/docs/getting-started.html)
+- [**Angular**](https://docs.angularjs.org/api)
+- [**Ruby On Rails**](https://guides.rubyonrails.org/)
 
-##### TypeScript
-- [**DOCS**](https://www.typescriptlang.org/docs/)
-- [**HANDBOOK**](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
-- [**INTRO GUIDE**](https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html)
-- [**MIGRATING-FROM-JS GUIDE**](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
-- [**PRACTICE BROWSER-IDE**](https://www.typescriptlang.org/play?#code/PTAEHUFMBsGMHsC2lQBd5oBYoCoE8AHSAZVgCcBLA1UABWgEM8BzM+AVwDsATAGiwoBnUENANQAd0gAjQRVSQAUCEmYKsTKGYUAbpGF4OY0BoadYKdJMoL+gzAzIoz3UNEiPOofEVKVqAHSKymAAmkYI7NCuqGqcANag8ABmIjQUXrFOKBJMggBcISGgoAC0oACCoASMFmgY7p7ehCTkVOle4jUMdRLYTqCc8LEZzCZmoNJODPHFZZXVtZYYkAAeRJTInDQS8po+rf40gnjbDKv8LqD2jpbYoACqAEoAMsK7sUmxkGSCc+VVQQuaTwVb1UBrDYULY7PagbgUZLJH6QbYmJAECjuMigZEMVDsJzCFLNXxtajBBCcQQ0MwAUVWDEQNUgADVHBQGNJ3KAALygABEAAkYNAMOB4GRogLFFTBPB3AExcwABT0xnM9zsyhc9wASmCKhwDQ8ZC8iElzhB7Bo3zcZmY7AYzEg-Fg0HUiS58D0Ii8AoZTJZggFSRxAvADlQAHJhAA5SASAVBFQAeW+ZF2gldWkgx1QjgUrmkeFATgtOlGWH0KAQiBhwiudokkuiIgMHBx3RYbC43CCJSAA)
+##### Typescript
+- [**Docs**](https://www.typescriptlang.org/docs/)
+- [**Handbook**](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+- [**Intro Guide**](https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html)
+- [**Migrating-From-Js Guide**](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
+- [**Practice Browser-Ide**](https://www.typescriptlang.org/play?#code/Ptaehufmbsgmhsc2lqbd5obyocoe8Ahsazvgccbla1Uabwgem8Bzm+Avwdsatagiwobnuenanqad0gajqrvsqaucemykstkgyuabpgf4Oy0Boadykdjmol+gzazioz3Uneipoofevkvqahskymaamkyi7Ncuqgqcanag8Abmijquxrfokbjmggbcisggoac0oaccoasmfmgy7p7ehctkvole4jumdrlytqcc8Lezzczmonjodphfzzxvtzyykaaerjtindqs8po+rf40gnjbdkv8Lqd2jpbyoacqaeoamsk7sumxkgscc+Vvqquatwvb1Ubrdyuly7Pagbguzljh6Qbymjaecjumigzemvdsjzcflnxxtajbbccqq0Mwauvwdeqnugadvhbqgnj3Kaalygabeaakynamob4Groglfftbpb3Aexcwabt0xnm9zsyhc9wasmckhwdq8Zc8ielzhb7Bo3zczmy7Ayzeg-Fg0Huis58D0Ii8Aoztjzggfsrxavadlqahjhaa5Sasavbfqaew+Zf2gldwkgx1Qjgurmkefatgtolgwh0Kaqibhwiudokkuiigmhbx3Rybc43Ccjsaa)
 
 ##### Ruby on Rails
-- [**GUIDES**](https://guides.rubyonrails.org/)
-- [**API**](https://api.rubyonrails.org/)
+- [**Guides**](https://guides.rubyonrails.org/)
+- [**Api**](https://api.rubyonrails.org/)
 
 
-<a name="frontend"/>
 
-## Frontend / GUI
+----
+
+
+### Frontend
 
 ##### Template Engines
-- [**MUSTACHE**](https://mustache.github.io/)
-- [**JADE**](web/frontend/template-engines/jade-guide.md)
-  - [API](https://jade-lang.com/api)
-  - [Language Reference](https://jade-lang.com/reference)
-- [**JINJA**](web/frontend/template-engines/jinja-guide.md)
-  - [API](https://jinja.palletsprojects.com/en/3.0.x/api/)
-  - [Docs](https://svn.python.org/projects/external/Jinja-1.2/docs/html/index.html)
-  - [Template Designer](https://jinja.palletsprojects.com/en/3.0.x/templates/)
-- [**EJS**](https://ejs.co/)
-- [**UNDERSCORE**](https://underscorejs.org/)
-- [**HANDLEBARS**](https://handlebarsjs.com/)
+- [**Mustache**](https://mustache.github.io/)
+- [**Jade**](web/frontend/template-engines/jade-guide.md)
+  - [api](https://jade-lang.com/api)
+  - [language Reference](https://jade-lang.com/reference)
+- [**Jinja**](web/frontend/template-engines/jinja-guide.md)
+  - [api](https://jinja.palletsprojects.com/en/3.0.x/api/)
+  - [docs](https://svn.python.org/projects/external/Jinja-1.2/docs/html/index.html)
+  - [template Designer](https://jinja.palletsprojects.com/en/3.0.x/templates/)
+- [**Ejs**](https://ejs.co/)
+- [**Underscore**](https://underscorejs.org/)
+- [**Handlebars**](https://handlebarsjs.com/)
 
 
 ##### Layout Engines
-- [**WEBKIT**](https://webkit.org/web-inspector/)
-- [**GECKO**](https://wiki.mozilla.org/Gecko:Overview)
-  - [Source Repo](https://github.com/mozilla/gecko-dev)
+- [**Webkit**](https://webkit.org/web-inspector/)
+- [**Gecko**](https://wiki.mozilla.org/Gecko:Overview)
+  - [source Repo](https://github.com/mozilla/gecko-dev)
 
 
 ##### Static Site Generators
-- [**JEKYLL**](https://jekyllrb.com/docs/)
+- [**Jekyll**](https://jekyllrb.com/docs/)
   - [**Jekyll on Rails**](https://www.sitepoint.com/jekyll-rails/)
   - [**Jekyll with React**](https://medium.com/@allizadrozny/using-webpack-and-react-with-jekyll-cfe137f8a2cc)
 
 
-##### CSS Frameworks
-- [**BOOTSTRAP**](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
-  - [MDbootstrap](https://mdbootstrap.com/docs/standard/layout/grid/)
+##### Css Frameworks
+- [**Bootstrap**](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+  - [mdbootstrap](https://mdbootstrap.com/docs/standard/layout/grid/)
     - [*playground*](https://mdbootstrap.com/snippets/)
-- [**YAML**](https://github.com/yaml)
-- [**SASS**](https://sass-lang.com/guide)
+- [**Yaml**](https://github.com/yaml)
+- [**Sass**](https://sass-lang.com/guide)
 
 
 ##### Markup
-- [**MARKDOWN**](web/frontend/markdown.md)
-- [**CSS**](web/frontend/css-tricks.md)
-- [**LATEX**](web/frontend/latex-guide.md)
-- [**XML**](https://www.w3schools.com/xml/)
-- [**HAML**](web/frontend/haml-guide.md)
+- [**Markdown**](web/frontend/markdown.md)
+- [**Css**](web/frontend/css-tricks.md)
+- [**Latex**](web/frontend/latex-guide.md)
+- [**Xml**](https://www.w3schools.com/xml/)
+- [**Haml**](web/frontend/haml-guide.md)
 
 
 ##### Design & Media Assets
-- [**DESIGN RESOURCES COLLECTION**](web/frontend/design-resources/design-resources.md)
-- [**HTML TEMPLATES**](web/frontend/design-resources/html-templates.md)
+- [**Design Resources Collection**](web/frontend/design-resources/design-resources.md)
+- [**Html Templates**](web/frontend/design-resources/html-templates.md)
 
 
-<a name="misc"/>
+
+------------
 
 
 ## Miscellaneous 
 
-- [**Object-Oriented-Programming Concepts**](misc/oop-concepts.md)
-- [**Browser/Cloud IDE**](https://codepen.io/)
+- [object-Oriented-Programming Concepts](misc/oop-concepts.md)
+- [good Browser Ides](https://replit.com/)
   - [replit](https://replit.com/)
-  - [JSFiddle](https://jsfiddle.net/)
-  - [CodeSandbox](https://codesandbox.io/s/new)
-  - [CodeAnywhere](https://codeanywhere.com/)
-  - [StackBlitz](https://stackblitz.com/)
-  - [AWS Cloud9](https://aws.amazon.com/quickstart/architecture/aws-cloud9-ide/)
-  - [CodeEnvy](https://codenvy.com/)
-  - [Gitpod](https://www.gitpod.io/)
-  - [Theia](https://theia-ide.org/)
-- [**School**]()
-  - [CSC Exam Prep Process](school/exam-prep.md)
+  - [jsfiddle](https://jsfiddle.net/)
+  - [codesandbox](https://codesandbox.io/s/new)
+  - [codeanywhere](https://codeanywhere.com/)
+  - [stackblitz](https://stackblitz.com/)
+  - [aws Cloud9](https://aws.amazon.com/quickstart/architecture/aws-cloud9-ide/)
+  - [codeenvy](https://codenvy.com/)
+  - [gitpod](https://www.gitpod.io/)
+  - [theia](https://theia-ide.org/)
+- [school]()
+  - [csc Exam Prep Process](school/exam-prep.md)
   
 
 
@@ -264,11 +266,11 @@ Moon patiently told the student the following story:
 
 “One day a student came to Moon and said: ‘I understand how to make a better garbage collector...
 
-[Ed. note: Pure reference-count garbage collectors have problems with circular structures that point to themselves.]
+[ed. note: Pure reference-count garbage collectors have problems with circular structures that point to themselves.]
 
 -------------------------------------
 
-In the days when Sussman was a novice, Minsky once came to him as he sat hacking at the PDP-6.
+In the days when Sussman was a novice, Minsky once came to him as he sat hacking at the Pdp-6.
 
 “What are you doing?”, asked Minsky.
 
@@ -295,9 +297,9 @@ A disciple of another sect once came to Drescher as he was eating his morning me
 
 Drescher took the paper that was offered him and put it into the toaster, saying: “I wish the toaster to be happy, too.”
 
+-------------------------------------
 
-[. . . From catb.org](http://www.catb.org/jargon/html/koans.html)
+[from catb.org](http://www.catb.org/jargon/html/koans.html)
 
   
-<div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top of Page (目次)</a></div> 
--------------------------------------
+<div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div> 
