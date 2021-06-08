@@ -88,8 +88,11 @@
 
 
 ## Apps
-- [**Vim**](bash/vim-plugins.md)
-- [**Obs**](apps/obs-guide.md)
+- [**Vim**](bash/vim-plugins.mdmd)
+  - [cheatsheet](bash/vim-cheatsheet.md)
+  - [plugins guides](bash/vim-plugins.md)
+- [**Nano Cheatsheet**](bash/bash-shell.md#nano)
+- [**OBS Startup Process**](apps/obs-guide.md)
 - [**Process**](https://www.process.st/)
 - [**Slack**](apps/slack-guide.md)
   - [tutorial](https://slack.com/help/articles/360059928654-How-to-use-Slack--your-quick-start-guide)
@@ -103,15 +106,15 @@
 - [**Windows**](os/windows-usage.md)
 - [**Kali**](remember/kali-guide.md)
 - [**Ubuntu**](os/ubuntu-usage.md)
-  - [linux of Ms Surface](https://github.com/jakeday/linux-surface#instructions)
-- [**Mac Os**](os/mac/mac-os-guide.md)
-  - [running Mac Os on Vm](os/mac/mac-on-vm-guide.md)
+  - [linux on surface](https://github.com/jakeday/linux-surface#instructions)
+- [**Mac OS**](os/mac/mac-os-guide.md)
+  - [mac on vm](os/mac/mac-on-vm-guide.md)
 
 
 
 ## Javascript
-- [**Js Guide**](web/js/js-guide.md)
-- [**Js Reference Sheet**](web/js/javascript-w3-guide.docx)
+- [**Old Notes**](web/js/js-guide.md)
+- [**Reference Sheet**](web/js/javascript-w3-guide.docx)
 
 
 ## Web - Backend
@@ -121,7 +124,7 @@
 - [**Django**](python/django-guide.md)
 
 
-##### Js Frameworks
+##### JS Frameworks
 - [**Vue**](https://vuejs.org/v2/guide/)
 - [**React**](https://reactjs.org/docs/getting-started.html)
 - [**Angular**](https://docs.angularjs.org/api)
@@ -136,7 +139,7 @@
 
 ##### Ruby on Rails
 - [**Guides**](https://guides.rubyonrails.org/)
-- [**Api**](https://api.rubyonrails.org/)
+- [**API**](https://api.rubyonrails.org/)
 
 
 
@@ -153,7 +156,7 @@
 - [**Jinja**](web/frontend/template-engines/jinja-guide.md)
   - [api](https://jinja.palletsprojects.com/en/3.0.x/api/)
   - [docs](https://svn.python.org/projects/external/Jinja-1.2/docs/html/index.html)
-  - [template Designer](https://jinja.palletsprojects.com/en/3.0.x/templates/)
+  - [template designer](https://jinja.palletsprojects.com/en/3.0.x/templates/)
 - [**Ejs**](https://ejs.co/)
 - [**Underscore**](https://underscorejs.org/)
 - [**Handlebars**](https://handlebarsjs.com/)
@@ -162,13 +165,13 @@
 ##### Layout Engines
 - [**Webkit**](https://webkit.org/web-inspector/)
 - [**Gecko**](https://wiki.mozilla.org/Gecko:Overview)
-  - [source Repo](https://github.com/mozilla/gecko-dev)
+  - [source repo](https://github.com/mozilla/gecko-dev)
 
 
 ##### Static Site Generators
 - [**Jekyll**](https://jekyllrb.com/docs/)
-  - [**Jekyll on Rails**](https://www.sitepoint.com/jekyll-rails/)
-  - [**Jekyll with React**](https://medium.com/@allizadrozny/using-webpack-and-react-with-jekyll-cfe137f8a2cc)
+  - [**jekyll on rails**](https://www.sitepoint.com/jekyll-rails/)
+  - [**jekyll with react**](https://medium.com/@allizadrozny/using-webpack-and-react-with-jekyll-cfe137f8a2cc)
 
 
 ##### Css Frameworks
@@ -198,8 +201,8 @@
 
 ## Miscellaneous 
 
-- [object-Oriented-Programming Concepts](misc/oop-concepts.md)
-- [good Browser Ides](https://replit.com/)
+- [Object-Oriented-Programming Concepts](misc/oop-concepts.md)
+- [Browser IDEs](https://replit.com/)
   - [replit](https://replit.com/)
   - [jsfiddle](https://jsfiddle.net/)
   - [codesandbox](https://codesandbox.io/s/new)
@@ -209,9 +212,9 @@
   - [codeenvy](https://codenvy.com/)
   - [gitpod](https://www.gitpod.io/)
   - [theia](https://theia-ide.org/)
-- [school]()
-  - [csc Exam Prep Process](school/exam-prep.md)
-  
+- [School](school/)
+  - [csc exam prep process](school/exam-prep.md)
+  - [session scripts](school/session-math.py)
 
 
 

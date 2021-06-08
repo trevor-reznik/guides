@@ -11,7 +11,7 @@
 
 ## [Very Useful](#Highly) 
 
-- [**History Expansion**](#history)
+- [**History Expansion**](#history-expansion)
 - [**Manuals / Info**](#manuals)
 - [**Globbing / Searching**](#globbing)
 - [**Hotkeys**](#navigation)
@@ -137,7 +137,7 @@ setvtrgb
 <div font-size=11 font-family=monospace>
 
 
-- [History Expansion](#history)
+- [History Expansion](#history-expansion)
 - [Manuals / Info](#manuals)
 - [Globbing / Searching](#globbing)
   - [match](#matching)
@@ -151,7 +151,7 @@ setvtrgb
 - [File Transfer](#transfer)
 - [Redirecting](#redirect)
 
-<a name="history"/>
+<a name="history-expansion"/>
 
 
 ### History Expansion 

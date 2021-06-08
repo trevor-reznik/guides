@@ -5,13 +5,13 @@
 
 ##### Table of Contents
 - [**Commands**](#commands)
-  - [***List of Commands***](#command-list)
-  - [***Sleep***](#sleep-command)
-  - [***Open Files/Apps***](#open)
+  - [List of Commands](#command-list)
+  - [Sleep](#sleep-command)
+  - [Open Files/Apps](#open)
 - [**Interactive Usage**](#interactive-usage)
-  - [**Navigating Directories**](#navigating)
+  - [Navigating Directories](#navigating)
 - [**Scripts**](#scripts)
-  - [**Send Keys**](#send-keys)
+  - [Send Keys](#send-keys)
 - [**Variables**](#variables)
 
 -----------
@@ -83,7 +83,7 @@
 
 
 <div align="right" font-family="monospace">
-    <b><a href="#Highly">↥ Back To Top</a></b>
+    <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
 
@@ -126,7 +126,7 @@ START application_here "c:\path to file to open\foo.dat"
 
 
 <div align="right" font-family="monospace">
-    <b><a href="#Highly">↥ Back To Top</a></b>
+    <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
 
@@ -185,7 +185,7 @@ pushd C:\Users\12064
 
 
 <div align="right" font-family="monospace">
-    <b><a href="#Highly">↥ Back To Top</a></b>
+    <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
 
@@ -219,7 +219,7 @@ Reference [1](https://stackoverflow.com/questions/22836457/how-to-make-a-batch-f
 
 
 <div align="right" font-family="monospace">
-    <b><a href="#Highly">↥ Back To Top</a></b>
+    <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
 
