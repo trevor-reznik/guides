@@ -1,0 +1,203 @@
+html {
+  box-sizing: border-box;
+}
+a,
+aside,
+b,
+body,
+caption,
+center,
+code,
+dd,
+div,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+iframe,
+img,
+label,
+li,
+p,
+pre,
+s,
+span,
+table,
+tbody,
+td,
+th,
+thead,
+time,
+tr,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+li,
+ul {
+  list-style: none;
+}
+
+
+
+
+
+.tabs__container__main {
+  -webkit-box-flex: 1.58;
+  -ms-flex: 1.58;
+  flex: 1.58;
+  padding: 0 24px;
+}
+
+
+.material-palette {
+  color: #616161;
+  font-family: Roboto;
+  font-size: 1.5em;
+  overflow: hidden;
+  padding: 0;
+}
+.material-palette .labels-and-palettes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.material-palette .color-labels {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding-top: 1px;
+  border-right: 1px solid #e0e0e0;
+}
+.material-palette .palettes .color:focus,
+.material-palette .palettes .color:hover {
+  border-radius: 20%;
+}
+.material-palette .shades-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  border-bottom: 1px solid #eee;
+  height: 48px;
+}
+.material-palette .shades-container li {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 16px;
+  margin: 0 0.5px;
+  padding: 10px;
+}
+.material-palette .shades-container li .align-bottom {
+  padding-top: 17px;
+}
+
+.material-palette .shades-container li:first-child {
+  margin-left: 1px;
+}
+.material-palette .shades-container li:last-child {
+  margin-right: 1px;
+}
+.material-palette .shade {
+  padding-top: calc(7.14% - 2px);
+  width: 33px;
+}
+.material-palette .palette-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.material-palette .palette-container .color {
+  -webkit-transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #fff;
+  cursor: pointer;
+  margin: 0.5px;
+  outline: 0;
+  padding-top: 33px;
+  position: relative;
+  width: 33px;
+}
+.material-palette .palette-container .color::first-child {
+  margin-left: 1px;
+}
+.material-palette .palette-container .color::last-child {
+  margin-right: 0;
+}
+.material-palette .palette-container .color:after {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 0;
+  font-size: 14px;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -7px;
+  position: absolute;
+  top: 50%;
+  width: 12px;
+}
+.material-palette .palette-container .color.color--state-selected {
+  border-radius: 50% !important;
+}
+.color-label {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 0;
+  padding-left: 8px;
+  position: relative;
+  height: 34px;
+  color: #dbd4d4
+
+}
+.color-label-divider {
+  background-color: #404040;
+  bottom: 0;
+  left: 8px;
+  height: 1px;
+  position: absolute;
+  width: 88%;
+}
+.color-label:last-child .color-label-divider {
+  background-color: transparent;
+}
