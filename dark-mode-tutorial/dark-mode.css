@@ -2,3 +2,8 @@
     background: url("dark-mode-palette.png") no-repeat;
     background-size: contain;
 }
+
+.type-case-img {
+    background: url("type-case.png") no-repeat;
+    background-size: contain;
+}
