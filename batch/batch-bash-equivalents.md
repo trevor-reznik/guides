@@ -3,6 +3,23 @@
 
 # Batch » Bash Equivalent Commands
 
+<a name="examples"/>
+
+###### Extended Usage
+
+
+| bash | batch |
+|------|-------|
+| `ls \| grep $KEYWORD` | `dir \| find "$KEYWORD"` |
+| `cp *.$EXT $DIR/` | `copy *.$EXT $DIR\` |
+
+
+
+
+<a name="reference-sheet"/>
+
+
+###### Commands Only
 
 <table>
 <tbody><tr id="win2unix">
