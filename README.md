@@ -2,8 +2,9 @@
 
 ![banner](banners/guides.png)
 
--------------------
+*notes and resources from my time as an undergrad*
 
+[Public APIS](https://github.com/public-apis/public-apis)
 
 ## Shell
 - [**Bash**](bash/bash-shell.md)
