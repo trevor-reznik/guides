@@ -3,6 +3,29 @@
 
 <a name="table-of-contents"/>
 
+###### Recent / Trying to implement
+
+
+###### Most Important
+
+
+*Jump*
+
+p `{}` 
+
+word `w` end word `e` 
+
+back to start of w `b` forward to start of w `W`
+
+back to end of w `E` forward to end of w `B`
+
+start of line `0`
+
+next line then insert mode `o`
+
+search replace `%s/$/$`
+
+delete line `d up`
 
 ###### table of contents
 
@@ -111,16 +134,18 @@
 | `o` | move to other end of marked area | `Ctrl`  + `v` | start visual block mode |
 | `O` | move to other corner of block | `aw` | mark a word |
 | `ab` | a block with () | `aB` | a block with {} |
-| `at` | a block with &lt;&gt; tags | `ib` | inner block with () |
-| `iB` | inner block with {} | `it` | inner block with &lt;&gt; tags |
+| `at` | a block with <> tags | `ib` | inner block with () |
+| `iB` | inner block with {} | `it` | inner block with <> tags |
 | `Esc` | exit visual mode | `U` | change marked text to uppercase |
-| `&gt;` | shift text right | `&lt;` | shift text left |
+| `>` | shift text right | `<` | shift text left |
 | `y` | yank (copy) marked text | `d` | delete marked text |
 | `~` | switch case | `u` | change marked text to lowercase |
 
 
 
 ---
+
+In normal mode you can search forwards by pressing / (or <kDivide> ) then typing your search pattern. Press Esc to cancel or press Enter to perform the search. Then press n to search forwards for the next occurrence, or N to search backwards. Type ggn to jump to the first match, or GN to jump to the last.
 
 <a name="vimreplace"/>
 
@@ -140,9 +165,9 @@
 
 | **___INDENT___**  | **_____________________________________** |  **______________**  | **______________________________** |
 |:----:|:-------|:----:|:-------|
-| `&gt;&gt;` | indent (move right) line one shiftwidth | `&lt;&lt;` | de-indent (move left) line one shiftwidth |
-| `&gt;%` | indent a block with () or {} (cursor on brace) | `&gt;ib` | indent inner block with () |
-| `&gt;at` | indent a block with &lt;&gt; tags | `3==` | re-indent 3 lines |
+| `>>` | indent (move right) line one shiftwidth | `<<` | de-indent (move left) line one shiftwidth |
+| `>%` | indent a block with () or {} (cursor on brace) | `>ib` | indent inner block with () |
+| `>at` | indent a block with <> tags | `3==` | re-indent 3 lines |
 | `=%` | re-indent a block with () or {} (cursor on brace) | `=iB` | re-indent inner block with {} |
 | `gg=G` | re-indent entire buffer | `]p` | paste and adjust indent to current line |
 

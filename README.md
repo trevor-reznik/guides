@@ -64,7 +64,6 @@
 
 
 
-
 ## Rust
 - [**Docs**](https://doc.rust-lang.org/std/)
 
@@ -150,7 +149,7 @@
 
 ### Frontend
 
-##### Template Engines
+##### Template Engine
 - [**Mustache**](https://mustache.github.io/)
 - [**Jade**](web/frontend/template-engines/jade-guide.md)
   - [api](https://jade-lang.com/api)
@@ -185,11 +184,14 @@
 
 
 ##### Markup
-- [**Markdown**](web/frontend/markdown.md)
-- [**Css**](web/frontend/css-tricks.md)
-- [**Latex**](web/frontend/latex-guide.md)
+- [**HTML**](web/frontend/html/html-tricks.md)
+  - [emmet cheatsheet](web/frontend/html/emmet-guide.md)
+  - [emmet docs](https://docs.emmet.io/)
+- [**Markdown**](web/frontend/markdown/markdown.md)
+- [**Css**](web/frontend/css/css-tricks.md)
+- [**Latex**](web/frontend/latex/latex-guide.md)
 - [**Xml**](https://www.w3schools.com/xml/)
-- [**Haml**](web/frontend/haml-guide.md)
+- [**Haml**](web/frontend/haml/haml-guide.md)
 
 
 ##### Design & Media Assets
