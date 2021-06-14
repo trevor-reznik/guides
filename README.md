@@ -4,6 +4,9 @@
 
 *notes and resources from my time as an undergrad*
 
+*I access the files using the open_guide.py script from shell. open files with glow markdown reader or in browser. script options determine which group of guides/cheatsheets/docs to open.*
+
+
 [Public APIS](https://github.com/public-apis/public-apis)
 
 ## Shell
@@ -89,9 +92,9 @@
 
 
 ## Apps
-- [**Vim**](bash/vim-plugins.mdmd)
-  - [cheatsheet](bash/vim-cheatsheet.md)
-  - [plugins guides](bash/vim-plugins.md)
+- [**Vim**](vim/vim-cheatsheet.md)
+  - [cheatsheet](vim/vim-cheatsheet.md)
+  - [plugins guides](vim/vim-plugins.md)
 - [**Nano Cheatsheet**](bash/bash-shell.md#nano)
 - [**OBS Startup Process**](apps/obs-guide.md)
 - [**Process**](https://www.process.st/)
@@ -103,7 +106,6 @@
 
 
 ## Operating Systems
-- [**Useful Hotkeys & Aliases By System**](os/hotkeys-guide.md)
 - [**Windows**](os/windows-usage.md)
 - [**Kali**](remember/kali-guide.md)
 - [**Ubuntu**](os/ubuntu-usage.md)
@@ -120,7 +122,7 @@
 
 ## Web - Backend
 
-- [**Node**](node-guide.md)
+- [**Node**](js-frameworks/node-guide.md)
 - [**Flask**](python/flask-guide.md)
 - [**Django**](python/django-guide.md)
 
@@ -195,8 +197,8 @@
 
 
 ##### Design & Media Assets
-- [**Design Resources Collection**](design-resources/design-resources.md)
-- [**Html Templates**](design-resources/html-templates.md)
+- [**Design Resources Collection**](design-assets/design-resources.md)
+- [**Html Templates**](design-assets/html-templates.md)
 
 
 
