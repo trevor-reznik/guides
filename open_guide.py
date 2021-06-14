@@ -1,8 +1,10 @@
 """
-Script to open guide/cheatsheet from this repo.
+Script to open a specific guide/cheatsheet from this repo in the browser.
+
 Usage:
-    python3 open_guide.py name [keyword]
-Example:
+    python3 open_guide.py $GUIDE_CATEGORY [keyword]
+
+Examples:
     python3 open_guide.py css
     >> opens all guides in css folder
     python3 open_guide.py python style
@@ -119,20 +121,31 @@ def abs_to_rel(folder_tree):
 
 
 def main():
+    script_location = __file__.replace("\\","/").split("/")[:-1]
+    os.chdir("/".join(script_location))
+    
     category_option = sys.argv[1]
-
-    recursive_dirs = (get_directories(os.getcwd()))
+    recursive_dirs = (
+        get_directories(
+            os.getcwd()
+        )
+    )
     dirs_dict = treeify_directory(recursive_dirs)
-    target = abs_to_rel(dirs_dict[category_option])
+    target = abs_to_rel(
+        dirs_dict[category_option]
+    )
 
     for guide in dirs_dict[category_option]["content dict"].keys():
         if len(sys.argv) > 2:
             if sys.argv[2].lower() not in guide.lower():
                 continue 
-        print(f"opening {guide} guide. . . ")
-        guide_path = target + guide
-        url = ROOT.format(guide_path)
-        webbrowser.open(url)
+
+        print(f"\n[+] opening {guide}. . .\n")
+        webbrowser.open(
+            ROOT.format(
+                target + guide
+            )
+        )
 
 
 if __name__ == "__main__":

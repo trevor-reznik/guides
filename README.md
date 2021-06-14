@@ -114,13 +114,13 @@
 
 
 ## Javascript
-- [**Old Notes**](web/js/js-guide.md)
-- [**Reference Sheet**](web/js/javascript-w3-guide.docx)
+- [**Old Notes**](js/js-guide.md)
+- [**Reference Sheet**](js/javascript-w3-guide.docx)
 
 
 ## Web - Backend
 
-- [**Node**](web/backend/node-guide.md)
+- [**Node**](node-guide.md)
 - [**Flask**](python/flask-guide.md)
 - [**Django**](python/django-guide.md)
 
@@ -151,10 +151,10 @@
 
 ##### Template Engine
 - [**Mustache**](https://mustache.github.io/)
-- [**Jade**](web/frontend/template-engines/jade-guide.md)
+- [**Jade**](template-engines/jade-guide.md)
   - [api](https://jade-lang.com/api)
   - [language Reference](https://jade-lang.com/reference)
-- [**Jinja**](web/frontend/template-engines/jinja-guide.md)
+- [**Jinja**](template-engines/jinja-guide.md)
   - [api](https://jinja.palletsprojects.com/en/3.0.x/api/)
   - [docs](https://svn.python.org/projects/external/Jinja-1.2/docs/html/index.html)
   - [template designer](https://jinja.palletsprojects.com/en/3.0.x/templates/)
@@ -184,19 +184,19 @@
 
 
 ##### Markup
-- [**HTML**](web/frontend/html/html-tricks.md)
-  - [emmet cheatsheet](web/frontend/html/emmet-guide.md)
+- [**HTML**](html/html-tricks.md)
+  - [emmet cheatsheet](html/emmet-guide.md)
   - [emmet docs](https://docs.emmet.io/)
-- [**Markdown**](web/frontend/markdown/markdown.md)
-- [**Css**](web/frontend/css/css-tricks.md)
-- [**Latex**](web/frontend/latex/latex-guide.md)
+- [**Markdown**](markdown/markdown.md)
+- [**Css**](css/css-tricks.md)
+- [**Latex**](latex/latex-guide.md)
 - [**Xml**](https://www.w3schools.com/xml/)
-- [**Haml**](web/frontend/haml/haml-guide.md)
+- [**Haml**](haml/haml-guide.md)
 
 
 ##### Design & Media Assets
-- [**Design Resources Collection**](web/frontend/design-resources/design-resources.md)
-- [**Html Templates**](web/frontend/design-resources/html-templates.md)
+- [**Design Resources Collection**](design-resources/design-resources.md)
+- [**Html Templates**](design-resources/html-templates.md)
 
 
 

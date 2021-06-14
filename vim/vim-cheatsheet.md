@@ -27,6 +27,8 @@ search replace `%s/$/$`
 
 delete line `d up`
 
+first blank line `)`
+
 ###### table of contents
 
 - [cursor](#vimcursor)
