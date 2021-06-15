@@ -52,6 +52,9 @@ Raises:
 """
 ```
 
+###### Special Cases
+
+https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
 
 <a name="rest-docstrings"/>
 

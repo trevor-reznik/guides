@@ -3,11 +3,18 @@
 
 <a name="table-of-contents"/>
 
+
+<a name="recent"/>
+
 ###### Recent / Trying to implement
 
+- `o`
+- `G` -> `o`
+
+
+<a name="most-important"/>
 
 ###### Most Important
-
 
 *Jump*
 
@@ -29,8 +36,10 @@ delete line `d up`
 
 first blank line `)`
 
-###### table of contents
+###### Table of Contents
 
+- [Recently Learned](#recent)
+- [Most Important](#most-important)
 - [cursor](#vimcursor)
 - [cut & paste](#vimcutpaste)
 - [insert](#viminsert)

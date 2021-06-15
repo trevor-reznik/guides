@@ -1,15 +1,61 @@
-<a name="table-of-contents"/>
 
 ![banner](banners/guides.png)
+
+### [Go to Table of Contents](#table-of-contents)
 
 *notes and resources from my time as an undergrad*
 
 *I access the files using the open_guide.py script from shell. open files with glow markdown reader or in browser. script options determine which group of guides/cheatsheets/docs to open.*
 
+# In Progress Reinforcement
+
+
+
+### [Emmet](html/html-tricks.md#emmet)
+### [Vim](vim/vim-cheatsheet.md#recent)
+### [System Hotkeys](os/ubuntu-usage.md#recent)
+### [Workspaces](os/ubuntu-usage.md#workspaces)
+### [Alt + Arrow Keys](os/ubuntu-usage.md#workspaces)
+### [VScode Hotkeys](apps/vscode.md#custom-hotkeys)
+
+### Finish Later:
+- material elevation algorithm from live examples
+- VHS clock -> fix animation on profile page css -> new pen on codepen	
+- scss
+- css yt vid -> notes
+- typescript
+- [react](https://www.youtube.com/watch?v=I6ypD7qv3Z8)
+- [bootstrap to css](https://www.youtube.com/watch?v=iJKCj8uAHz8)
+- [Speedrunning AP CS Test](https://www.youtube.com/watch?v=8-ZdZ7vswn0)
+- iframe from github-pages / github guides / github -> codepen
+- finish kotlin project
+- on clicking href to other page on site : instead of hyperlink href, a function that slides evyerhting on the page to the bottom of the screen THEN opens the new window location
+- [python yield](https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do)
+- copy / paste interactive pop modal -> codepen / website
+- Fast sp demo in  multiple parts
+  - top: screenshot - many times in duration - best below as png
+- codepen other webpages
+- (archive)[https://old.reddit.com/r/AskReddit/comments/no8dzw/you_find_out_that_the_person_you_met_has_zero/]
+- [summary of webdev industry](https://www.youtube.com/watch?v=VfGW0Qiy2I0)
+  - notes reference
+- projects section of list-temp -> p folder
+- eastside consolidation
+- eastside -> external hd -> linux -> windows storage consolidation
+- os google spreadsheet sections append: word, vscode, xml themes, kraken, cryptowatch
+- surface dial
+- linux image backup
+- OS for old generation linux
+- macOS vm
+- macbook air os
+
+--------------------------------------------
+
+<a name="table-of-contents"/>
+
 
 [Public APIS](https://github.com/public-apis/public-apis)
 
-## Shell
+## *Shell*
 - [**Bash**](bash/bash-shell.md)
   - [scripts](bash/bash-scripts.md)
   - [learning Journal](bash/bash-learning-journal.md)
@@ -20,7 +66,7 @@
 
 
 
-## Git
+## *Git*
 - [**Git Guide**](git/git.md)
 - [**Github Pages Process**](git/github-pages.md)
 - [**New Project Checklist**](git/new-project.md)
@@ -28,7 +74,7 @@
 
 
 
-## Python
+## *Python*
 - [**Style Guidelines**](python/python-style.md)
 - [**Python Builtin Functions**](python/python-builtin-functions.md)
 - [**Modules Reference**](python/python-modules-reference.md)
@@ -36,14 +82,14 @@
 
 
 
-## C++
+## *C++*
 - [**Workflow Checklist**](cpp/cpp-workflow-checklist.md)
 - [**Learning Journal**](cpp/cpp-learning-journal.md)
 
 
 
 
-## Java
+## *Java*
 - [**Notes**](java/java-guide.md)
 - [**Workflow Checklist**](java/java-workflow-checklist.md)
 - [**Learning Journal**](java/java-learning-journal.md)
@@ -51,7 +97,7 @@
 
 
 
-## Kotlin
+## *Kotlin*
 - [**Learning Journal**](kotlin/kotlin-learning-journal.md)
 - [**Practice Browser-Ide**](https://play.kotlinlang.org/)
 - [**Language Features & Characteristics**](https://en.wikipedia.org/wiki/Kotlin_(programming_language))
@@ -60,20 +106,20 @@
 
 
 
-## Ruby
+## *Ruby*
 - [**Docs**](https://www.ruby-lang.org/en/documentation/)
 - [**Workflow Checklist**](ruby/ruby-workflow-checklist.md)
 - [**Learning Journal**](ruby/ruby-learning-journal.md)
 
 
 
-## Rust
+## *Rust*
 - [**Docs**](https://doc.rust-lang.org/std/)
 
 
 
 
-## Comments & Documentation
+## *Comments & Documentation*
 - [**Documentation Generators**](https://en.wikipedia.org/wiki/Documentation_generator#:~:text=A%20documentation%20generator%20is%20a,in%20some%20cases%2C%20binary%20files.)
   - [gitbook](https://www.gitbook.com/)
   - [rest](https://www.restapitutorial.com/)
@@ -91,7 +137,7 @@
 
 
 
-## Apps
+## *Apps*
 - [**Vim**](vim/vim-cheatsheet.md)
   - [cheatsheet](vim/vim-cheatsheet.md)
   - [plugins guides](vim/vim-plugins.md)
@@ -105,7 +151,7 @@
 
 
 
-## Operating Systems
+## *Operating Systems*
 - [**Windows**](os/windows-usage.md)
 - [**Kali**](remember/kali-guide.md)
 - [**Ubuntu**](os/ubuntu-usage.md)
@@ -115,43 +161,41 @@
 
 
 
-## Javascript
+## *Javascript*
 - [**Old Notes**](js/js-guide.md)
 - [**Reference Sheet**](js/javascript-w3-guide.docx)
 
 
-## Web - Backend
+## *Web - Backend*
 
 - [**Node**](js-frameworks/node-guide.md)
 - [**Flask**](python/flask-guide.md)
 - [**Django**](python/django-guide.md)
 
 
-##### JS Frameworks
+#### JS Frameworks
 - [**Vue**](https://vuejs.org/v2/guide/)
 - [**React**](https://reactjs.org/docs/getting-started.html)
 - [**Angular**](https://docs.angularjs.org/api)
 - [**Ruby On Rails**](https://guides.rubyonrails.org/)
 
-##### Typescript
+#### Typescript
 - [**Docs**](https://www.typescriptlang.org/docs/)
 - [**Handbook**](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
 - [**Intro Guide**](https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html)
 - [**Migrating-From-Js Guide**](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
 - [**Practice Browser-Ide**](https://www.typescriptlang.org/play?#code/Ptaehufmbsgmhsc2lqbd5obyocoe8Ahsazvgccbla1Uabwgem8Bzm+Avwdsatagiwobnuenanqad0gajqrvsqaucemykstkgyuabpgf4Oy0Boadykdjmol+gzazioz3Uneipoofevkvqahskymaamkyi7Ncuqgqcanag8Abmijquxrfokbjmggbcisggoac0oaccoasmfmgy7p7ehctkvole4jumdrlytqcc8Lezzczmonjodphfzzxvtzyykaaerjtindqs8po+rf40gnjbdkv8Lqd2jpbyoacqaeoamsk7sumxkgscc+Vvqquatwvb1Ubrdyuly7Pagbguzljh6Qbymjaecjumigzemvdsjzcflnxxtajbbccqq0Mwauvwdeqnugadvhbqgnj3Kaalygabeaakynamob4Groglfftbpb3Aexcwabt0xnm9zsyhc9wasmckhwdq8Zc8ielzhb7Bo3zczmy7Ayzeg-Fg0Huis58D0Ii8Aoztjzggfsrxavadlqahjhaa5Sasavbfqaew+Zf2gldwkgx1Qjgurmkefatgtolgwh0Kaqibhwiudokkuiigmhbx3Rybc43Ccjsaa)
 
-##### Ruby on Rails
+#### Ruby on Rails
 - [**Guides**](https://guides.rubyonrails.org/)
 - [**API**](https://api.rubyonrails.org/)
 
 
 
-----
 
+## *Frontend / GUI*
 
-### Frontend
-
-##### Template Engine
+#### Template Engine
 - [**Mustache**](https://mustache.github.io/)
 - [**Jade**](template-engines/jade-guide.md)
   - [api](https://jade-lang.com/api)
@@ -165,19 +209,19 @@
 - [**Handlebars**](https://handlebarsjs.com/)
 
 
-##### Layout Engines
+#### Layout Engines
 - [**Webkit**](https://webkit.org/web-inspector/)
 - [**Gecko**](https://wiki.mozilla.org/Gecko:Overview)
   - [source repo](https://github.com/mozilla/gecko-dev)
 
 
-##### Static Site Generators
+#### Static Site Generators
 - [**Jekyll**](https://jekyllrb.com/docs/)
   - [**jekyll on rails**](https://www.sitepoint.com/jekyll-rails/)
   - [**jekyll with react**](https://medium.com/@allizadrozny/using-webpack-and-react-with-jekyll-cfe137f8a2cc)
 
 
-##### Css Frameworks
+#### Css Frameworks
 - [**Bootstrap**](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
   - [mdbootstrap](https://mdbootstrap.com/docs/standard/layout/grid/)
     - [*playground*](https://mdbootstrap.com/snippets/)
@@ -185,27 +229,28 @@
 - [**Sass**](https://sass-lang.com/guide)
 
 
-##### Markup
+#### Markup
 - [**HTML**](html/html-tricks.md)
-  - [emmet cheatsheet](html/emmet-guide.md)
+  - [emmet cheatsheet](html/html-tricks.md#emmet)
   - [emmet docs](https://docs.emmet.io/)
 - [**Markdown**](markdown/markdown.md)
 - [**Css**](css/css-tricks.md)
+  - [shorthand references](css/shorthand-reference.md)
 - [**Latex**](latex/latex-guide.md)
 - [**Xml**](https://www.w3schools.com/xml/)
 - [**Haml**](haml/haml-guide.md)
 
 
-##### Design & Media Assets
+#### Design & Media Assets
 - [**Design Resources Collection**](design-assets/design-resources.md)
 - [**Html Templates**](design-assets/html-templates.md)
+- [**Colors**](https://github.com/trevor-reznik/guides/blob/master/colors)
+  - [color websites](colors/color-websites.md)
+  - [mixing guide](colors/mixing-guide.md)
+  - [term colors](colors/term-colors.md)
+- [**Windows 95 UI Kit**](https://github.com/themesberg/windows-95-ui-kit)
 
-
-
-------------
-
-
-## Miscellaneous 
+## *Miscellaneous* 
 
 - [Object-Oriented-Programming Concepts](misc/oop-concepts.md)
 - [Browser IDEs](https://replit.com/)

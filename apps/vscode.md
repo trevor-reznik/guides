@@ -1,3 +1,14 @@
+
+# VScode
+
+<a name="table-of-contents"/>
+
+- [Custom Hotkeys](#custom-hotkeys)
+- [Command Palette](#command-palette)
+
+
+<a name="custom-hotkeys"/>
+
 ### Custom Hotkeys
 
 split down
@@ -8,4 +19,17 @@ split right
 
 `Ctrl Shift K`
 
-cntrl arrow keys to move vscode window 
+`Ctrl + arrow`
+
+move window 
+
+`Ctrl + Shift + I`
+
+format document
+
+<a name="command-palette"/>
+
+### Command palette
+
+- full range of hotekys in vscode
+- custom hotkeys

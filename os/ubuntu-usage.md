@@ -1,5 +1,5 @@
 
-# Windows Usage - Hotkeys, Aliases, etc.
+# Ubuntu Usage - Hotkeys, Aliases, etc.
 
 
 <a name="table-of-contents"/>
@@ -16,12 +16,31 @@
 
 -------------------
 
+<a name="recent"/>
 
+# Recent
+
+- Alt + f7 and Alt + f8
+
+##### Alt + Arrows
+- moving lines up to clear empty lines with alt arrow keys
+- dont ever cut and paste just a few lines up or down
+- use alt arrow keys to move close brakcets down instaed of left clicking then indenting -> also copying -> alt down arrow key on brakclet line -> then immediately pasting
+- select multiple lines -> alt arrow keys
+
+<a name="worksapce"/>
+
+# Workspaces
+ - command alt arrow keys to mvoe to other workspace
+ - hotkey for moving current window to other workspace??
+
+
+--------------------
 
 
 <a name="hotkeys-ubuntu"/>
 
-##### Hotkeys
+# Hotkeys
     
 | **Command**	  |	  **Function**  |
 |:--------------- | ---------------:|
