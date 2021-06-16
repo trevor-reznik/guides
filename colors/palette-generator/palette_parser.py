@@ -1,5 +1,5 @@
 
-import os
+import os, contrast_sorter
 from random_words import random_title
 from contrast_sorter import contrast_check
 
@@ -107,10 +107,12 @@ def main():
             random_name_index += 1
             themes[1]["full name"] = random_title(random_name_index).replace("/","").replace("=","").replace("\\","")
             random_name_index += 1
-            make_theme_file(themes[0])
-            make_theme_file(themes[1])
-
-    move_files()
+            #make_theme_file(themes[0])
+            #make_theme_file(themes[1])
+            print(themes)
+            break
+        break
+    #move_files()
 
 
 if __name__ == "__main__":

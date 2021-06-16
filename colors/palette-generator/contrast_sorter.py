@@ -1,4 +1,152 @@
 import random
+import wcag_contrast_ratio as contrast
+from colour import Color
+WCAG_THRESHOLD = 3.25
+
+
+def highest_contrast_pair(hex_list):
+    """
+    Get highest possible contrast pair between any two hexcodes in list.
+
+    Args:
+        hex_list (list) : list of hexcodes
+
+    Returns:
+        list:
+            tuple: (rgb1, rgb2)
+            tuple: (hex1, hex2)
+        float: contrast ratio between the chosen pair
+    """
+
+    rgbs = {}
+    # Make rgb conversion dict
+    for color in hex_list:
+        colour_obj = Color(color)
+        validated = floor_rgb(colour_obj)
+        rgb_tuple = validated.rgb
+        rgbs[color] = rgb_tuple
+
+    max_contrast = 0
+    max_contrast_pair = []
+    
+    for hexcode, rgb_val in rgbs.items():
+        for hex_complement, complement in rgbs.items():
+            ratio = contrast.rgb(rgb_val, complement)
+            if ratio > max_contrast:
+                max_contrast = ratio
+                max_contrast_pair = [
+                    (rgb_val, complement),
+                    (hexcode, hex_complement)
+                ]
+
+    return max_contrast_pair, max_contrast
+
+
+def floor_rgb(colour):
+    """
+    Validates the rgb values in a color object are in range [0,1.0] 
+    
+    Args:
+       colour (obj) : colour object
+    
+    Returns:
+        obj : validated colour object
+    """
+    validated = [1.0]*3
+    for index, rgb_value in enumerate(colour.rgb):
+        if rgb_value < 0:
+            validated[index] = 0.00001
+        elif rgb_value < 1.0:
+            validated[index] = rgb_value
+   
+    ret = Color(
+        rgb=tuple(validated)
+    )
+
+    return ret
+
+
+def increase_contrast(primary_color, secondary_color):
+    """
+    """
+
+    # Determine the bright color and the dark color
+    if primary_color.luminance > secondary_color.luminance:
+        bright = [primary_color, secondary_color]
+    else:
+        bright = [secondary_color, primary_color]
+    
+    # Adjust luminance and saturation until meets WCAG_THRESHOLD
+    while contrast.rgb(primary_color.rgb, secondary_color.rgb) < WCAG_THRESHOLD:
+        
+        # Priortize dimming dark color and brightening light color
+        if bright[0].luminance < .998:
+            bright[0].luminance += .000025
+        if bright[1].luminance > .00015:
+            bright[1].luminance -= .000025
+
+        # Increase bright color saturation and vice-versa
+        if bright[0].luminance >= .95 and bright[1].luminance <= .05:
+            if bright[0].saturation < .99:
+                bright[0].saturation += .0001
+            if bright[1].saturation > .02:
+                bright[1].saturation -= .000005
+            if bright[0].saturation >= .99 and bright[1].saturation <= .02:
+                break
+
+
+def map_deepin_theme(background, foreground):
+    """
+    """ 
+    theme = {
+        "color_1=" : False,
+        "color_2=" : False,
+        "color_3=" : False,
+        "color_4=" : False,
+        "color_5=" : False,
+        "color_6=" : False,
+        "color_7=" : False,
+        "color_8=" : False,
+        "color_9=" : False,
+        "color_10=" : False,
+        "color_11=" : False,
+        "color_12=" : False,
+        "color_13=" : False,
+        "color_14=" : False,
+        "color_15=" : False,
+        "color_16=" : False,
+        "background=" : background.hex_l,
+        "foreground=" : foreground.hex_l,
+        "tab=" : False,
+        "style=" : "dark" if background.luminance < .5 else "light"
+    }
+    return theme
+
+
+def rank_contrast(color_list, background_color):
+    """
+    Rank secondary colors on basis of contrast with bg color. Dict for each theme.
+    
+    Args:
+        color_list (list) : list of hexcode strings
+        background_color (obj) : colour object of background
+
+    Returns:
+        dict: 
+            contrast ratio : hexcode
+    """    
+    contrast_with_bg = {}
+    for hexcode in color_list:
+        colour_obj = Color(hexcode)
+        rgb_adjusted = [1.0]*3
+        for index, rgb_val in enumerate(colour_obj.rgb):
+            if rgb_val <= 1.0 and rgb_val >= 0:
+                rgb_adjusted[index] = rgb_val
+        
+        rank = contrast.rgb(background_color.rgb, tuple(rgb_adjusted))
+        contrast_with_bg[rank] = hexcode
+
+    return contrast_with_bg
 
 
 def contrast_check(color_list):
@@ -30,178 +178,47 @@ def contrast_check(color_list):
         normal text and 4.5:1 for large text.
 
     """
-    import wcag_contrast_ratio as contrast
-    from colour import Color
-    WCAG_THRESHOLD = 3.85
 
-    ret = {}
-    # Make rgb conversion dict
-    for color in color_list:
-        r = Color(color)
-        r = r.rgb
-        ret[color] = r
+    # Get highest contrast pair and the associated contrast ratio between them
+    bg_fg_pair = highest_contrast_pair(color_list)
+    max_contrast = bg_fg_pair[1]
+    max_contrast_pair = bg_fg_pair[0]
 
-    # Find highest contrast pair
-    max_contrast = 0
-    max_contrast_pair = []
-
-    for hex, rgba in ret.items():
-        
-
-        for hex_sibling, sibling in ret.items():
-            try:
-                x = contrast.rgb(rgba, sibling)
-            except:
-                try:
-                    x = contrast.rgb((1.0,.03,.3), sibling)
-                except:
-                    x = 1.0
-
-            if x > max_contrast:
-                max_contrast = x
-                max_contrast_pair = [
-                    (rgba, sibling),
-                    (hex, hex_sibling)
-                ]
-
-    color1 = Color(
-        rgb=max_contrast_pair[0][0]
+    # Convert max-contrast pair to validated colour objects
+    primary_color = floor_rgb(
+        Color(
+            rgb=max_contrast_pair[0][0]
+        )
     )
-    color2 = Color(
-        rgb=max_contrast_pair[0][1]
+    secondary_color = floor_rgb(
+        Color(
+            rgb=max_contrast_pair[0][1]
+        )
     )
+    
+    # Contrsat ratio validation.
+    increase_contrast(primary_color, secondary_color)
 
-
-    # Validate no rgb value > 1.0
-    color3 = [1.0]*3
-    color4 = [1.0]*3
-    for index, _ in enumerate(color1.rgb):
-        if _ < 1.0:
-            color3[index] = _
-    for index, _ in enumerate(color2.rgb):
-        if _ < 1.0:
-            color4[index] = _
-   
-    color3 = tuple(color3)
-    color4 = tuple(color4)
-    color_one = Color(
-        rgb=color3
-    )
-    color_two = Color(
-        rgb=color4
-    )
-
-    # Validate that highest pair passes WCAG contrast ratio
-    if max_contrast < WCAG_THRESHOLD:        
-        if color_one.luminance > color_two.luminance:
-            bright = [color_one, color_two]
-        else:
-            bright = [color_two, color_one]
-        
-        # Adjust luminance and saturation until meets WCAG_THRESHOLD
-
-        while contrast.rgb(color_one.rgb, color_two.rgb) < WCAG_THRESHOLD:
-            if bright[0].luminance < .95:
-                bright[0].luminance += .0025
-            if bright[1].luminance > .05:
-                bright[1].luminance -= .0025
-            if bright[0].luminance >= .95 and bright[1].luminance <= .05:
-                if bright[0].saturation < .99:
-                    bright[0].saturation += .01
-                if bright[1].saturation > .02:
-                    bright[1].saturation -= .0025
-                if bright[0].saturation >= .99 and bright[1].saturation <= .02:
-                    break
-                
-    # Collect colors not in highest contrast pair (foreground and background)
-    secondary_colors = []
+    # Other passed colors that aren't forground or background colors. 
+    accent_colors = []
     for hexcode in color_list:
         if hexcode not in max_contrast_pair[1]:
-            secondary_colors.append(hexcode)
+            accent_colors.append(hexcode)
 
     # Create 2 themes with foreground/background alternating values 
-    style = "light"
-    if color_one.luminance < .5:
-        style = "dark"
-    theme1 = {
-        "color_1=" : False,
-        "color_2=" : False,
-        "color_3=" : False,
-        "color_4=" : False,
-        "color_5=" : False,
-        "color_6=" : False,
-        "color_7=" : False,
-        "color_8=" : False,
-        "color_9=" : False,
-        "color_10=" : False,
-        "color_11=" : False,
-        "color_12=" : False,
-        "color_13=" : False,
-        "color_14=" : False,
-        "color_15=" : False,
-        "color_16=" : False,
-        "background=" : color_one.hex_l,
-        "foreground=" : color_two.hex_l,
-        "tab=" : False,
-        "style=" : style
-    }
+    theme1 = map_deepin_theme(primary_color, secondary_color)
+    theme2 = map_deepin_theme(secondary_color, primary_color)
 
-    if color_two.luminance < .5:
-        style = "dark"
-    theme2 = {
-        "color_1=" : False,
-        "color_2=" : False,
-        "color_3=" : False,
-        "color_4=" : False,
-        "color_5=" : False,
-        "color_6=" : False,
-        "color_7=" : False,
-        "color_8=" : False,
-        "color_9=" : False,
-        "color_10=" : False,
-        "color_11=" : False,
-        "color_12=" : False,
-        "color_13=" : False,
-        "color_14=" : False,
-        "color_15=" : False,
-        "color_16=" : False,
-        "background=" : color_two.hex_l,
-        "foreground=" : color_one.hex_l,
-        "tab=" : False,
-        "style=" : style
-    }
-
-    # Rank secondary colors on basis of contrast with bg color. Dict for each theme.
+    # Fill in themes' accent colors values in order of contrast with bg
     contrast_with_bg = [
-        {},
-        {}
+        rank_contrast(accent_colors, primary_color),
+        rank_contrast(accent_colors, secondary_color)
     ]
-    for hexcode in secondary_colors:
-        r = Color(hexcode)
-        # Validate no rgb values over 1.0 
-        r_adjusted = [1.0]*3
-        for index, _ in enumerate(r.rgb):
-            if _ < 1.0:
-                r_adjusted[index] = _
-        r_adjusted = tuple(r_adjusted)
-        
-        # keys are contrast value, values are hexcode
-        rank = contrast.rgb(color_one.rgb, r_adjusted)
-        contrast_with_bg[0][rank] = hexcode
-        
-        rank = contrast.rgb(color_two.rgb, r_adjusted)
-        contrast_with_bg[1][rank] = hexcode
-
-    # Fill in themes' colors in order of contrast with bg
     for contrast_lvl, color_num in zip(reversed(sorted(contrast_with_bg[0])), theme1.keys()):
-        theme1[color_num] = contrast_with_bg[0][contrast_lvl]
-    
+        theme1[color_num] = contrast_with_bg[0][contrast_lvl]    
     for contrast_lvl, color_num in zip(reversed(sorted(contrast_with_bg[1])), theme2.keys()):
         theme2[color_num] = contrast_with_bg[1][contrast_lvl]
 
-    # Fill empty color slots by changing hue, saturation of highest contrast colors. Appraoch center
-    # of list from both ends so highest contrast colors have priority for filling in empty slots.
-        
     ret = [{},{}]
 
     for theme_index, theme in enumerate([theme1, theme2]):
