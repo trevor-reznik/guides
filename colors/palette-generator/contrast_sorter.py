@@ -32,8 +32,6 @@ def contrast_check(color_list):
     """
     import wcag_contrast_ratio as contrast
     from colour import Color
-    # https://pypi.org/project/colour/
-    # https://pypi.org/project/wcag-contrast-ratio/
     WCAG_THRESHOLD = 3.85
 
     ret = {}

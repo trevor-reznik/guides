@@ -1,15 +1,129 @@
 
 <a name="table-of-contents"/>
 
-# Colors
+# Color - Resources & Notes
 
-##### Table of Contents
-- Fundamentals
-  - [Hue](#hue)
-  - [Saturation](#saturation)
-  - [Lightness](#lightness)
-- [Color Systems](#systems)
+### Color Tools
+- [Websites](#online-tools)
+  - [*parse colors*](#parse)
+  - [*generate / browse schemes*](#schemes)
+  - [*get complements*](#complement)
+  - [*test / get contrast*](#contrast)
+- [Scripts](#scripts)
+  - [python](#python-scripts)
+  - [javascript](#javascript)
+
+### Color Fundamentals
+- [Hue](#hue)
+- [Saturation](#saturation)
+- [Lightness](#lightness)
 - [Psychology](#psychology)
+- [Color Mixing Concepts](./mixing-guide.md)
+
+### Color Systems
+- [Terminal Colors: 2-bit, 4-bit, 8-bit, rgb](./term-colors.md)
+
+
+
+
+
+<a name="scripts"/>
+
+# Color Scripts
+
+
+
+<a name="python-scripts"/>
+
+### Python
+
+1. [Colour Module](https://pypi.org/project/colour/)
+
+Convert from any system to color object. Convert to any type, change hsl, etc.
+
+
+2. [WCAG Contrast Ratio Checker](https://pypi.org/project/wcag-contrast-ratio/)
+
+Get contrast ratio of two rgb tuples
+
+
+3. [Palette Parser](./palette-generator/palette_parser.py)
+
+Generate thousands of palettes from coolors.co and convert to dictionaries or JSON
+
+
+<a name="javascript"/>
+
+### JavaScript
+
+
+1. [ColorGen](./color-scripts/colorGen.js)
+
+random colors, random complement, random readable, scheme generator from starting point, random scheme
+
+2. [tinyColor](./color-scripts/tinyColor.js)
+
+complement, contrast, wcag, triatic schemes, hue degree / saturation / lightness chang, convert between systems, more
+
+
+
+
+
+
+<a name="online-tools"/>
+
+# Online Color Tools
+
+
+<a name="parse"/>
+
+### Parse Colors
+
+- [From Picture](https://coolors.co/palettes/trending)
+- [From Webpage](http://www.colorzilla.com/firefox/)
+
+
+<a name="schemes"/>
+
+### Schemes
+
+
+ - [Based on Color Wheel Gemoetry](https://www.sessions.edu/color-calculator/)
+ - [Based on User Votes](https://coolors.co/trending) 
+ - [Standard Material Color Palettes](https://material.io/resources/color/#!/?view.left=0&view.right=0)
+ - [Material Palette Generator](https://www.materialpalette.com/brown/light-blue)
+
+
+<a name="complement"/>
+
+
+### Complements
+
+ - [Complement](https://www.materialpalette.com/brown/light-blue)
+
+
+<a name="contrast"/>
+
+### Contrast
+
+ - [Ratio Checker](https://contrast-ratio.com/)
+ - [Link Checker](http://wave.webaim.org/https://webaim.org/resources/linkcontrastchecker/?fcolor=0000FF&bcolor=FFFFFF)
+ - [Webaim WCAG](https://webaim.org/resources/contrastchecker)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # The Fundmantals of Color
 
@@ -70,6 +184,18 @@ In subtractive color (e.g., paints) value changes through various tints and shad
 
 
 ### Mental Effects
+
+
+
+
+
+
+
+
+
+
+
+
 
 <a name="systems"/>
 

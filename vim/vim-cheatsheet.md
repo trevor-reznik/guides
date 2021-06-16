@@ -1,4 +1,4 @@
-# Vim Cheatsheet
+# Vim: Cheatsheet, Resources & Notes
 
 
 <a name="table-of-contents"/>
@@ -16,7 +16,7 @@
 
 ###### Most Important
 
-*Jump*
+*Jumping*
 
 p `{}` 
 
@@ -30,16 +30,22 @@ start of line `0`
 
 next line then insert mode `o`
 
+.
+
 search replace `%s/$/$`
 
 delete line `d up`
 
 first blank line `)`
 
-###### Table of Contents
+### Table of Contents
 
+###### Notes
 - [Recently Learned](#recent)
 - [Most Important](#most-important)
+- [Vim for VScode](https://github.com/VSCodeVim/Vim/blob/HEAD/ROADMAP.md)
+
+###### Commands
 - [cursor](#vimcursor)
 - [cut & paste](#vimcutpaste)
 - [insert](#viminsert)
