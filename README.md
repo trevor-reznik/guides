@@ -19,6 +19,10 @@
 ### [VScode Hotkeys](apps/vscode.md#custom-hotkeys)
 
 ### Finish Later:
+- [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions)
+  - [JS Questions and Answers](js/js-interview-questions.md)
+  - [CSS Questions and Answers](css/css-interview-questions.md)
+  - [HTML Questions and Answers](html/html-interview-questions.md)
 - material elevation algorithm from live examples
 - VHS clock -> fix animation on profile page css -> new pen on codepen	
 - scss
@@ -165,7 +169,7 @@
 ## *Javascript*
 - [**Old Notes**](js/js-guide.md)
 - [**Reference Sheet**](js/javascript-w3-guide.docx)
-
+- [**JS Interview Questions and Answers***](js/js-interview-questions.md)
 
 ## *Web - Backend*
 
@@ -228,12 +232,13 @@
     - [*playground*](https://mdbootstrap.com/snippets/)
 - [**Yaml**](https://github.com/yaml)
 - [**Sass**](https://sass-lang.com/guide)
-
+- [**CSS Interview Questions and Answers***](css/css-interview-questions.md)
 
 #### Markup
 - [**HTML**](html/html-tricks.md)
   - [emmet cheatsheet](html/html-tricks.md#emmet)
   - [emmet docs](https://docs.emmet.io/)
+  - [html interview questions and answers***](html/html-interview-questions.md)
 - [**Markdown**](markdown/markdown.md)
 - [**Css**](css/css-tricks.md)
   - [shorthand references](css/shorthand-reference.md)
