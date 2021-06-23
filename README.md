@@ -40,13 +40,14 @@
   - notes reference
 - projects section of list-temp -> p folder
 - eastside consolidation
-- eastside -> external hd -> linux -> windows storage consolidation
 - os google spreadsheet sections append: word, vscode, xml themes, kraken, cryptowatch
 - surface dial
 - linux image backup
 - OS for old generation linux
 - macOS vm
 - macbook air os
+- new external HD
+
 
 --------------------------------------------
 

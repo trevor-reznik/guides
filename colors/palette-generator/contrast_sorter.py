@@ -1,7 +1,42 @@
 import random
 import wcag_contrast_ratio as contrast
 from colour import Color
+import get_complement
 WCAG_THRESHOLD = 3.25
+
+
+def triadic_scheme(hexcode):
+    """
+    """
+    colour_obj = Color(hexcode)
+    (hue, saturation, lightness) = colour_obj.hsl
+    rotated = rotate_120(hue)
+    
+    sibling1 = (
+        rotated[0],
+        saturation,
+        lightness
+    )
+    sibling2 = (
+        rotated[1],
+        saturation,
+        lightness
+    )
+    return [Color(hsl=sibling1).hex_l, Color(hsl=sibling2).hex_l]
+
+
+def rotate_120(hue):
+    rotated1 = hue - .333333333333333333333333333333333
+    rotated2 = hue + .333333333333333333333333333333333
+    
+    for rotated in [rotated1, rotated2]:
+        if rotated > 1.0:
+            rotated -= 1.0
+        elif rotated < 0.0:
+            rotated += 1.0
+
+    return [rotated1, rotated2]
+
 
 
 def highest_contrast_pair(hex_list):
@@ -149,6 +184,71 @@ def rank_contrast(color_list, background_color):
     return contrast_with_bg
 
 
+def complementary_color(hexcode):
+    """
+    """
+    colour_obj = Color(hexcode)
+    complement_rgb = get_complement.complement(
+        *colour_obj.rgb
+    )
+    colour_obj = Color(rgb=complement_rgb)
+    return colour_obj.hex_l
+
+
+def fill_theme(theme):
+    """
+
+    Args:
+        theme (dict) : color_# : hexcode
+    """
+
+    non_accents = ["style="]
+    accents = []
+    for name, code in theme.items():
+        if code:
+            if "#" in code:
+                if name not in non_accents:
+                    accents.append(code)    
+
+    # Fill with tradic rotated complements
+    complement_colors = []
+    for color_tier in ["background=", "color_1=", "color_2=", "color_3="]:
+        if theme[color_tier]:
+            complement_colors.append(
+                complementary_color(
+                    theme[color_tier]
+                )
+            )
+
+            bg_triadic = triadic_scheme(
+                theme[color_tier]
+            )
+            for _ in bg_triadic: complement_colors.append(_)
+
+    mono_partners = []    
+    for hexcode in accents:
+        color_obj = Color(hexcode)
+        if color_obj.saturation < .5:
+            color_obj.saturation += .2
+        else:
+            color_obj.saturation -= .2
+        mono_partners.append(
+            color_obj.hex_l
+        )
+    
+    accents += complement_colors + mono_partners
+    accents *= 30
+
+    ret = {}
+    for index, (slot, hexcode) in enumerate(theme.items()):
+        if not hexcode:
+            ret[slot] = complementary_color(accents[index])
+        else:
+            ret[slot] = hexcode
+
+    return ret
+
+
 def contrast_check(color_list):
     """
     Accpets list of hexcodes and creates 2 deepin-terminal themes.
@@ -219,32 +319,10 @@ def contrast_check(color_list):
     for contrast_lvl, color_num in zip(reversed(sorted(contrast_with_bg[1])), theme2.keys()):
         theme2[color_num] = contrast_with_bg[1][contrast_lvl]
 
-    ret = [{},{}]
-
-    for theme_index, theme in enumerate([theme1, theme2]):
-        for index, (slot, hex) in enumerate(theme.items()):
-            if not hex:
-                filtered = []
-                for code in theme.values():
-                    if code:
-                        if "#" in code:
-                            filtered.append(code)
-                filtered.reverse()
-                filtered = filtered * 30
-                syb = filtered[index]
-                symmetric_sibling = Color(syb)
-                #except:
-                #   syb = theme1["foreground="]
-                #  symmetric_sibling = Color(syb)
-                upper_d = .98 - symmetric_sibling.saturation
-                if upper_d > .01:
-                    symmetric_sibling.saturation += random.uniform(.01, upper_d/4)
-
-                upper_d = .98 - symmetric_sibling.luminance
-                if upper_d > .01:
-                    symmetric_sibling.luminance += random.uniform(.01, upper_d/2)
-                ret[theme_index][slot] = symmetric_sibling.hex_l
-            else:
-                ret[theme_index][slot] = hex
+    # Fill empty slots (hex list not long enough for deepin scheme) with complements of existing colors
+    ret = [
+        fill_theme(theme1),
+        fill_theme(theme2)
+    ]
 
     return ret

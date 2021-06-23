@@ -92,11 +92,15 @@ def move_files():
         )
 
 
-def main():
+def main(shuffle_duplicates=True):
     random_name_index = 0
     html_files = locate_html()
 
+    current_pairs = {}
+
     for html in html_files:
+
+        print("[+] Creating Theme Files . . . \n\n\n")
         raw = read_html(html)
         parsed_lines = parse_line_index(raw)
         hexcodes = parse_rgba(parsed_lines)
@@ -107,13 +111,35 @@ def main():
             random_name_index += 1
             themes[1]["full name"] = random_title(random_name_index).replace("/","").replace("=","").replace("\\","")
             random_name_index += 1
-            #make_theme_file(themes[0])
-            #make_theme_file(themes[1])
-            print(themes)
-            break
-        break
-    #move_files()
+
+            for theme in themes:
+                bg, fg = theme["background="], theme["foreground="]
+
+                new_color = True
+                if bg in list(current_pairs.keys()):
+                    if fg == current_pairs[bg]:
+                        
+                        if not shuffle_duplicates:
+                            continue
+
+                        new_color = False
+                        duplicate_count = 0
+                        for accent_tier in theme.values():
+                            duplicate_count += 1
+                            if accent_tier not in list(current_pairs.keys()):
+                                new_color = accent_tier
+                                print(f"\n[-] Theme Duplicated {duplicate_count} Times in List. Colors Swapped\n")
+                                break
+                        if new_color:
+                            theme["background="] = new_color 
+                
+                if new_color:
+                    make_theme_file(theme)
+                    current_pairs[theme["background="]] = fg
+                if not new_color:
+                    print("\n\n\n\n[-] Duplicate Unresolved - Scheme Occurs over 16 Times in Passed List\n\n\n\n")
 
 
 if __name__ == "__main__":
-    main()
+    #main(shuffle_duplicates=False)
+    move_files()
