@@ -66,7 +66,6 @@
 
 
 
-
 ## *Shell*
 - [**Bash**](bash/bash-shell.md)
   - [scripts](bash/bash-scripts.md)
@@ -84,6 +83,10 @@
 - [**New Project Checklist**](git/new-project.md)
 
 
+## *Package Managers*
+- [**npm**](package-managers/package-managers.md#npm)
+- [**yarn**](package-managers/package-managers.md#yarn)
+- [**pip**](package-managers/package-managers.md#pip)
 
 
 ## *Python*

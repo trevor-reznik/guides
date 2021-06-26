@@ -4,42 +4,6 @@
 <a name="table-of-contents"/>
 
 
-<a name="recent"/>
-
-###### Recent / Trying to implement
-
-- `o`
-- `G` -> `o`
-
-
-<a name="most-important"/>
-
-###### Most Important
-
-*Jumping*
-
-p `{}` 
-
-word `w` end word `e` 
-
-back to start of w `b` forward to start of w `W`
-
-back to end of w `E` forward to end of w `B`
-
-start of line `0`
-
-next line then insert mode `o`
-
-.
-
-search replace `%s/$/$`
-
-delete line `d up`
-
-first blank line `)`
-
-### Table of Contents
-
 ###### Notes
 - [Recently Learned](#recent)
 - [Most Important](#most-important)
@@ -62,6 +26,73 @@ first blank line `)`
 - [exiting](#vimexiting)
 
 --------------------
+
+
+
+
+<a name="recent"/>
+
+
+
+<a name="most-important"/>
+
+### Navigation
+- `o`
+- `G` -> `o`
+- p `{}` 
+- word `w` end word `e` 
+- back to start of w `b` forward to start of w `W`
+- back to end of w `E` forward to end of w `B`
+- start of line `0`
+- first blank line `)`
+
+### Visual Selection Basics
+- After selecting -> move down `j` or move by word `w` or `b` search `/`
+
+Marks for the beginning and end of the visual selection are automatically defined:
+
+```
+'<  start line
+`<  start character
+'>  end line
+`>  end character
+```
+You can press gv to reselect the last visual selection, but the `'<` and `'>` marks defining the beginning and end of the block persist even when the selection highlight has been removed, so gv is not necessary to repeat a command.
+
+When text is visually selected, press `:` to enter a command. The command line will automatically enter the range:
+
+
+### Command History
+Repeat an Ex command over a previously selected block  `:` -> `Up` then edit a previous command.
+
+
+
+### Find / Replace
+- search replace `%s/$/$`
+- delete line `d up`
+- Find & Replace in Selection `v` `w` `s:/$WORD/$REPLACE/g`
+
+
+In visual mode, / and ? will update the visual selection just like any other cursor-movement command (that is, when in visual mode, searching will extend the selection).
+
+In order to actually search within the visual selection, you will need to use the \%V atom, or use the markers defined by the visual selection with the \%>'< and \%<'> atoms. This is best done by leaving the visual selection with <Esc> before entering your search. You may want to consider a mapping to automatically leave visual selection and enter the appropriate atoms. For example:
+
+```
+:vnoremap <M-/> <Esc>/\%V
+```
+
+Here are two further examples that do not use a visual selection. The first command searches only in lines 10 to 20 inclusive. The second searches only between marks a and b.
+
+```
+/\%>9l\%<21lgreen
+/\%>'a\%<'bgreen
+```
+
+### Rearrange
+- `Alt` + `ArrowKey`
+
+
+----------------------------
 
 <a name="vimcursor"/>
 
