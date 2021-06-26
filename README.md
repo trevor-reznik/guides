@@ -88,6 +88,10 @@
 - [**yarn**](package-managers/package-managers.md#yarn)
 - [**pip**](package-managers/package-managers.md#pip)
 
+## *Databases*
+- [**postgres**](db/postgres-md)
+  - [cli usage](https://www.postgresql.org/docs/13/app-psql.html)
+
 
 ## *Python*
 - [**Style Guidelines**](python/python-style.md)
@@ -197,6 +201,7 @@
 - [**Ruby On Rails**](https://guides.rubyonrails.org/)
 
 #### Typescript
+- [**Notes**](ts/ts-notes.md)
 - [**Docs**](https://www.typescriptlang.org/docs/)
 - [**Handbook**](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
 - [**Intro Guide**](https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html)
