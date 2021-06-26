@@ -60,6 +60,13 @@
 
 [Public APIS](https://github.com/public-apis/public-apis)
 
+## *Interviews*
+- [**Skill Progression Tools**](interviews/skill.md#skills)
+- [**Interviewing Resources**](interviews/skill.md#interviewing)
+
+
+
+
 ## *Shell*
 - [**Bash**](bash/bash-shell.md)
   - [scripts](bash/bash-scripts.md)
