@@ -88,9 +88,23 @@
 - [**yarn**](package-managers/package-managers.md#yarn)
 - [**pip**](package-managers/package-managers.md#pip)
 
+
+
+
 ## *Databases*
 - [**postgres**](db/postgres-md)
   - [cli usage](https://www.postgresql.org/docs/13/app-psql.html)
+
+
+
+
+
+## *Regex*
+- [**notes**](regex/regex-notes.md)
+- [**cheatsheet**](regex/regex-cheatsheet.md)
+- [**regegg**](https://www.rexegg.com/regex-quickstart.html)
+
+
 
 
 ## *Python*
