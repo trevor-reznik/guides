@@ -5,7 +5,9 @@
 
 *notes and resources from my time as an undergrad*
 
-*I access the files using the open_guide.py script from shell. open files with glow markdown reader or in browser. script options determine which group of guides/cheatsheets/docs to open.*
+```bash
+python3 open_guide.py $FOLDER [$KEYWORD]
+```
 
 # In Progress Reinforcement
 
@@ -23,27 +25,20 @@
   - [JS Questions and Answers](js/js-interview-questions.md)
   - [CSS Questions and Answers](css/css-interview-questions.md)
   - [HTML Questions and Answers](html/html-interview-questions.md)
-- material elevation algorithm from live examples
 - VHS clock -> fix animation on profile page css -> new pen on codepen	
 - scss
 - css yt vid -> notes
-- typescript
-- [react](https://www.youtube.com/watch?v=I6ypD7qv3Z8)
 - [bootstrap to css](https://www.youtube.com/watch?v=iJKCj8uAHz8)
 - [Speedrunning AP CS Test](https://www.youtube.com/watch?v=8-ZdZ7vswn0)
-- iframe from github-pages / github guides / github -> codepen
-- finish kotlin project
 - on clicking href to other page on site : instead of hyperlink href, a function that slides evyerhting on the page to the bottom of the screen THEN opens the new window location
 - [python yield](https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do)
 - copy / paste interactive pop modal -> codepen / website
 - Fast sp demo in  multiple parts
   - top: screenshot - many times in duration - best below as png
 - codepen other webpages
-- (archive)[https://old.reddit.com/r/AskReddit/comments/no8dzw/you_find_out_that_the_person_you_met_has_zero/]
+- [archive](https://old.reddit.com/r/AskReddit/comments/no8dzw/you_find_out_that_the_person_you_met_has_zero/)
 - [summary of webdev industry](https://www.youtube.com/watch?v=VfGW0Qiy2I0)
-  - notes reference
 - projects section of list-temp -> p folder
-- eastside consolidation
 - os google spreadsheet sections append: word, vscode, xml themes, kraken, cryptowatch
 - surface dial
 - linux image backup
@@ -60,34 +55,35 @@
 
 [Public APIS](https://github.com/public-apis/public-apis)
 
-## *Interviews*
-- [**Skill Progression Tools**](interviews/skill.md#skills)
-- [**Interviewing Resources**](interviews/skill.md#interviewing)
-
-
-
-## *Shell*
-- [**Bash**](bash/bash-shell.md)
-  - [scripts](bash/bash-scripts.md)
-  - [learning Journal](bash/bash-learning-journal.md)
-- [**Batch**](batch/batch-guide.md)
-  - [bash » batch equivalents](batch/batch-bash-equivalents.md)
-  - [powershell](batch/powershell-guide.md)
-  - [vbs](batch/vbs-guide.md)
-
-
-
-## *Git*
-- [**Git Guide**](git/git.md)
-- [**Github Pages Process**](git/github-pages.md)
-- [**New Repo Creation**](git/new-project.md)
-
-
-
-## *Package Managers*
-- [**npm**](package-managers/package-managers.md#npm)
-- [**yarn**](package-managers/package-managers.md#yarn)
-- [**pip**](package-managers/package-managers.md#pip)
+## *Javascript*
+- [***New Project Checklists***](js/new-project-checklists.md)
+- [***Notes***](js/js-guide.md)
+  - [Async](js/async.md)
+  - [Reference Sheet](js/javascript-w3-guide.docx)
+  - [JS Interview Questions and Answers](js/js-interview-questions.md)
+- [***Algorithms and Data Structures***](https://github.com/trekhleb/javascript-algorithms)
+- [***Typscript***](ts/ts-notes.md)
+  - [New Project Checklist](ts/new-ts-project.md)
+  - [Docs](https://www.typescriptlang.org/docs/)
+  - [Handbook](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+  - [Intro Guide](https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html)
+  - [Migrating-From-Js Guide](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
+  - [Practice Browser-Ide](https://www.typescriptlang.org/play?#code/Ptaehufmbsgmhsc2lqbd5obyocoe8Ahsazvgccbla1Uabwgem8Bzm+Avwdsatagiwobnuenanqad0gajqrvsqaucemykstkgyuabpgf4Oy0Boadykdjmol+gzazioz3Uneipoofevkvqahskymaamkyi7Ncuqgqcanag8Abmijquxrfokbjmggbcisggoac0oaccoasmfmgy7p7ehctkvole4jumdrlytqcc8Lezzczmonjodphfzzxvtzyykaaerjtindqs8po+rf40gnjbdkv8Lqd2jpbyoacqaeoamsk7sumxkgscc+Vvqquatwvb1Ubrdyuly7Pagbguzljh6Qbymjaecjumigzemvdsjzcflnxxtajbbccqq0Mwauvwdeqnugadvhbqgnj3Kaalygabeaakynamob4Groglfftbpb3Aexcwabt0xnm9zsyhc9wasmckhwdq8Zc8ielzhb7Bo3zczmy7Ayzeg-Fg0Huis58D0Ii8Aoztjzggfsrxavadlqahjhaa5Sasavbfqaew+Zf2gldwkgx1Qjgurmkefatgtolgwh0Kaqibhwiudokkuiigmhbx3Rybc43Ccjsaa)
+- [***Node***](js/node-guide.md)
+- ***Frameworks 1***
+  - [Vue](https://vuejs.org/v2/guide/)
+  - [React](https://reactjs.org/docs/getting-started.html)
+  - [Angular](https://docs.angularjs.org/api)
+  - [Svelte]()
+  - [Next]()
+- ***Frameworks 2***
+  - [Express](js/express-guide.md)
+  - [Flask](python/flask-guide.md)
+  - [Django](python/django-guide.md)
+  - [Ruby on Rails](https://guides.rubyonrails.org/)
+    - [API](https://api.rubyonrails.org/)
+  - [Jquery]()
+- ***Libraries 1***
 
 
 
@@ -95,7 +91,9 @@
 ## *Databases*
 - [**postgres**](db/postgres-md)
   - [cli usage](https://www.postgresql.org/docs/13/app-psql.html)
-
+- [**ORMs**]()
+  - [mikro-orm](db/mikro-orm-guide.md)
+- [**GraphQL**](db/graphql-guide.md)
 
 
 
@@ -104,6 +102,64 @@
 - [**notes**](regex/regex-notes.md)
 - [**cheatsheet**](regex/regex-cheatsheet.md)
 - [**regegg**](https://www.rexegg.com/regex-quickstart.html)
+
+
+
+
+## *Frontend / GUI*
+
+**Template Engine**
+- [*Mustache*](https://mustache.github.io/)
+- [*Jade*](template-engines/jade-guide.md)
+  - [api](https://jade-lang.com/api)
+  - [language Reference](https://jade-lang.com/reference)
+- [*Jinja*](template-engines/jinja-guide.md)
+  - [api](https://jinja.palletsprojects.com/en/3.0.x/api/)
+  - [docs](https://svn.python.org/projects/external/Jinja-1.2/docs/html/index.html)
+  - [template designer](https://jinja.palletsprojects.com/en/3.0.x/templates/)
+- [*Ejs*](https://ejs.co/)
+- [*Underscore*](https://underscorejs.org/)
+- [*Handlebars*](https://handlebarsjs.com/)
+
+**Layout Engines**
+- [*Webkit*](https://webkit.org/web-inspector/)
+- [*Gecko*](https://wiki.mozilla.org/Gecko:Overview)
+  - [source repo](https://github.com/mozilla/gecko-dev)
+
+**Static Site Generators**
+- [*Jekyll*](https://jekyllrb.com/docs/)
+  - [*jekyll on rails*](https://www.sitepoint.com/jekyll-rails/)
+  - [*jekyll with react*](https://medium.com/@allizadrozny/using-webpack-and-react-with-jekyll-cfe137f8a2cc)
+
+**CSS Frameworks**
+- [*Bootstrap*](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+  - [mdbootstrap](https://mdbootstrap.com/docs/standard/layout/grid/)
+    - [*playground*](https://mdbootstrap.com/snippets/)
+- [*Yaml*](https://github.com/yaml)
+- [*Sass*](https://sass-lang.com/guide)
+- [*CSS Interview Questions and Answers**](css/css-interview-questions.md)
+
+**Markup**
+- [*HTML*](html/html-tricks.md)
+  - [emmet cheatsheet](html/html-tricks.md#emmet)
+  - [emmet docs](https://docs.emmet.io/)
+  - [html interview questions and answers](html/html-interview-questions.md)
+- [*Markdown*](markdown/markdown.md)
+- [*Css*](css/css-tricks.md)
+  - [shorthand references](css/shorthand-reference.md)
+- [*Latex*](latex/latex-guide.md)
+- [*Xml*](https://www.w3schools.com/xml/)
+- [*Haml*](haml/haml-guide.md)
+
+**Design & Media Assets**
+- [*Design Resources Collection*](design-assets/design-resources.md)
+- [*Html Templates*](design-assets/html-templates.md)
+- [*Colors*](https://github.com/trevor-reznik/guides/blob/master/colors)
+  - [color websites](colors/color-websites.md)
+  - [mixing guide](colors/mixing-guide.md)
+  - [term colors](colors/term-colors.md)
+- [*Windows 95 UI Kit*](https://github.com/themesberg/windows-95-ui-kit)
+
 
 
 
@@ -151,7 +207,16 @@
 - [**Docs**](https://doc.rust-lang.org/std/)
 
 
+## *Git*
+- [**Git Guide**](git/git.md)
+- [**Github Pages Process**](git/github-pages.md)
+- [**New Repo Creation**](git/new-repo.md)
 
+
+## *Package Managers*
+- [**npm**](package-managers/package-managers.md#npm)
+- [**yarn**](package-managers/package-managers.md#yarn)
+- [**pip**](package-managers/package-managers.md#pip)
 
 ## *Comments & Documentation*
 - [**Documentation Generators**](https://en.wikipedia.org/wiki/Documentation_generator#:~:text=A%20documentation%20generator%20is%20a,in%20some%20cases%2C%20binary%20files.)
@@ -170,7 +235,6 @@
   - [character Entity Reference](https://dev.w3.org/html5/html-author/charref)
 
 
-
 ## *Apps*
 - [**Vim**](vim/vim-cheatsheet.md)
   - [cheatsheet](vim/vim-cheatsheet.md)
@@ -182,7 +246,14 @@
   - [tutorial](https://slack.com/help/articles/360059928654-How-to-use-Slack--your-quick-start-guide)
 - [**Tetra**](https://tettra.com/)
 
-
+## *Shell*
+- [**Bash**](bash/bash-shell.md)
+  - [scripts](bash/bash-scripts.md)
+  - [learning Journal](bash/bash-learning-journal.md)
+- [**Batch**](batch/batch-guide.md)
+  - [bash » batch equivalents](batch/batch-bash-equivalents.md)
+  - [powershell](batch/powershell-guide.md)
+  - [vbs](batch/vbs-guide.md)
 
 
 ## *Operating Systems*
@@ -194,100 +265,12 @@
   - [mac on vm](os/mac/mac-on-vm-guide.md)
 
 
-
-## *Javascript*
-- [**Async**](js/async.md)
-- [**Old Notes**](js/js-guide.md)
-- [**Reference Sheet**](js/javascript-w3-guide.docx)
-- [**JS Interview Questions and Answers***](js/js-interview-questions.md)
-- [***JS Algorithms and Data Structures***](https://github.com/trekhleb/javascript-algorithms)
-
-
-## *Web - Backend*
-
-- [**Node**](js-frameworks/node-guide.md)
-- [**Flask**](python/flask-guide.md)
-- [**Django**](python/django-guide.md)
-
-
-#### JS Frameworks
-- [**Vue**](https://vuejs.org/v2/guide/)
-- [**React**](https://reactjs.org/docs/getting-started.html)
-- [**Angular**](https://docs.angularjs.org/api)
-- [**Ruby On Rails**](https://guides.rubyonrails.org/)
-
-#### Typescript
-- [**Notes**](ts/ts-notes.md)
-- [**Docs**](https://www.typescriptlang.org/docs/)
-- [**Handbook**](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
-- [**Intro Guide**](https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html)
-- [**Migrating-From-Js Guide**](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
-- [**Practice Browser-Ide**](https://www.typescriptlang.org/play?#code/Ptaehufmbsgmhsc2lqbd5obyocoe8Ahsazvgccbla1Uabwgem8Bzm+Avwdsatagiwobnuenanqad0gajqrvsqaucemykstkgyuabpgf4Oy0Boadykdjmol+gzazioz3Uneipoofevkvqahskymaamkyi7Ncuqgqcanag8Abmijquxrfokbjmggbcisggoac0oaccoasmfmgy7p7ehctkvole4jumdrlytqcc8Lezzczmonjodphfzzxvtzyykaaerjtindqs8po+rf40gnjbdkv8Lqd2jpbyoacqaeoamsk7sumxkgscc+Vvqquatwvb1Ubrdyuly7Pagbguzljh6Qbymjaecjumigzemvdsjzcflnxxtajbbccqq0Mwauvwdeqnugadvhbqgnj3Kaalygabeaakynamob4Groglfftbpb3Aexcwabt0xnm9zsyhc9wasmckhwdq8Zc8ielzhb7Bo3zczmy7Ayzeg-Fg0Huis58D0Ii8Aoztjzggfsrxavadlqahjhaa5Sasavbfqaew+Zf2gldwkgx1Qjgurmkefatgtolgwh0Kaqibhwiudokkuiigmhbx3Rybc43Ccjsaa)
-
-#### Ruby on Rails
-- [**Guides**](https://guides.rubyonrails.org/)
-- [**API**](https://api.rubyonrails.org/)
+## *Interviews*
+- [**Skill Progression Tools**](interviews/skill.md#skills)
+- [**Interviewing Resources**](interviews/skill.md#interviewing)
 
 
 
-
-## *Frontend / GUI*
-
-#### Template Engine
-- [**Mustache**](https://mustache.github.io/)
-- [**Jade**](template-engines/jade-guide.md)
-  - [api](https://jade-lang.com/api)
-  - [language Reference](https://jade-lang.com/reference)
-- [**Jinja**](template-engines/jinja-guide.md)
-  - [api](https://jinja.palletsprojects.com/en/3.0.x/api/)
-  - [docs](https://svn.python.org/projects/external/Jinja-1.2/docs/html/index.html)
-  - [template designer](https://jinja.palletsprojects.com/en/3.0.x/templates/)
-- [**Ejs**](https://ejs.co/)
-- [**Underscore**](https://underscorejs.org/)
-- [**Handlebars**](https://handlebarsjs.com/)
-
-
-#### Layout Engines
-- [**Webkit**](https://webkit.org/web-inspector/)
-- [**Gecko**](https://wiki.mozilla.org/Gecko:Overview)
-  - [source repo](https://github.com/mozilla/gecko-dev)
-
-
-#### Static Site Generators
-- [**Jekyll**](https://jekyllrb.com/docs/)
-  - [**jekyll on rails**](https://www.sitepoint.com/jekyll-rails/)
-  - [**jekyll with react**](https://medium.com/@allizadrozny/using-webpack-and-react-with-jekyll-cfe137f8a2cc)
-
-
-#### Css Frameworks
-- [**Bootstrap**](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
-  - [mdbootstrap](https://mdbootstrap.com/docs/standard/layout/grid/)
-    - [*playground*](https://mdbootstrap.com/snippets/)
-- [**Yaml**](https://github.com/yaml)
-- [**Sass**](https://sass-lang.com/guide)
-- [**CSS Interview Questions and Answers***](css/css-interview-questions.md)
-
-#### Markup
-- [**HTML**](html/html-tricks.md)
-  - [emmet cheatsheet](html/html-tricks.md#emmet)
-  - [emmet docs](https://docs.emmet.io/)
-  - [html interview questions and answers***](html/html-interview-questions.md)
-- [**Markdown**](markdown/markdown.md)
-- [**Css**](css/css-tricks.md)
-  - [shorthand references](css/shorthand-reference.md)
-- [**Latex**](latex/latex-guide.md)
-- [**Xml**](https://www.w3schools.com/xml/)
-- [**Haml**](haml/haml-guide.md)
-
-
-#### Design & Media Assets
-- [**Design Resources Collection**](design-assets/design-resources.md)
-- [**Html Templates**](design-assets/html-templates.md)
-- [**Colors**](https://github.com/trevor-reznik/guides/blob/master/colors)
-  - [color websites](colors/color-websites.md)
-  - [mixing guide](colors/mixing-guide.md)
-  - [term colors](colors/term-colors.md)
-- [**Windows 95 UI Kit**](https://github.com/themesberg/windows-95-ui-kit)
 
 ## *Miscellaneous* 
 

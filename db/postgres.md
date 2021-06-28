@@ -1,39 +1,70 @@
-
-
 # Postgres
 
-### Init
+<a name="table-of-contents"/>
+
+
+##### Table of Contents
+- [**New DB**](#new-db)
+- [**Credentials**](#credentials)
+- [**Config File**](#config-file)
+    - [**Peer Authentification**](#peer-authentification)
+- [**Usage**](#usage)
+    - [**Createdb**](#createdb)
+
+
+
+<a name="new-db"/>
+
+### New Database Setup
+
+[Guide - Creating a psql DB](https://www.postgresql.org/docs/7.4/tutorial-createdb.html)
+
+[createdb docs](https://www.postgresql.org/docs/9.1/app-createdb.html)
+
+1. install
 
 ```bash
-# install
 apt-get update
 apt-get install postgresql
-psql -U postgres
-# enter password -> nested shell
-postgres-# createdb -O postgres $DB_NAME
-postgres-# psql -U postgres -h 127.0.0.1 $DB_NAME
+```
+
+2. create user (optional)
+
+```bash
+sudo -u postgres createuser --interactive -P $USERNAME
+Enter password for new role:
+Enter it again:
+Shall the new role be a superuser? (y/n) n
+Shall the new role be allowed to create databases? (y/n) y
+Shall the new role be allowed to create more new roles? (y/n) n
+```
+
+3. create db
+
+```bash
+sudo -u postgres createdb -O $USERNAME $DB_NAME
+sudo -u postgres psql -U $USERNAME -h 127.0.0.1 $DB_NAME
+```
+
+4. monitor interactively
+```bash
+psql -u $USERNAME
 ```
 
 
-### Credentials
+<a name="credentials"/>
+
+## Credentials
 
 ```bash
 $ sudo -u postgres psql
-```
-
-Then:
-
-```bash
 \password postgres
-```
-
-Then to quit psql:
-
-```bash
 \q
 ```
 
-### Config File
+<a name="config-file"/>
+
+## Config File
 
 
 ###### Location 
@@ -46,6 +77,7 @@ After altering this file, don't forget to restart your PostgreSQL server. If you
 
 These are brief descriptions of both options according to the official PostgreSQL docs on authentication methods.
 
+<a name="peer-authentification"/>
 
 ###### Peer Authentification 
 
@@ -66,15 +98,17 @@ local   all             postgres                                md5
 
 
 
-### createdb
+<a name="usage"/>
 
-createdb -- create a new PostgreSQL database
+## Usage
+
+<a name="createdb"/>
+
+**createdb** -- create a new PostgreSQL database
 
 ```bash
 createdb [connection-option...] [option...] [dbname] [description]
 ```
-
-###### Description
 createdb creates a new PostgreSQL database.
 
 Normally, the database user who executes this command becomes the owner of the new database. However, a different owner can be specified via the -O option, if the executing user has appropriate privileges.
