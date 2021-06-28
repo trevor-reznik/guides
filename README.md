@@ -195,6 +195,7 @@
 
 
 ## *Javascript*
+- [**Async**](js/async.md)
 - [**Old Notes**](js/js-guide.md)
 - [**Reference Sheet**](js/javascript-w3-guide.docx)
 - [**JS Interview Questions and Answers***](js/js-interview-questions.md)

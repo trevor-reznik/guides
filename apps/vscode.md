@@ -9,6 +9,12 @@
 
 <a name="custom-hotkeys"/>
 
+
+comment out block
+
+`Ctrl` + `/`
+
+
 ### Custom Hotkeys
 
 split down

@@ -145,11 +145,11 @@ touch src/constants.ts
 vim !:!
 ```
 
-```javascript
+```typescript
 export const __prod__ = process.env.NODE_ENV === "production"
 ```
 
-```javascript
+```typescript
 import { __prod__ } from "./constants";
 ```
 
@@ -160,7 +160,7 @@ mkdir src/entities
 touch !:!/Post.ts
 ```
 
-```javascript
+```typescript
 import { Post } from "./entities/Post";
 
     const orm = await MikroORM.init({
@@ -169,7 +169,7 @@ import { Post } from "./entities/Post";
 
 ./entities/Post
 
-```javascript
+```typescript
 import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
 
 /*
@@ -200,14 +200,14 @@ export class Post {
 
 ./index.ts
 
-```javascript
+```typescript
 // em = entitiy manager
 // create(EntityName, Data-Obj)
 const post = orm.em.create(Post, {})
 ```
 **Insert Posts into DB**
 
-```javascript
+```typescript
 // Persists your entity immediately, flushing all not yet persisted changes to 
 // the database too. Equivalent to em.persist(e).flush().
 orm.em.persistAndFlush(post);
@@ -218,7 +218,7 @@ orm.em.persistAndFlush(post);
 ```bash
 npx mikro-orm
 ```
-```javascript
+```typescript
 // ./package.json
 // indicate locatino of config for ts
 {
@@ -238,7 +238,7 @@ touch ./src/mikro-orm.config.ts
 vim !:1
 ```
 
-```javascript
+```typescript
 import { __prod__ } from "./constants";
 import { Post } from "./entities/Post";
 import { MikroORM } from "@mikro-orm/core";
@@ -253,7 +253,7 @@ export default {
 } as Parameters<typeof MikroORM.init>[0];
 ```
 
-```javascript
+```typescript
 // ./index.ts
 import microConfig from "./mikro-orm.config";
 
@@ -264,7 +264,7 @@ import microConfig from "./mikro-orm.config";
 
 [mikro-orm migrations configuration](https://mikro-orm.io/docs/migrations/#configuration)
 
-```javascript
+```typescript
 // ./mikro-orm.config.ts
 import path from "path";
 
@@ -280,7 +280,7 @@ npx mikro-orm migration:create        # creates migrations folder ->
                                       # the sql used to create the table is in that folder
 ```
 
-```javascript
+```typescript
 // ./index.ts
 // Run migrations before doing anything else.
 const main = async () => {
@@ -288,7 +288,371 @@ const main = async () => {
     await orm.getMigrator().up();
 ```
 
+**Express**
 
+```bash
+npm install express  
+npm install @types/express
+```
+
+```typescript
+import express from "express"
+
+const app = express();
+app.get("/", (req, res) => {
+
+})
+
+app.listen(4000, () => {
+
+});
+```
+
+**Graphql Schemas & Apollo Server**
+
+```bash
+npm install graphql type-graphql
+npm install apollo-server-express
+npm install reflect-metadata
+```
+
+```typescript
+import "reflect-metadata";
+import { ApolloServer } from "apollo-server-express"
+import { buildSchema } from "type-graphql"
+
+const apolloServer = new ApolloServer({
+  schema: await buildSchema()
+});
+```
+
+```bash
+mkdir src/resolvers
+touch !:1/hello.ts
+```
+Add graphql Query
+
+```typescript
+// hello.ts
+import { Resolver, Query } from "type-graphql";
+
+
+// Add functions that will be either mutations or queries
+@Resolver()
+export class HelloResolver {
+    // Declare what query returns
+    @Query(() => String)
+    hello() {
+        return "hello world"
+    }
+};
+```
+
+Add options arg to buildSchema()
+
+```typescript
+import { HelloResolver } from "./resolvers/hello";
+
+const app = express();
+const apolloServer = new ApolloServer({
+  schema: await buildSchema({
+    resolvers : [HelloResolver],
+    validate: false
+  })
+});
+```
+
+Create graphql endpoint by passing express middleware
+
+```typescript
+apolloServer.applyMiddleware({ app });
+```
+
+Enter graphql playground devtool to test queries and mutations
+
+```bash
+xdg-open http://localhost:4000/graphql
+```
+
+```sql
+# query:
+{
+  hello
+}
+
+# res:
+{
+  "data": {
+    "hello": "hello world"
+  }
+}
+```
+
+
+*Add new PostResolver*
+
+- Set entity type with decorators
+- Set field types with decorators
+
+```typescript
+// entities/entity.ts
+import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
+import { Field, Int, ObjectType } from "type-graphql";
+
+@ObjectType()
+@Entity()
+export class Post {
+    
+    @Field(() => Int)
+    @PrimaryKey()
+    id!: number;
+
+    @Field(() => String)
+    @Property({type: "date"})
+    createdAt = new Date();
+
+    @Field(() => String)
+    @Property({ type: "date", onUpdate: () => new Date() })
+    updatedAt = new Date();
+
+    @Field(() => String)
+    @Property({ type: "text" })
+    title!: string;
+}
+```
+
+- Add the resolver to resolvers property in schema
+- use context obj of ApolloServer obj to make orm accessible to resolvers so they can access db
+  - context: obj accessible by all resolvers, function that returns object for context. Can also get req and res from Express
+
+
+```typescript
+import { PostResolver } from "./resolvers/post";
+
+const main = async () => {
+    const orm = await MikroORM.init(microConfig);
+    await orm.getMigrator().up();
+    
+    const app = express();
+    const apolloServer = new ApolloServer({
+      schema: await buildSchema({
+        resolvers : [HelloResolver, PostResolver],
+        validate: false
+      }),
+      context: () => ({ em: orm.em })
+    });
+```
+
+- Create resolver
+
+```typescript
+// resolvers/post.ts
+import { Post } from "../entities/Post";
+import { Resolver, Query, Ctx } from "type-graphql";
+
+
+@Resolver()
+export class PostResolver {
+    @Query(() => [Post])
+    posts(
+        @Ctx() ctx: MyContext
+    ) {
+        return ...
+    }
+};
+```
+- Create what the context type will be
+- Create a types file to export the type of the ApolloServer.context object
+
+```bash
+touch src/resolvers/types.ts
+```
+
+```typescript
+export type MyContext {
+  em: 
+}
+```
+
+- Hover over the context's value/obj to see type and then export that as context type
+
+
+```typescript
+import { EntityManager, IDatabaseDriver, Connection } from "@mikro-orm/core";
+
+export type MyContext = {
+    em: EntityManager<IDatabaseDriver<Connection>>
+}
+```
+
+- Import context type
+- access em through ctx
+- use em (entity mamanger) of mikro-orm to access posts and return promise of posts
+
+
+```typescript
+// resolvers/post.ts
+import { MyContext } from "./types";
+
+@Resolver()
+export class PostResolver {
+    @Query(() => [Post])
+    posts(
+        @Ctx() ctx: MyContext
+    ) {
+        return ctx.em.find(Post, {});
+    }
+};
+```
+- Destructure ctx
+- Explicitly set type of posts return obj so resolver also has type checking
+
+```typescript
+@Resolver()
+export class PostResolver {
+    @Query(() => [Post])
+    posts(
+        @Ctx() { em }: MyContext): Promise<Post[]> {
+        return em.find(Post, {});
+    }
+};
+```
+
+```bash
+npm run dev
+npm run watch
+xdg-open http://localhost:4000/graphql
+```
+
+```sql
+# query
+{
+  posts {
+    id
+    createdAt
+    updatedAt
+    title
+  }
+}
+
+# res
+{
+  "data": {
+    "posts": [
+      {
+        "id": 1,
+        "createdAt": "1624754629000",
+        "updatedAt": "1624754629000",
+        "title": "my first post"
+      }
+  }
+}
+```
+
+*Add single param query to resolver*
+
+- Add new query with an arg
+- Update types
+
+```javascript
+  // Update return type. by passing positional options object and setting nullable property to true  
+  // Post no longer iterable
+  @Query(() => Post, { nullable: true })
+  post(
+    // @Arg         for typegraphql (name of arg, type)
+    // Int          graphql type
+    // id: number   set ts type
+    @Arg("id", () => Int) id: number, 
+    @Ctx() { em }: MyContext
+    // Update Promise type to be Post or null   
+  ): Promise<Post | null> {
+    // findOne method to find single
+    return em.findOne(Post, { id });
+  }
+```
+
+```sql
+# query 
+{
+  post(id:1) {
+    title
+    createdAt
+  }
+}
+
+# res
+{
+  "data": {
+    "post": {
+      "title": "my first post",
+      "createdAt": "1624754629000"
+    }
+  }
+}
+```
+
+
+
+*Add Mutations*
+
+```typescript
+  // Can still return a post from creating a post
+  // Never return null from creating a post so remove from type
+  @Mutation(() => Post)
+
+  // Name mutation obj, use async and await
+  async createPost(
+
+    // Create args
+    //    First arg in Arg() determines key in graphql
+    // Set type for the arg in graphql:
+    //    () => String
+    // Set the type for ts
+    //    title: string,
+    @Arg("title", () => String) title: string,
+    // for optional arg:
+    //    () => String, { nullable: true }
+
+    @Ctx() { em }: MyContext
+
+    // Update Promise type
+  ): Promise<Post> {
+    // Use same logic as before
+    //    access entity manager object of mikro-orm obj
+    //        declare post with create method
+    //        persist and flush
+    const post = em.create(Post, {title});
+    await em.persistAndFlush(post);
+    
+    return post
+  }
+```
+
+```sql
+# query
+
+# graphql splits queries and mutations
+mutation {
+  createPost(title: "hello world") {
+    id
+    createdAt
+  }
+}
+
+# res
+{
+  "data": {
+    "createPost": {
+      "id": 15,
+      "createdAt": "1624853371001"
+    }
+  }
+}
+```
+
+--------------------------
+
+<a name="website"/>
 
 ### Website
 
