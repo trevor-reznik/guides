@@ -1,4 +1,4 @@
-# New Project
+# New Empty Repo
 
 
 ```bash
@@ -21,15 +21,6 @@ git push -u origin master
 ```
 
 
-
-## Python
-
-```bash
-python -m venv env
-touch requirements.txt
-pip3 install $DEPENDENCIES
-echo "$DEPENDENCIES" >> requirements.txt
-```
 
 
 ## Node
@@ -388,9 +379,6 @@ xdg-open http://localhost:4000/graphql
 }
 ```
 
-
-*Add new PostResolver*
-
 - Set entity type with decorators
 - Set field types with decorators
 
@@ -421,6 +409,9 @@ export class Post {
 }
 ```
 
+<a name="apollo-context"/>
+
+*Context object* 
 - Add the resolver to resolvers property in schema
 - use context obj of ApolloServer obj to make orm accessible to resolvers so they can access db
   - context: obj accessible by all resolvers, function that returns object for context. Can also get req and res from Express
@@ -443,7 +434,10 @@ const main = async () => {
     });
 ```
 
-- Create resolver
+<a name="mikroorm-crud"/>
+
+**CRUD with Mikro-orm:** *Create CRUD Resolvers*
+
 
 ```typescript
 // resolvers/post.ts
@@ -484,6 +478,10 @@ export type MyContext = {
     em: EntityManager<IDatabaseDriver<Connection>>
 }
 ```
+
+<a name="crud-read"/>
+
+*Add Query:* **Read**
 
 - Import context type
 - access em through ctx
@@ -549,7 +547,7 @@ xdg-open http://localhost:4000/graphql
 }
 ```
 
-*Add single param query to resolver*
+**Read**: *single param query*
 
 - Add new query with an arg
 - Update types
@@ -593,7 +591,7 @@ xdg-open http://localhost:4000/graphql
 
 
 
-*Add Mutations*
+*Add Mutations:* **create**
 
 ```typescript
   // Can still return a post from creating a post
@@ -629,7 +627,7 @@ xdg-open http://localhost:4000/graphql
 ```
 
 ```sql
-# query
+# mutation
 
 # graphql splits queries and mutations
 mutation {
@@ -649,6 +647,92 @@ mutation {
   }
 }
 ```
+
+*Add Mutations:* **update**
+
+```typescript
+  // May return null -> update type
+  @Mutation(() => Post, { nullable: true })
+  async updatePost(
+    @Arg("id", () => Int) id: number,
+    // in graphql type, pass options object with nullable property set to true 
+    // (indicating that title is an optional param)
+    @Arg("title", () => String, { nullable: true }) title: string,
+    @Ctx() { em }: MyContext
+  ): Promise<Post | null> {
+    // Await post query from entity manager
+    const post = await em.findOne(Post, { id });
+    if (!post) {
+        return null
+    }
+    // If title arg was passed, update title property of queried post  
+    if (typeof title !== "undefined" ) {
+        post.title = title;
+        await em.persistAndFlush(post);
+    }
+    return post
+  }
+```
+
+```sql
+# mutation
+mutation {
+  updatePost(id:1, title:"hi"){
+    id
+    title
+    createdAt
+    updatedAt
+  }
+}
+
+# res
+{
+  "data": {
+    "updatePost": {
+      "id": 1,
+      "title": "hi",
+      "createdAt": "1624754629000",
+      "updatedAt": "1624854278123"
+    }
+  }
+}
+```
+
+*Add Mutations:* **delete**
+
+
+```typescript
+  @Mutation(() => Boolean)
+  async deletePost(
+    @Arg("id", () => Int) id: number,
+    @Ctx() { em }: MyContext
+  ): Promise<boolean> {
+    await em.nativeDelete(Post, { id });
+    return true;
+  }
+```
+
+```sql
+# mutation
+mutation {
+  deletePost(id:1)
+}
+
+# res
+{
+  "data": {
+    "deletePost": true
+  }
+}
+```
+
+
+
+
+
+
+
+
 
 --------------------------
 

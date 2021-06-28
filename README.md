@@ -80,7 +80,8 @@
 ## *Git*
 - [**Git Guide**](git/git.md)
 - [**Github Pages Process**](git/github-pages.md)
-- [**New Project Checklist**](git/new-project.md)
+- [**New Repo Creation**](git/new-project.md)
+
 
 
 ## *Package Managers*
@@ -111,7 +112,7 @@
 - [**Style Guidelines**](python/python-style.md)
 - [**Python Builtin Functions**](python/python-builtin-functions.md)
 - [**Modules Reference**](python/python-modules-reference.md)
-
+- [**New Project Checklist**](python/new-project-checklist.md)
 
 
 
