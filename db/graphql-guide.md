@@ -502,3 +502,46 @@ mutation {
   }
 }
 ```
+
+
+<a name="input-classes"/>
+
+
+## Input Classes
+
+
+1. create input class
+2. decorate with @InputType()
+3. decoreate fields with @Field()
+
+
+```typescript
+@InputType()
+class UsernamePasswordInput {
+  @Field()
+  username: string
+  @Field()
+  password: string
+}
+```
+
+4. pass class to @Arg decorate in mutation method
+
+```typescript
+@Resolver()
+export class UserResolver {
+  @Mutation(() => String)
+  register(
+    @Arg("options", () => UsernamePasswordInput ) options: UsernamePasswordInput
+  ); {
+    options.password = ...
+    options.username = ...
+  }
+}
+```
+
+
+
+<a name="hashed-passwords"/>
+
+https://youtu.be/I6ypD7qv3Z8?t=4765

@@ -53,7 +53,7 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 <a name="table-of-contents"/>
 
 
-[Public APIS](https://github.com/public-apis/public-apis)
+[Public APIs](https://github.com/public-apis/public-apis)
 
 ## *Javascript*
 - [***New Project Checklists***](js/new-project-checklists.md)
@@ -137,7 +137,6 @@ python3 open_guide.py $FOLDER [$KEYWORD]
     - [*playground*](https://mdbootstrap.com/snippets/)
 - [*Yaml*](https://github.com/yaml)
 - [*Sass*](https://sass-lang.com/guide)
-- [*CSS Interview Questions and Answers**](css/css-interview-questions.md)
 
 **Markup**
 - [*HTML*](html/html-tricks.md)
@@ -147,6 +146,7 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 - [*Markdown*](markdown/markdown.md)
 - [*Css*](css/css-tricks.md)
   - [shorthand references](css/shorthand-reference.md)
+  - [CSS interview questions](css/css-interview-questions.md)
 - [*Latex*](latex/latex-guide.md)
 - [*Xml*](https://www.w3schools.com/xml/)
 - [*Haml*](haml/haml-guide.md)

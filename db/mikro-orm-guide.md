@@ -72,6 +72,8 @@ import { Post } from "./entities/Post";
         entities: "[POST]",
 ```
 
+<a name="create-entity"/>
+
 8. Declare entity in ./entities/Post.ts
 
 ```typescript
@@ -215,4 +217,10 @@ npx mikro-orm migration:create        # creates migrations folder ->
 const main = async () => {
     const orm = await MikroORM.init(microConfig);
     await orm.getMigrator().up();
+```
+
+###### Create script to automate migration creation
+
+```json
+    "create:migration" : "mikro-orm migration:create"
 ```
