@@ -15,4 +15,5 @@
 6. [Mikro-orm setup](../db/mikro-orm-guide.md#setup-checklist)
 7. [Express setup](../js/express-guide.md#setup)
 8. [GraphQL setup](../db/graphql-guide.md#setup)
+8. **Terminal 6** `npm run create:migration`
 9. **Window 6** `xdg-open http://localhost:port/graphql`

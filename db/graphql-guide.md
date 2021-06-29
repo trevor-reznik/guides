@@ -519,15 +519,15 @@ https://youtu.be/I6ypD7qv3Z8?t=4765
 
 ## Resolver Error Handling Options
 
-###### using mikro-orm entity manager `em`
+#### using mikro-orm entity manager `em`
 
 ```typescript
 (em.findOrFail(Entity, { data }) > false) | object;
 ```
 
-###### creating custom `Error` classes
+#### creating custom `Error` classes
 
-2. decorate Error class with grapql's `ObjectType()`
+1. decorate Error class with grapql's `ObjectType()`
 
 ```typescript
 // can return ObjectType() in mutations/queries, use InputType() for inputs
@@ -535,9 +535,9 @@ https://youtu.be/I6ypD7qv3Z8?t=4765
   class FieldError {
 ```
 
-3. decorate fields
-4. include property which indicates which field caused the error
-5. include property that relays error msg in human-readable
+2. decorate fields
+2. include property which indicates which field caused the error
+2. include property that relays error msg in human-readable
 
 ```typescript
     @Field
@@ -547,13 +547,13 @@ https://youtu.be/I6ypD7qv3Z8?t=4765
   }
 ```
 
-6. Update mutation return type
+5. Update mutation return type
 
 ```typescript
-  @Mutation(() => mutationNameResponse || Error)
+  @Mutation(() => mutationNameResponse || ErrorName )
 ```
 
-7. return `FieldError` on error condition
+6. return `FieldError` on error condition
 
 ```typescript
   async fname(
@@ -570,7 +570,7 @@ https://youtu.be/I6ypD7qv3Z8?t=4765
   }
 ```
 
-###### creating dynamic return object
+#### creating dynamic return object
 
 1. use `@Field` decorator for kv
 2. use `?` after variable for optional params
@@ -587,10 +587,12 @@ class mutationNameResponse {
 ```
 
 3. set graphql type
-4. nullable is true for optional param
+3. [obj] and obj[] for array types
+3. nullable is true for optional param
 
 ```typescript
-    @Field(() => Error, { nullable: true })
+  ... {
+    @Field(() => [ErrorName], { nullable: true })
     errors?: ErrorName[];
 
     @Field(() => EntityNameclass, { nullable: true })
@@ -598,16 +600,16 @@ class mutationNameResponse {
   }
 ```
 
-5. update query's return type
+6. update query's return type
 
 ```typescript
   @Mutation(() => mutationNameResponse)
 ```
 
-6. return `ErrorName` on error condition
+7. return `ErrorName`, `null` on error condition
+8. (return `null`, `resObject` on success)
 
 ```typescript
-...
   async fname(
     @Ctx() { em }: MyContext
   ) {
@@ -616,15 +618,14 @@ class mutationNameResponse {
         errors: [{
           field: "fieldName",
           message: "error message to user"
-        }]
-      }
-    };
-    return mutationNameResponse;
-  }
-...
+          },
+        ],
+        // null
+      };
+    }
 ```
 
-7. create other error types
+8. create other error types
 
 
 ```typescript
@@ -632,10 +633,73 @@ class mutationNameResponse {
       return {
         errors: [{
           message: "$MESSAGE"
-        }]
-      }
-    };
-    ...
+          },
+        ],
+      };
+    }
 ```
 
+9. return `null`, `mutationNameResponse` on success
 
+```typescript
+    if (!secondCondition) {
+      return {
+        errors: [{
+          message: "$MESSAGE"
+          },
+        ],
+      };
+    }
+    else {
+      return {
+        // null,
+        mutationNameResponse,
+      };
+    };
+```
+###### Example
+
+```typescript
+@ObjectType()
+class FieldError {
+  @Field()
+  field: string;
+  @Field()
+  message: string;
+}
+
+@ObjectType()
+class UpdateTagRes {
+  @Field(() => [FieldError], { nullable: true })
+  errors?: FieldError[];
+  @Field(() => Video, { nullable: true })
+  video?: Video;
+}
+
+@Resolver()
+export class VideoResolver {
+  @Mutation(() => UpdateTagRes)
+  async updateCategory(
+    @Arg("id", () => Int) id: number,
+    @Arg("creator", () => String) creator: string,
+    @Ctx() { em }: MyContext
+  ) {
+    const video = await em.findOne(Video, { id });
+    if (!video) {
+      return {
+        errors: [
+          {
+            field: "creator",
+            message: "creator name invalid",
+          },
+        ],
+      };
+    }
+    video.creator = creator;
+    em.persistAndFlush(video);
+    return {
+      video,
+    };
+  }
+}
+```
