@@ -1,30 +1,26 @@
-
 # GraphQL
 
 <a name="table-of-contents"/>
 
-
 ##### Table of Contents
+
 - [**Setup**](#setup)
-    - [Build Schema](#build-schema)
-    - [Create Resolvers](#create-resolvers)
-    - [Pass Middleware](#pass-middleware)
-    - [Entity Type](#entity-type)
-    - [Field Types](#field-types)
-    - [Apollo Context](#apollo-context)
+  - [Build Schema](#build-schema)
+  - [Create Resolvers](#create-resolvers)
+  - [Pass Middleware](#pass-middleware)
+  - [Entity Type](#entity-type)
+  - [Field Types](#field-types)
+  - [Apollo Context](#apollo-context)
 - [**Create**](#create)
 - [**Read**](#read)
 - [**Update**](#update)
 - [**Delete**](#delete)
 
-
-
 <a name="setup"/>
-
 
 ## Setup with ApolloServer
 
-1. install
+1. `install`
 
 ```bash
 npm install graphql type-graphql
@@ -32,14 +28,13 @@ npm install apollo-server-express
 npm install reflect-metadata
 ```
 
-2. import
+2. `import`
 
 ```typescript
 import "reflect-metadata";
-import { ApolloServer } from "apollo-server-express"
-import { buildSchema } from "type-graphql"
+import { ApolloServer } from "apollo-server-express";
+import { buildSchema } from "type-graphql";
 ```
-
 
 <a name="build-schema"/>
 
@@ -47,7 +42,7 @@ import { buildSchema } from "type-graphql"
 
 ```typescript
 const apolloServer = new ApolloServer({
-  schema: await buildSchema()
+  schema: await buildSchema(),
 });
 ```
 
@@ -59,25 +54,25 @@ const apolloServer = new ApolloServer({
 mkdir src/resolvers
 touch !:1/$(RESOLVER_NAME).ts
 ```
+
 5. create Resolver and Query
 
 ```typescript
 // $RESOLVER_NAME.ts
 import { Resolver, Query } from "type-graphql";
 
-
 // Add functions that will be either mutations or queries
 @Resolver()
 export class HelloResolver {
-    // Declare what query returns
-    @Query(() => String)
-    hello() {
-        return "hello world"
-    }
-};
+  // Declare what query returns
+  @Query(() => String)
+  hello() {
+    return "hello world";
+  }
+}
 ```
 
-5. add options arg to buildSchema() and pass Resolver
+5. add options arg to `buildSchema()` and pass Resolver
 
 ```typescript
 import { HelloResolver } from "./resolvers/hello";
@@ -85,12 +80,11 @@ import { HelloResolver } from "./resolvers/hello";
 const app = express();
 const apolloServer = new ApolloServer({
   schema: await buildSchema({
-    resolvers : [HelloResolver],
-    validate: false
-  })
+    resolvers: [HelloResolver],
+    validate: false,
+  }),
 });
 ```
-
 
 <a name="pass-middleware"/>
 
@@ -144,37 +138,34 @@ import { Field, Int } from "type-graphql";
 @ObjectType()
 @Entity()
 export class Post {
-    
-    @Field(() => Int)
-    @PrimaryKey()
-    id!: number;
+  @Field(() => Int)
+  @PrimaryKey()
+  id!: number;
 
-    @Field(() => String)
-    @Property({ type: "date", onUpdate: () => new Date() })
-    updatedAt = new Date();
+  @Field(() => String)
+  @Property({ type: "date", onUpdate: () => new Date() })
+  updatedAt = new Date();
 
-    @Field(() => String)
-    @Property({ type: "text" })
-    title!: string;
+  @Field(() => String)
+  @Property({ type: "text" })
+  title!: string;
 }
 ```
 
-
 <a name="apollo-context"/>
 
-
-10. assign resolver name to ApolloServer instance's resolvers property
-11. use context obj of ApolloServer instance to make orm accessible to resolvers so they can access db
+10. assign resolver name to `ApolloServer` instance's `resolvers` property
+11. use `context` obj of `ApolloServer` instance to make orm accessible to resolvers so they can access db
 
 ```typescript
 import { PostResolver } from "./resolvers/post";
 
-// context: obj accessible by all resolvers, function that returns object for context. 
+// context: obj accessible by all resolvers, function that returns object for context.
 //          Can also get req and res from Express
 const main = async () => {
     const orm = await MikroORM.init(microConfig);
     await orm.getMigrator().up();
-    
+
     const app = express();
     const apolloServer = new ApolloServer({
       schema: await buildSchema({
@@ -184,7 +175,6 @@ const main = async () => {
       context: () => ({ em: orm.em })
     });
 ```
-
 
 12. access context in query
 
@@ -214,7 +204,7 @@ vim !:1
 
 ```typescript
 export type MyContext {
-  em: ...  
+  em: ...
 }
 ```
 
@@ -224,8 +214,8 @@ export type MyContext {
 import { EntityManager, IDatabaseDriver, Connection } from "@mikro-orm/core";
 
 export type MyContext = {
-    em: EntityManager<IDatabaseDriver<Connection>>
-}
+  em: EntityManager<IDatabaseDriver<Connection>>;
+};
 ```
 
 14. Import context type
@@ -235,35 +225,31 @@ export type MyContext = {
 import { MyContext } from "./types";
 ```
 
-
-15. access em (entity manager obj of mikro-orm) in query method through ctx
-16. use em access posts and return promise of posts
+15. access `em` (entity manager obj of mikro-orm) in query method through `ctx`
+16. use `em` access `Post`s and return `Promise` of posts
 
 ```typescript
 @Resolver()
 export class PostResolver {
-    @Query(() => [Post])
-    posts(
-        @Ctx() ctx: MyContext
-    ) {
-        return ctx.em.find(Post, {});
-    }
-};
+  @Query(() => [Post])
+  posts(@Ctx() ctx: MyContext) {
+    return ctx.em.find(Post, {});
+  }
+}
 ```
+
 17. Destructure ctx
 18. Explicitly set type of posts return obj so resolver also has type checking
 
 ```typescript
 @Resolver()
 export class PostResolver {
-    @Query(() => [Post])
-    posts(
-        @Ctx() { em }: MyContext): Promise<Post[]> {
-        return em.find(Post, {});
-    }
-};
+  @Query(() => [Post])
+  posts(@Ctx() { em }: MyContext): Promise<Post[]> {
+    return em.find(Post, {});
+  }
+}
 ```
-
 
 19. test: open graphql playground
 
@@ -301,27 +287,21 @@ xdg-open http://localhost:4000/graphql
 }
 ```
 
-
-
-
-
-
 <a name="read"/>
 
 ## Read
 
-
 ```javascript
-  // Update return type. by passing positional options object and setting nullable property to true  
+  // Update return type. by passing positional options object and setting nullable property to true
   // Post no longer iterable
   @Query(() => Post, { nullable: true })
   post(
     // @Arg         for typegraphql (name of arg, type)
     // Int          graphql type
     // id: number   set ts type
-    @Arg("id", () => Int) id: number, 
+    @Arg("id", () => Int) id: number,
     @Ctx() { em }: MyContext
-    // Update Promise type to be Post or null   
+    // Update Promise type to be Post or null
   ): Promise<Post | null> {
     // findOne method to find single
     return em.findOne(Post, { id });
@@ -329,7 +309,7 @@ xdg-open http://localhost:4000/graphql
 ```
 
 ```sql
-# query 
+# query
 {
   post(id:1) {
     title
@@ -348,14 +328,9 @@ xdg-open http://localhost:4000/graphql
 }
 ```
 
-
-
-
-
 <a name="create"/>
 
 ## Create
-
 
 ```typescript
   // Can still return a post from creating a post
@@ -385,7 +360,7 @@ xdg-open http://localhost:4000/graphql
     //        persist and flush
     const post = em.create(Post, {title});
     await em.persistAndFlush(post);
-    
+
     return post
   }
 ```
@@ -412,20 +387,16 @@ mutation {
 }
 ```
 
-
-
-
 <a name="update"/>
 
 ## Update
-
 
 ```typescript
   // May return null -> update type
   @Mutation(() => Post, { nullable: true })
   async updatePost(
     @Arg("id", () => Int) id: number,
-    // in graphql type, pass options object with nullable property set to true 
+    // in graphql type, pass options object with nullable property set to true
     // (indicating that title is an optional param)
     @Arg("title", () => String, { nullable: true }) title: string,
     @Ctx() { em }: MyContext
@@ -435,7 +406,7 @@ mutation {
     if (!post) {
         return null
     }
-    // If title arg was passed, update title property of queried post  
+    // If title arg was passed, update title property of queried post
     if (typeof title !== "undefined" ) {
         post.title = title;
         await em.persistAndFlush(post);
@@ -468,15 +439,9 @@ mutation {
 }
 ```
 
-
-
-
-
 <a name="delete"/>
 
 ## Delete
-
-
 
 ```typescript
   @Mutation(() => Boolean)
@@ -503,29 +468,25 @@ mutation {
 }
 ```
 
-
 <a name="input-classes"/>
-
 
 ## Input Classes
 
-
 1. create input class
-2. decorate with @InputType()
-3. decoreate fields with @Field()
-
+2. decorate with `@InputType()`
+3. decoreate fields with `@Field()`
 
 ```typescript
 @InputType()
 class UsernamePasswordInput {
   @Field()
-  username: string
+  username: string;
   @Field()
-  password: string
+  password: string;
 }
 ```
 
-4. pass class to @Arg decorate in mutation method
+4. pass class to `@Arg` decorate in mutation method
 
 ```typescript
 @Resolver()
@@ -540,8 +501,141 @@ export class UserResolver {
 }
 ```
 
+<a name="credentials"/>
 
+## Credentials
+
+.
+
+.
 
 <a name="hashed-passwords"/>
 
+#### Password Hashing
+
 https://youtu.be/I6ypD7qv3Z8?t=4765
+
+<a name="resolver-error-handling"/>
+
+## Resolver Error Handling Options
+
+###### using mikro-orm entity manager `em`
+
+```typescript
+(em.findOrFail(Entity, { data }) > false) | object;
+```
+
+###### creating custom `Error` classes
+
+2. decorate Error class with grapql's `ObjectType()`
+
+```typescript
+// can return ObjectType() in mutations/queries, use InputType() for inputs
+  @ObjectType()
+  class FieldError {
+```
+
+3. decorate fields
+4. include property which indicates which field caused the error
+5. include property that relays error msg in human-readable
+
+```typescript
+    @Field
+    field: string;
+    @Field
+    message: string;
+  }
+```
+
+6. Update mutation return type
+
+```typescript
+  @Mutation(() => mutationNameResponse || Error)
+```
+
+7. return `FieldError` on error condition
+
+```typescript
+  async fname(
+    @Ctx() { em }: MyContext
+  ) {
+    if (!condition) {
+      return {
+        errors: [{
+          field: "fieldName",
+          message: "error message to user"
+        }]
+      }
+    };
+  }
+```
+
+###### creating dynamic return object
+
+1. use `@Field` decorator for kv
+2. use `?` after variable for optional params
+
+```typescript
+@ObjectType()
+class mutationNameResponse {
+  @Field()
+  errors?: ErrorName[];
+
+  @Field()
+  video?: EntityNameClass;
+}
+```
+
+3. set graphql type
+4. nullable is true for optional param
+
+```typescript
+    @Field(() => Error, { nullable: true })
+    errors?: ErrorName[];
+
+    @Field(() => EntityNameclass, { nullable: true })
+    video?: EntityNameClass;
+  }
+```
+
+5. update query's return type
+
+```typescript
+  @Mutation(() => mutationNameResponse)
+```
+
+6. return `ErrorName` on error condition
+
+```typescript
+...
+  async fname(
+    @Ctx() { em }: MyContext
+  ) {
+    if (!condition) {
+      return {
+        errors: [{
+          field: "fieldName",
+          message: "error message to user"
+        }]
+      }
+    };
+    return mutationNameResponse;
+  }
+...
+```
+
+7. create other error types
+
+
+```typescript
+    if (!secondCondition) {
+      return {
+        errors: [{
+          message: "$MESSAGE"
+        }]
+      }
+    };
+    ...
+```
+
+

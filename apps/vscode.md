@@ -7,6 +7,12 @@
 - [Command Palette](#command-palette)
 
 
+scrolling
+
+`Ctrl` + `ArrowKey`
+
+
+
 <a name="custom-hotkeys"/>
 
 
