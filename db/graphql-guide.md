@@ -632,6 +632,7 @@ class mutationNameResponse {
     if (!secondCondition) {
       return {
         errors: [{
+          field: "field",
           message: "$MESSAGE"
           },
         ],
@@ -645,6 +646,7 @@ class mutationNameResponse {
     if (!secondCondition) {
       return {
         errors: [{
+          field: "field",
           message: "$MESSAGE"
           },
         ],
@@ -703,3 +705,43 @@ export class VideoResolver {
   }
 }
 ```
+
+#### try catch
+
+```typescript
+try {
+  foo(bar)
+}
+catch (err) {
+  console.log(err.message)
+  return {
+    errors [
+      {
+      field: "field",
+      message: "field invalid",
+      },
+    ]
+  }
+}
+```
+
+
+```typescript
+try {
+  foo(bar)
+}
+catch (err) {
+  if ( err.code == "2305" || err.detail.includes("already exists") {
+    return {
+      errors [
+        {
+        field: "field",
+        message: "field invalid",
+        },
+      ]
+    }
+  }
+}
+```
+
+

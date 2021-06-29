@@ -94,7 +94,7 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 - [**ORMs**]()
   - [mikro-orm](db/mikro-orm-guide.md)
 - [**GraphQL**](db/graphql-guide.md)
-
+- [**Redis**](db/redis-guide.md)
 
 
 

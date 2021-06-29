@@ -17,3 +17,4 @@
 8. [GraphQL setup](../db/graphql-guide.md#setup)
 8. **Terminal 6** `npm run create:migration`
 9. **Window 6** `xdg-open http://localhost:port/graphql`
+10. [Redis setup](../db/redis-guide.md#setup)
