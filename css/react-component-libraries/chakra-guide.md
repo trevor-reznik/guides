@@ -56,14 +56,43 @@ rm components/$UNWANTED
 ```bash
 xdg-open https://chakra-ui.com/docs/getting-started
 
-xdg-open https://chakra-ui.com/docs/features/style-props
-
 xdg-open https://chakra-ui.com/docs/form/form-control
 xdg-open https://chakra-ui.com/docs/data-display/divider
 xdg-open https://chakra-ui.com/docs/media-and-icons/avatar
 ...
 ```
 
+
+
+
+<a name="style-props"/>
+
+## Style Props
+
+```bash
+xdg-open https://chakra-ui.com/docs/features/style-props
+```
+
+###### Wrapper Example
+
+
+
+
+
+```typescript
+import { Box } from "@chakra-ui/react";
+import React from "react";
+
+interface WrapperProps {}
+
+export const Wrapper: React.FC<WrapperProps> = ({ children }) => {
+  return (
+    <Box mt={8} mx="auto" maxW="800px" w="100%">
+      (children)
+    </Box>
+  );
+};
+```
 
 
 

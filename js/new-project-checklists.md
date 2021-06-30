@@ -20,6 +20,7 @@
 10. [Redis setup](../db/redis-guide.md#setup) and [Express-Session setup](../js/express-guide#session)
 11. [Chakra UI Bootstrap](../css/react-component-libraries/chakra-guide.md#setup)
 12. Get React Components
-12. [Typescript setup](../ts/ts-notes.md#setup) in new Chakra bootstrap folder
-13. [React setup ](../js/react-guide.md#new-project) -> [React pages]()
-14. [Next.js setup](../js/next-guide.md#setup) 
+12. [Typescript convers/setup](../ts/ts-notes.md#setup) in new Chakra bootstrap folder
+13. [React setup ](../js/react-guide.md#new-project) -> [React pages](../js/react-guide.md#pages)
+14. [Next.js setup](../js/next-guide.md#setup)
+
