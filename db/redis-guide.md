@@ -162,5 +162,21 @@ mutation {
 }
 ```
 
+14. add `me()` query to test if logged in
+
+```typescript
+@Resolver()
+export class UserResolver {
+  @Query(() => User, { nullable: true })
+  async me(@Ctx() { req, em }: MyContext) {
+    if (!req.session.userId) {
+      return null;
+    }
+    const uid = req.session.userId;
+    const user = await em.findOne(User, { id: uid });
+    return user;
+}
+```
 
 
+15.
