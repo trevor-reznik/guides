@@ -72,10 +72,11 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 - [***Node***](js/node-guide.md)
 - ***Frameworks 1***
   - [Vue](https://vuejs.org/v2/guide/)
-  - [React](https://reactjs.org/docs/getting-started.html)
+  - [React](js/react-guide.md)
+    - [getting started](https://reactjs.org/docs/getting-started.html)
   - [Angular](https://docs.angularjs.org/api)
+  - [Next](js/next-guide.md)
   - [Svelte]()
-  - [Next]()
 - ***Frameworks 2***
   - [Express](js/express-guide.md)
   - [Flask](python/flask-guide.md)
@@ -95,7 +96,7 @@ python3 open_guide.py $FOLDER [$KEYWORD]
   - [mikro-orm](db/mikro-orm-guide.md)
 - [**GraphQL**](db/graphql-guide.md)
 - [**Redis**](db/redis-guide.md)
-
+- [**Express Session**](js/express-guide.md#session)
 
 
 ## *Regex*
@@ -135,7 +136,9 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 - [*Bootstrap*](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
   - [mdbootstrap](https://mdbootstrap.com/docs/standard/layout/grid/)
     - [*playground*](https://mdbootstrap.com/snippets/)
-- [*Yaml*](https://github.com/yaml)
+- [*Chakra.ui*](css/react-component-libraries/chakra-guide.md) 
+
+**Preprocessors**
 - [*Sass*](https://sass-lang.com/guide)
 
 **Markup**
@@ -143,6 +146,7 @@ python3 open_guide.py $FOLDER [$KEYWORD]
   - [emmet cheatsheet](html/html-tricks.md#emmet)
   - [emmet docs](https://docs.emmet.io/)
   - [html interview questions and answers](html/html-interview-questions.md)
+- [*Yaml*](https://github.com/yaml)
 - [*Markdown*](markdown/markdown.md)
 - [*Css*](css/css-tricks.md)
   - [shorthand references](css/shorthand-reference.md)

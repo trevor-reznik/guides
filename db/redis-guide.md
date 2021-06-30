@@ -177,6 +177,3 @@ export class UserResolver {
     return user;
 }
 ```
-
-
-15.
