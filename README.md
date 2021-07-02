@@ -11,13 +11,14 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 
 # In Progress Reinforcement
 
-
+  
 
 ### [Emmet](html/html-tricks.md#emmet)
 ### [Vim](vim/vim-cheatsheet.md#recent)
 ### [System Hotkeys](os/ubuntu-usage.md#recent)
 ### [Workspaces](os/ubuntu-usage.md#workspaces)
 ### [Alt + Arrow Keys](os/ubuntu-usage.md#workspaces)
+### [PgUp & PgDn & End](os/ubuntu-usage.md#workspaces)
 ### [VScode Hotkeys](apps/vscode.md#custom-hotkeys)
 
 ### Finish Later:
