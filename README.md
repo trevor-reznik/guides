@@ -58,9 +58,12 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 
 ## *Javascript*
 - [***New Project Checklists***](js/new-project-checklists.md)
-- [***Notes***](js/js-guide.md)
-  - [Async](js/async.md)
-  - [Reference Sheet](js/javascript-w3-guide.docx)
+- [***Notes***](js/types.md)
+  - [Async](js/types.md#async)
+  - [Callbacks](js/types.md#callback-functions)
+  - [Lambda](js/types.md#lambda-functions)
+  - [Variable Types](js/types.md#variable-types)
+  - [Basic Reference Sheet](js/javascript-w3-guide.docx)
   - [JS Interview Questions and Answers](js/js-interview-questions.md)
 - [***Algorithms and Data Structures***](https://github.com/trekhleb/javascript-algorithms)
 - [***Typscript***](ts/ts-notes.md)
@@ -98,6 +101,8 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 - [**GraphQL**](db/graphql-guide.md)
 - [**Redis**](db/redis-guide.md)
 - [**Express Session**](js/express-guide.md#session)
+- [**Local Store**](db/local-store.md)
+
 
 
 ## *Regex*

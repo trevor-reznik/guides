@@ -1,16 +1,7 @@
 
-browserify index.js --s geocodeGo > PLEASEWORK.js
+# Node
 
-then
-
-geocode.function
-
-or
-
-window.reverse = require('reverse-geocode')
+## Using Env Variables
 
 
-Then 
-
-window.function
-
+![node env variables](info-pics/node-env-variable.jpg)
