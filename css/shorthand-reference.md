@@ -1,5 +1,13 @@
 # CSS Shorthand Reference
 
+
+#### Place-items
+
+```css
+place-items: <align-items> <justify-items>
+             /* <block> <inline> */
+```
+
 #### Animation
 
 `name` | `duration` | `timing-function` | `delay` | `iteration-count` | `direction` | `fill-mode` | `play-state`
@@ -31,8 +39,13 @@
 
 #### Grid
 
-`grid-template-rows/columns` | `grid-auto-flow/rows/columns`
+`<'grid-template'> | <'grid-template-rows'> / [ auto-flow && dense? ] <'grid-auto-columns'>? | [ auto-flow && dense? ] <'grid-auto-rows'>? / <'grid-template-columns'>`
 
+gap only
+
+```css
+gap : <row-gap> <column-gap>
+```
 
 #### Mask
 

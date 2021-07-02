@@ -36,6 +36,13 @@
 
 <a name="most-important"/>
 
+### Deleting
+
+- delete from the current cursor position to the beginning of the next word characte `DW`
+- will delete from the current cursor position to the end of the current line `D`
+- elete from the cursor position until the end of the line and put you in [INSERT] mode `C`
+
+
 ### Repeating Commands
 
 - repeat last *text-changing* command `.`

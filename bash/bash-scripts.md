@@ -50,4 +50,21 @@ When not double-quoted, `$*` and `$@` are the same.
 ---
 
 
+### Variable Concat
 
+```bash
+foo="Hello"
+foo="${foo} World"
+echo "${foo}"
+> Hello World
+```
+
+In general to concatenate two variables you can just write them one after another:
+
+```bash
+a='Hello'
+b='World'
+c="${a} ${b}"
+echo "${c}"
+> Hello World
+```

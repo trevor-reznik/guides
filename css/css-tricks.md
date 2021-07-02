@@ -13,6 +13,8 @@
 - [Fonts](#fonts)
 - [Variables](#variables)
 - [Keywords](#keywords)
+  - [units](#units)
+  - [logical units](#logicalunits)
 - [Root and Global Variables](#root)
 - [Psuedo Elements](#psuedo)
   - [before / after](#before-after)
@@ -22,6 +24,7 @@
   - [visualizers](#visualizers)
   - [plugins](#plugins)
 - [Preprocessing](#preprocessing)
+- [Effects](#effects)
 - [Assets](#assets)
   - [Favorite Re-usable Components/Pens](#favorites)
 - [Components](#components)
@@ -49,13 +52,43 @@
  - https://www.xul.fr/javascript/get-post.php
  - firefox debugger advantages
  - opening page in all browsers simulatensouly with local server host
+ - https://css-tricks.com/the-difference-between-nth-child-and-nth-of-type/
 
 
 
+# Effects
+
+
+<a name="effects"/>
+
+## Clear
+
+`clear` property controls the flow next to floated elements and specifies what should happen with the element that is next to a floating element.
+
+```css
+img {
+  float: left;
+}
+
+p.clear {
+  clear: left;
+}
+```
+
+The `<p>` element is pushed below left floated elements (the `<p>` element do not allow floating elements on the left side):
+
+
+## Four-Sided Material Shadow
+
+
+```css
+  box-shadow: 0 0 12px black;
+```
 
 
 
 <a name="design-philosophies"/>
+
 
 # Design Systems
 
@@ -412,6 +445,20 @@ body > div > div:nth-of-type(-n + 2) {
 
 
 
+#### Even Odd Keywords
+
+```css
+:nth-of-type(even) {
+  css declarations;
+}
+:nth-of-type(odd) {
+  css declarations;
+}
+:nth-of-type(-n+2) {
+  css declarations;
+}
+```
+
 <a name="shorthand-guide"/>
 
 # Short Hand Reference
@@ -551,9 +598,28 @@ currentColor
 ------------------------------------
 
 
+<a name="units"/>
+
+### Units
+
+###### Rem vs Em
+
+In most modern browsers, 1 rem is equal to 16 pixels. So with a base size of 1rem (a.k.a. 16px ) set, we can now use simple division to figure out proper sizing of elements. A headline that is 24px in Sketch is coded as 1.5rem because you take 24px and divide it by the base font size of 16px
+
+
+<a name="logicalunits"/>
+
+`fit-content`
+
+`max`
+
+`min`
+
+`minmax`
 
 
 <a name="external-tools"/>
+
 
 # Useful External Tools
 
@@ -565,6 +631,8 @@ currentColor
 - [CSS Portal Resources Collection](https://www.cssportal.com/css-resources.php)
 - [CSS Portal Tools Collection](https://www.cssportal.com/css-tools.php)
 - [Clean CSS | 20 CSS Cleanup Tools You Should Start Using](https://www.webdesigndev.com/clean-css-cleanup-tools/)
+- [Maker - Visualizer](https://www.css3maker.com/box-shadow.html)
+- [Generator - Visualizer](http://css3generator.com/)
 
 
 <a name="plugins"/>
@@ -691,6 +759,11 @@ body > div > div:nth-of-type(2) {
 ```
 
 ### Hover Effects
+
+###### Zoom Block
+
+codepen.io/trevor-reznik/fashion wiki
+
 
 ###### Enlarge, Brighten, Shadow
 

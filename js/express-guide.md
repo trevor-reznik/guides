@@ -83,3 +83,23 @@ on every request, getting key for kv pair and accessing it again
 any user data that won't change you can store in session obj and it will persist as long as cookie is not cleared.
 
 For data that is variable, you can store the id and then reference database.
+
+
+## Application Generator
+
+
+The Express Application Generator tool generates an Express application "skeleton". Install the generator using NPM as shown:
+
+```bash
+npx express-generator helloworld
+
+# Install all the dependencies for the helloworld app using NPM as shown:
+cd helloworld
+npm install
+
+npm start
+xdg-open http://localhost:3000
+```
+
+NPM will create the new Express app in a sub folder of your current location, displaying build progress on the console. On completion, the tool will display the commands you need to enter to install the Node dependencies and start the app.
+

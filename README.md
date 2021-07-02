@@ -22,6 +22,17 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 ### [VScode Hotkeys](apps/vscode.md#custom-hotkeys)
 
 ### Finish Later:
+- [Understanding React's Rendering Process](https://youtu.be/i793Qm6kv3U?t=218)
+- [Simple userland rootkit – a case study](https://blog.malwarebytes.com/threat-analysis/2016/12/simple-userland-rootkit-a-case-study/)
+- [Shellcode Analysis](https://en.wikipedia.org/wiki/Shellcode)
+  - [shellstorm](http://shell-storm.org/shellcode/)
+- color parser to new repo
+- https://www.inkdrop.app/
+- https://www.investopedia.com/financial-edge/0411/5-investors-that-are-both-rich-and-smart.aspx
+- react apps
+  - music streaming webapp with personal library
+  - app for picking assets (icons, pics, videos, favicons, coveraart, etc.) from my collection
+  - all onedrive excel sheets,guides, references
 - [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions)
   - [JS Questions and Answers](js/js-interview-questions.md)
   - [CSS Questions and Answers](css/css-interview-questions.md)
@@ -65,6 +76,9 @@ python3 open_guide.py $FOLDER [$KEYWORD]
   - [Variable Types](js/types.md#variable-types)
   - [Basic Reference Sheet](js/javascript-w3-guide.docx)
   - [JS Interview Questions and Answers](js/js-interview-questions.md)
+- [***Style***](js/js-style-guide.md)
+  - [Function Comments](js/js-style-guide.md#docstrings)
+- [***Best Practices***](https://beforesemicolon.medium.com/50-javascript-best-practice-rules-to-write-better-code-86ce731311d7)
 - [***Algorithms and Data Structures***](https://github.com/trekhleb/javascript-algorithms)
 - [***Typscript***](ts/ts-notes.md)
   - [New Project Checklist](ts/new-ts-project.md)
@@ -98,11 +112,11 @@ python3 open_guide.py $FOLDER [$KEYWORD]
   - [cli usage](https://www.postgresql.org/docs/13/app-psql.html)
 - [**ORMs**]()
   - [mikro-orm](db/mikro-orm-guide.md)
-- [**GraphQL**](db/graphql-guide.md)
+- [**SQL**](sql/sql-guide.md)
+  - [GraphQL](db/graphql-guide.md)
 - [**Redis**](db/redis-guide.md)
 - [**Express Session**](js/express-guide.md#session)
 - [**Local Store**](db/local-store.md)
-
 
 
 ## *Regex*
@@ -128,6 +142,9 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 - [*Underscore*](https://underscorejs.org/)
 - [*Handlebars*](https://handlebarsjs.com/)
 
+**Content Management Systems**
+- [*CMS Overview*](cms/cm-systems.md)
+
 **Layout Engines**
 - [*Webkit*](https://webkit.org/web-inspector/)
 - [*Gecko*](https://wiki.mozilla.org/Gecko:Overview)
@@ -143,6 +160,9 @@ python3 open_guide.py $FOLDER [$KEYWORD]
   - [mdbootstrap](https://mdbootstrap.com/docs/standard/layout/grid/)
     - [*playground*](https://mdbootstrap.com/snippets/)
 - [*Chakra.ui*](css/react-component-libraries/chakra-guide.md) 
+
+**Responsiveness & Accessibility**
+- [*CSS Responsiveness*](css/responsiveness-guide.md)
 
 **Preprocessors**
 - [*Sass*](https://sass-lang.com/guide)

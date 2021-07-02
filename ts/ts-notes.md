@@ -65,7 +65,8 @@
 
 ## Summary
 
-[TypeScript Deep Dive](https://basarat.gitbook.io/typescript/) | [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+[TypeScript Deep Dive](https://basarat.gitbook.io/typescript/) | [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html) | [TypeScript Cheatsheets](https://github.com/typescript-cheatsheets/react)
+
 
 Static types systems describe the shapes and behaviors of what our values will be when we run our programs.  A type-checker like TypeScript uses that information and tells us when things might be going off the rails.
 

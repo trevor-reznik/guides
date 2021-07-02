@@ -44,6 +44,140 @@ forEach(function callbackFn(element, index, array){ ... })
 forEach(function callbackFn(element, index, array) { ... }, thisArg)
 ```
 
+## Window Methods
+
+#### `prompt`
+
+Display a prompt box which ask the user for her/his name, and output a message:
+
+```javascript
+var person = prompt("Please enter your name", "Harry Potter");
+
+if (person != null) {
+  document.getElementById("demo").innerHTML =
+  "Hello " + person + "! How are you today?";
+}
+```
+
+
+## Array Methods
+
+![array methods](info-pics/array-methods.jpeg)
+
+
+#### Array reduce
+
+The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+
+```javascript
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15
+```
+
+## Events
+
+#### Event Types
+
+![event types](info-pics/event-types.png)
+
+#### EventTarget Methods
+
+
+###### addEventListner
+
+The EventTarget method `addEventListener()` sets up a function that will be called whenever the specified event is delivered to the target. 
+
+Common targets are Element, Document, and Window, but the target may be any object that supports events (such as XMLHttpRequest).
+
+`addEventListener()` works by adding a function or an object that implements EventListener to the list of event listeners for the specified event type on the EventTarget on which it's called.
+
+
+```javascript
+target.addEventListener(type, listener);
+target.addEventListener(type, listener, options);
+target.addEventListener(type, listener, useCapture);
+target.addEventListener(type, listener, useCapture, wantsUntrusted); // wantsUntrusted is Firefox only
+```
+
+## Table Methods
+
+https://www.w3schools.com/jsref/met_table_insertrow.asp
+
+
+<a name="decorators"/>
+
+## Decorators
+
+Decorators use a special syntax in JavaScript, whereby they are prefixed with an `@` symbol and placed immediately before the code being decorated.
+
+
+In its simplest form, a decorator is simply a way of wrapping one piece of code with another — literally “decorating” it. This is a concept you might well have heard of previously as functional composition, or higher-order functions.
+
+
+
+```javascript
+function doSomething(name) {
+  console.log('Hello, ' + name);
+}
+
+function loggingDecorator(wrapped) {
+  return function() {
+    console.log('Starting');
+    const result = wrapped.apply(this, arguments);
+    console.log('Finished');
+    return result;
+  }
+}
+
+const wrapped = loggingDecorator(doSomething);
+```
+
+This example produces a new function — in the variable wrapped — that can be called exactly the same way as the doSomething function, and will do exactly the same thing. The difference is that it will do some logging before and after the wrapped function is called:
+
+```javascript
+doSomething('Graham');
+// Hello, Graham
+
+wrapped('Graham');
+// Starting
+// Hello, Graham
+// Finished
+```
+
+#### Class Member Decorators
+
+Property decorators are applied to a single member in a class — whether they are properties, methods, getters, or setters. This decorator function is called with three parameters:
+
+- target: the class that the member is on.
+- name: the name of the member in the class.
+- descriptor: the member descriptor. This is essentially the object that would have been passed to Object.defineProperty.
+
+```javascript
+function readonly(target, name, descriptor) {
+  descriptor.writable = false;
+  return descriptor;
+}
+
+class Example {
+  a() {}
+  @readonly
+  b() {}
+}
+
+const e = new Example();
+e.a = 1;
+e.b = 2;
+// TypeError: Cannot assign to read only property 'b' of object '#<Example>'
+```
+
 <a name="async"/>
 
 ## Async
