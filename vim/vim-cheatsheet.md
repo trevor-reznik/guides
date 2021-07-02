@@ -36,6 +36,14 @@
 
 <a name="most-important"/>
 
+### Repeating Commands
+
+- repeat last *text-changing* command `.`
+  - repeat # times `#.`
+- repeat last command `@:`
+
+
+
 ### Navigation
 - `o`
 - `G` -> `o`
@@ -68,10 +76,12 @@ Repeat an Ex command over a previously selected block  `:` -> `Up` then edit a p
 
 
 ### Find / Replace
+- `n` next search result
+- `N` previous search result
 - search replace `%s/$/$`
 - delete line `d up`
-- Find & Replace in Selection `v` `w` `s:/$WORD/$REPLACE/g`
-
+- Find & Replace in Selection `:s/$WORD/$REPLACE/g`
+- Find & Replace in Selection with prompts on every change `:s/$WORD/$REPLACE/gc` 
 
 In visual mode, / and ? will update the visual selection just like any other cursor-movement command (that is, when in visual mode, searching will extend the selection).
 

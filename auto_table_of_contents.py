@@ -154,13 +154,14 @@ def main(file_name=False, original_work=False, create_backup=False):
     NEWLINE = ["\n"]
     joined = (
         NEWLINE
-        + NEWLINE
         + title
+        + NEWLINE
         + create_table_contents(tiers, urls)
         + NEWLINE
         + content
         + NEWLINE
         + [formatted_footer(original_work)]
+        + NEWLINE
     )
     write_new(
         joined,
