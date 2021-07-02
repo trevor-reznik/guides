@@ -42,7 +42,8 @@ def generate(lines):
             hyper_exists = False
             for prev in previous_lines:
                 if "<a name=" in prev:
-                    hyper_exists = True
+                    hyper_exists = prev[9:].split('"')[0]
+                    section_hyperlinks[title] = hyper_exists
 
             if not hyper_exists:
                 ret_lines.append(hyperlink)
@@ -57,7 +58,7 @@ def formatted_header():
     return [
         '<a name="table-of-contents"/>\n',
         "\n",
-        "##### Table of Contents\n"
+        "###### Table of Contents\n"
         "\n",
     ]
 
@@ -100,21 +101,21 @@ def create_table_contents(tiers, urls):
     ret = formatted_header()
 
     LEADER = "  "
-    cur_leader = ""
-    cur_tier = 1
+    cur_tier = False
     relative_tier = 1
 
     for index, (section, tier) in enumerate(tiers.items()):
+        if not cur_tier:
+            cur_tier = tier
         if tier > cur_tier:
-            cur_leader += LEADER
             relative_tier += 1
             cur_tier = tier
         elif tier < cur_tier:
-            cur_leader = cur_leader[:-2]
             relative_tier -= 1
             cur_tier = tier
 
         decoration = {
+            0: f"**__{section.upper()}__**",
             1: f"**{section.upper()}**",
             2: f"***{section.capitalize()}***",
             3: f"{section.capitalize()}",
@@ -123,7 +124,7 @@ def create_table_contents(tiers, urls):
             6: f"*{section.lower()}*",
             7: f"{section.lower().replace(' ', '-')}"
         }
-        line = f"{cur_leader}- [{decoration[relative_tier]}](#{urls[section]})\n"
+        line = f"{(relative_tier-1)*LEADER}- [{decoration[abs(relative_tier)]}](#{urls[section]})\n"
         ret.append(line)
 
     return ret

@@ -1,18 +1,11 @@
 
+
+
+
+
+
+
 # Postgres
-
-<a name="table-of-contents"/>
-
-###### Table of Contents
-
-- [**NEW DATABASE SETUP**](#new-db)
-- [**CREDENTIALS**](#credentials)
-- [**CONFIG FILE**](#config-file)
-  - [***Location***](#location)
-  - [***Restarting after changes***](#restarting-after-changes)
-  - [***Peer authentification***](#peer-authentification)
-- [**USAGE**](#usage)
-
 
 
 <a name="new-db"/>
@@ -129,3 +122,8 @@ createdb is a wrapper around the SQL command CREATE DATABASE. There is no effect
 <div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div>
 
 
+
+
+-----------------------------
+
+<div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div>
