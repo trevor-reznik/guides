@@ -1,7 +1,7 @@
 
 # Node
 
-
+https://www.w3schools.com/nodejs/default.asp
 
 ## Setup
 
@@ -38,3 +38,8 @@ xdg-open http://localhost:3000
 
 
 ![node env variables](info-pics/node-env-variable.jpg)
+
+
+## Raspberry Pi with Node
+
+https://www.w3schools.com/nodejs/nodejs_raspberrypi.asp

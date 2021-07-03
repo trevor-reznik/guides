@@ -110,13 +110,17 @@ python3 open_guide.py $FOLDER [$KEYWORD]
 ## *Databases*
 - [**postgres**](db/postgres-md)
   - [cli usage](https://www.postgresql.org/docs/13/app-psql.html)
-- [**ORMs**]()
-  - [mikro-orm](db/mikro-orm-guide.md)
+- [**Mongo**](db/mongo-guide.md)
 - [**SQL**](sql/sql-guide.md)
   - [GraphQL](db/graphql-guide.md)
-- [**Redis**](db/redis-guide.md)
-- [**Express Session**](js/express-guide.md#session)
-- [**Local Store**](db/local-store.md)
+  - [MySQL](sql/mysql-guide.md)
+- [**ORMs**]()
+  - [mikro-orm](db/mikro-orm-guide.md)
+- [**Session**]()
+  - [**Redis**](db/redis-guide.md)
+  - [**Express Session**](js/express-guide.md#session)
+  - [**Local Store**](db/local-store.md)
+- [**Local Persistence**](db/local-persistence.md)
 
 
 ## *Regex*
