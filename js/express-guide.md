@@ -28,7 +28,7 @@ const app = express();
 
 ```typescript
 app.get("/", (req, res) => {
-
+  res.send("hello world")
 })
 ```
 

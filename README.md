@@ -9,6 +9,13 @@
 python3 open_guide.py $FOLDER [$KEYWORD]
 ```
 
+```bash
+echo "guide='python3 $HOME/open_guide.py'" >> .bashrc                       # UNIX
+echo "py C:\Users\$USERNAME\open_guide.py" > C:\Users\$USERNAME\guide.bat   # Windows
+```
+
+
+
 # In Progress Reinforcement
 
   
