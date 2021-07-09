@@ -52,9 +52,10 @@ Raises:
 """
 ```
 
-###### Special Cases
+###### More
 
-https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
+- [Special Cases](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
+- [More Examples](https://www.sphinx-doc.org/en/master/usage/extensions/example_google.html#example-google)
 
 <a name="rest-docstrings"/>
 

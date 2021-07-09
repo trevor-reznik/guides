@@ -1,0 +1,49 @@
+
+## WOTD glockenspiel
+
+
+------------------------------------------
+
+## Activity 1
+
+def coins_in_cup(cup):
+    if not cup:
+        return 0
+    ret = cup[0] + coins_in_cup(cup[1:])
+    return ret
+
+
+------------------------------------------
+
+## Activity 2
+
+def last_val(head):
+    if head.next is None:
+        return head.val
+    return last_val(head.next)
+
+
+------------------------------------------
+
+## Activity 3
+
+def n_of_odd(array):
+    if not array:
+        return 0
+    ret = array[0]%2 + n_of_odd(array[1:])
+    return ret
+
+
+------------------------------------------
+
+## Activity 4
+
+def search_linked_list(head, k):
+    if head is None:
+        return False
+    elif head.val == k:
+        return True
+    return search_linked_list(head.next)
+
+
+
