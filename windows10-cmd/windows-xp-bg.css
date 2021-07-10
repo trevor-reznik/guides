@@ -1,0 +1,30 @@
+.xp-bg-pic {
+    background: url("windows-xp-bg.jpg") center;
+    background-size: cover;
+}
+
+.console-icon {
+  background: url("console.ico") center;
+  background-size: cover;
+}
+
+.terminal-icon {
+  background: url("terminal.ico") center;
+  background-size: cover;
+}
+@font-face {
+  font-family: windows-cacadia;
+  src: url("CascadiaCode.ttf") format("truetype");
+}
+@font-face {
+  font-family: windows-cacadia-italic;
+  src: url("CascadiaCodeItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: windows-cacadia-mono;
+  src: url("CascadiaMono.ttf") format("truetype");
+}
+@font-face {
+  font-family: windows-cacadia-mono-italic;
+  src: url("CascadiaMonoItalic.ttf") format("truetype");
+}
