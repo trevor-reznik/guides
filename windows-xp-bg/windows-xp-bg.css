@@ -3,3 +3,8 @@ body,
     background: url("windows-xp-bg.jpg") center;
     background-size: cover;
 }
+
+@font-face {
+  font-family: windows-consolas;
+  src: url("Consolas.ttf") format("truetype");
+}
