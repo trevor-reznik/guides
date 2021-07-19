@@ -1,0 +1,468 @@
+/*
+ * ─────────────────────────────────────────────────────────── CONSOLAS FONTS ─────
+ */
+
+@font-face {
+  font-family: consolas;
+  src: url("fonts/consolas/Consolas.ttf") format("truetype");
+}
+@font-face {
+  font-family: consolas-bold;
+  src: url("fonts/consolas/CONSOLAB.TTF") format("truetype");
+}
+@font-face {
+  font-family: consolas-italic;
+  src: url("fonts/consolas/consolai.ttf") format("truetype");
+}
+@font-face {
+  font-family: consolas-bold-italic;
+  src: url("fonts/consolas/consolaz.ttf") format("truetype");
+}
+
+/*
+ * ────────────────────────────────────────────────── CASCADIA CODE CMD FONTS ─────
+ */
+
+@font-face {
+  font-family: CascadiaMonoPL-SemiBold;
+  src: url("fonts/cmd/CascadiaMonoPL-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMonoPL-Light;
+  src: url("fonts/cmd/CascadiaMonoPL-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCode-Bold;
+  src: url("fonts/cmd/CascadiaCode-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCode-Light;
+  src: url("fonts/cmd/CascadiaCode-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMonoPL-Bold;
+  src: url("fonts/cmd/CascadiaMonoPL-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMono-ExtraLight;
+  src: url("fonts/cmd/CascadiaMono-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCodePL-Light;
+  src: url("fonts/cmd/CascadiaCodePL-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMono-SemiBold;
+  src: url("fonts/cmd/CascadiaMono-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCode-Regular;
+  src: url("fonts/cmd/CascadiaCode-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCode-SemiBold;
+  src: url("fonts/cmd/CascadiaCode-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCodePL-Regular;
+  src: url("fonts/cmd/CascadiaCodePL-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMonoPL-Regular;
+  src: url("fonts/cmd/CascadiaMonoPL-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMonoPL-ExtraLight;
+  src: url("fonts/cmd/CascadiaMonoPL-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCode-SemiLight;
+  src: url("fonts/cmd/CascadiaCode-SemiLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCode-ExtraLight;
+  src: url("fonts/cmd/CascadiaCode-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCodePL-SemiLight;
+  src: url("fonts/cmd/CascadiaCodePL-SemiLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMono-Light;
+  src: url("fonts/cmd/CascadiaMono-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCodePL-Bold;
+  src: url("fonts/cmd/CascadiaCodePL-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMono-Regular;
+  src: url("fonts/cmd/CascadiaMono-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCodePL-SemiBold;
+  src: url("fonts/cmd/CascadiaCodePL-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMono-Bold;
+  src: url("fonts/cmd/CascadiaMono-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMono-SemiLight;
+  src: url("fonts/cmd/CascadiaMono-SemiLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaMonoPL-SemiLight;
+  src: url("fonts/cmd/CascadiaMonoPL-SemiLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: CascadiaCodePL-ExtraLight;
+  src: url("fonts/cmd/CascadiaCodePL-ExtraLight.ttf") format("truetype");
+}
+
+/*
+ * ────────────────────────────────────────────────────────────── STOCK FONTS ─────
+ */
+
+@font-face {
+  font-family: Fresko_MS;
+  src: url("fonts/stock/Fresko_MS.ttf") format("truetype");
+}
+@font-face {
+  font-family: windows-stock;
+  src: url("fonts/stock/windows.ttf") format("truetype");
+}
+@font-face {
+  font-family: ms_song;
+  src: url("fonts/stock/ms_song.ttf") format("truetype");
+}
+@font-face {
+  font-family: Travis Sans MS;
+  src: url("fonts/stock/Travis Sans MS.ttf") format("truetype");
+}
+
+/*
+ * ─────────────────────────────────────────────────────────── STYLIZED FONTS ─────
+ */
+
+@font-face {
+  font-family: font-Pixel-Cowboy;
+  src: url("fonts/stylized/font-Pixel Cowboy.otf") format("truetype");
+}
+@font-face {
+  font-family: font-stencil_pixel-7;
+  src: url("fonts/stylized/font-stencil_pixel-7.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-BerlinFraktur-24;
+  src: url("fonts/stylized/font-BerlinFraktur-24.otf") format("truetype");
+}
+@font-face {
+  font-family: font-SFAlienEncountersSolid;
+  src: url("fonts/stylized/font-SFAlienEncountersSolid.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Retroville-NC;
+  src: url("fonts/stylized/font-Retroville NC.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-vcr;
+  src: url("fonts/stylized/font-vcr.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-wide_pixel-7;
+  src: url("fonts/stylized/font-wide_pixel-7.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Retrolab;
+  src: url("fonts/stylized/font-Retrolab.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Donatello;
+  src: url("fonts/stylized/font-Donatello.otf") format("truetype");
+}
+@font-face {
+  font-family: font-Fipps-Regular;
+  src: url("fonts/stylized/font-Fipps-Regular.otf") format("truetype");
+}
+@font-face {
+  font-family: font-Streamster;
+  src: url("fonts/stylized/font-Streamster.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Logo-Font;
+  src: url("fonts/stylized/font-Logo Font.otf") format("truetype");
+}
+@font-face {
+  font-family: font-Donatello;
+  src: url("fonts/stylized/font-Donatello.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-SF-RetroSplice;
+  src: url("fonts/stylized/font-SF RetroSplice.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-sg05;
+  src: url("fonts/stylized/font-sg05.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-SF-RetroSplice-Condensed;
+  src: url("fonts/stylized/font-SF RetroSplice Condensed.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: font-SFAlienEncounters;
+  src: url("fonts/stylized/font-SFAlienEncounters.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-LearningCurve;
+  src: url("fonts/stylized/font-LearningCurve.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-SF-RetroSplice-SC-Condensed;
+  src: url("fonts/stylized/font-SF RetroSplice SC Condensed.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: font-SF-RetroSplice-Shaded;
+  src: url("fonts/stylized/font-SF RetroSplice Shaded.ttf") format("truetype");
+}
+@font-face {
+  font-family: f-Retroville-NC;
+  src: url("fonts/stylized/f-Retroville NC.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-VCR_OSD_MONO_1;
+  src: url("fonts/stylized/font-VCR_OSD_MONO_1.001.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-paskowy;
+  src: url("fonts/stylized/font-paskowy.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Extrude;
+  src: url("fonts/stylized/font-Extrude.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Pixel-LCD-7;
+  src: url("fonts/stylized/font-Pixel LCD-7.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-PixelByzantine;
+  src: url("fonts/stylized/font-PixelByzantine.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Adventurer;
+  src: url("fonts/stylized/font-Adventurer.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-SF-RetroSplice-SC-Outline;
+  src: url("fonts/stylized/font-SF RetroSplice SC Outline.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: font-Little-Snorlax;
+  src: url("fonts/stylized/font-Little Snorlax.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-SF-RetroSplice-SC-Shaded;
+  src: url("fonts/stylized/font-SF RetroSplice SC Shaded.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: font-bubble_pixel-7;
+  src: url("fonts/stylized/font-bubble_pixel-7.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-PressStart2P-vaV7;
+  src: url("fonts/stylized/font-PressStart2P-vaV7.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-SF-RetroSplice-SC;
+  src: url("fonts/stylized/font-SF RetroSplice SC.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Razor;
+  src: url("fonts/stylized/font-Razor.otf") format("truetype");
+}
+@font-face {
+  font-family: font-Retrolab;
+  src: url("fonts/stylized/font-Retrolab.otf") format("truetype");
+}
+@font-face {
+  font-family: font-Minecraftia-Regular;
+  src: url("fonts/stylized/font-Minecraftia-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-zx_spectrum-7;
+  src: url("fonts/stylized/font-zx_spectrum-7.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-zadob;
+  src: url("fonts/stylized/font-zadob.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Little-bird;
+  src: url("fonts/stylized/font-Little bird.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Angelface;
+  src: url("fonts/stylized/font-Angelface.otf") format("truetype");
+}
+@font-face {
+  font-family: font-H4VintageRetro;
+  src: url("fonts/stylized/font-H4VintageRetro.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Frikativ;
+  src: url("fonts/stylized/font-Frikativ.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-GaelleNumber3;
+  src: url("fonts/stylized/font-GaelleNumber3.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Retron2000;
+  src: url("fonts/stylized/font-Retron2000.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Vermin-Vibes-1989;
+  src: url("fonts/stylized/font-Vermin Vibes 1989.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Sabo-Regular;
+  src: url("fonts/stylized/font-Sabo-Regular.otf") format("truetype");
+}
+@font-face {
+  font-family: font-nnumber;
+  src: url("fonts/stylized/font-nnumber.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-Retro-Gamer;
+  src: url("fonts/stylized/font-Retro Gamer.otf") format("truetype");
+}
+@font-face {
+  font-family: font-hachicro;
+  src: url("fonts/stylized/font-hachicro.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-SFAlienEncounters-Italic;
+  src: url("fonts/stylized/font-SFAlienEncounters-Italic.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: font-SFAlienEncountersSolid-Ital;
+  src: url("fonts/stylized/font-SFAlienEncountersSolid-Ital.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: font-SUPERSCR;
+  src: url("fonts/stylized/font-SUPERSCR.TTF") format("truetype");
+}
+@font-face {
+  font-family: font-alphbeta;
+  src: url("fonts/stylized/font-alphbeta.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-windows;
+  src: url("fonts/stylized/font-windows.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-MetroRetroNF;
+  src: url("fonts/stylized/font-MetroRetroNF.ttf") format("truetype");
+}
+@font-face {
+  font-family: f-Adventurer;
+  src: url("fonts/stylized/f-Adventurer.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-glitch;
+  src: url("fonts/stylized/font-glitch.ttf") format("truetype");
+}
+@font-face {
+  font-family: font-SF-RetroSplice-Outline;
+  src: url("fonts/stylized/font-SF RetroSplice Outline.ttf") format("truetype");
+}
+
+/* ──────────────────────────────────────────────────────────────────────────────── */
+
+/*
+ * ─── ICONS ──────────────────────────────────────────────────────────────────────
+ */
+
+.close-icon {
+  background-image: url('icons/close_focused_normal.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+}
+
+.windows-icon {
+  background-image: url('icons/menu.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+}
+
+.stepper-down-icon {
+  background-image: url('icons/stepper-down.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+}
+
+.minimize-icon {
+  background-image: url('icons/minimize_focused_normal.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+}
+
+.unmaximize-icon {
+  background-image: url('icons/unmaximize_focused_normal.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+}
+
+.console-icon {
+  background-image: url('icons/console.ico');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+}
+
+/*
+ * ─────────────────────────────────────────────────────────────── WALLPAPERS ─────
+ */
+
+.xp-wallpaper {
+    background: url("wallpaper/windows-xp-bg.jpg") center;
+    background-size: cover;
+}
+
+  
