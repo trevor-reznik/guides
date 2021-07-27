@@ -6,9 +6,10 @@
 	background: url(./mouse-points-tornado.webp);
 	mask: url(./mouse-points-tornado.webp);
 }
-.profile-name-wrapper {
-	background: url(./mouse-points-tornado.webp) !important;
-	mask: url(./mouse-points-tornado.webp) !important;
+.profile-name-wrapper,
+.profile-name-content {
+	background: url(./audrey-judging.webp);
+	mask: url(./audrey-judging.webp);
 }
 .elimination {
 	background: url(./audrey-judging.webp);
