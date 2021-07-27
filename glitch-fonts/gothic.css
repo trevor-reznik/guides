@@ -16,6 +16,23 @@
 	mask: url(./pixel-art13.webp);
 }
 
+.gothic1 {
+	background: url(./pixel-art7.webp) imo !important;
+	mask: url(./pixel-art7.webp) !important;
+}
+.obsession1 {
+	background: url(./mouse-points-tornado.webp) !important;
+	mask: url(./mouse-points-tornado.webp) !important;
+}
+.elimination1 {
+	background: url(./audrey-judging.webp) !important;
+	mask: url(./audrey-judging.webp) !important;
+}
+
+.eden1 {
+	background: url(./pixel-art13.webp) !important;
+	mask: url(./pixel-art13.webp) !important;
+}
 /* ──────────────────────────────────────────────────────────────────────────────── */
 
 @font-face {
