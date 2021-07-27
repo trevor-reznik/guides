@@ -1,0 +1,264 @@
+.gothic {
+	background: url(./pixel-art7.webp);
+	mask: url(./pixel-art7.webp);
+}
+.obsession {
+	background: url(./mouse-points-tornado.webp);
+	mask: url(./mouse-points-tornado.webp);
+}
+.elimination {
+	background: url(./audrey-judging.webp);
+	mask: url(./audrey-judging.webp);
+}
+
+.eden {
+	background: url(./pixel-art13.webp);
+	mask: url(./pixel-art13.webp);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: stencil_pixel-7;
+  src: url("font-stencil_pixel-7.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: BerlinFraktur-24;
+  src: url("font-BerlinFraktur-24.otf") format("truetype");
+}
+
+@font-face {
+  font-family: PolanCanIntoGlassMakings;
+  src: url("PolanCanIntoGlassMakings.otf") format("truetype");
+}
+
+@font-face {
+  font-family: astronbv;
+  src: url("astronbv.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Fresko_MS;
+  src: url("Fresko_MS.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: vcr;
+  src: url("font-vcr.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: PolanCanIntoCarFixings;
+  src: url("PolanCanIntoCarFixings.otf") format("truetype");
+}
+
+@font-face {
+  font-family: PolanCanIntoCarFixingsOrN;
+  src: url("PolanCanIntoCarFixingsOrN.otf") format("truetype");
+}
+
+@font-face {
+  font-family: B25;
+  src: url("04B_25__.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: almontew;
+  src: url("almontew.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: astronboy;
+  src: url("astronboy.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: PolanCanIntoBigWritingsOLn;
+  src: url("PolanCanIntoBigWritingsOLn.otf") format("truetype");
+}
+
+@font-face {
+  font-family: px_sans_nouveaux;
+  src: url("px_sans_nouveaux.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: aegis_3d;
+  src: url("aegis_3d.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Fipps-Regular;
+  src: url("font-Fipps-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: Streamster;
+  src: url("font-Streamster.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Donatello;
+  src: url("font-Donatello.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: sg05;
+  src: url("font-sg05.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: anitlles;
+  src: url("anitlles.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: SFAlienEncounters;
+  src: url("font-SFAlienEncounters.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: paskowy;
+  src: url("font-paskowy.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Extrude;
+  src: url("font-Extrude.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Pixel LCD-7;
+  src: url("font-Pixel LCD-7.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Adventurer;
+  src: url("font-Adventurer.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: SF-RetroSplice-SC-Outline;
+  src: url("font-SF RetroSplice SC Outline.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: bubble_pixel-7;
+  src: url("font-bubble_pixel-7.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: zx_spectrum-7;
+  src: url("font-zx_spectrum-7.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url("TikTokFont.otf") format("truetype");
+}
+
+@font-face {
+  font-family: zadob;
+  src: url("font-zadob.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Braciola_MS_ExB_Ascii;
+  src: url("Braciola_MS_ExB_Ascii.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: ShellyAllegroC;
+  src: url("ShellyAllegroC.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: cms_ulaanbaatar;
+  src: url("cms_ulaanbaatar.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: H4VintageRetro;
+  src: url("font-H4VintageRetro.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: b30;
+  src: url("04b 30.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Frikativ;
+  src: url("font-Frikativ.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: PolanCanIntoGlassMakingsIt;
+  src: url("PolanCanIntoGlassMakingsIt.otf") format("truetype");
+}
+
+@font-face {
+  font-family: Digit;
+  src: url("01 Digit.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: PEPSI_pl;
+  src: url("PEPSI_pl.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Vermin-Vibes;
+  src: url("font-Vermin Vibes 1989.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Sabo-Regular;
+  src: url("font-Sabo-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: PolanCanIntoBigWritings;
+  src: url("PolanCanIntoBigWritings.otf") format("truetype");
+}
+
+@font-face {
+  font-family: PolanCanIntoBattleFightings;
+  src: url("PolanCanIntoBattleFightings.otf") format("truetype");
+}
+
+@font-face {
+  font-family: micross;
+  src: url("micross.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: SFAlienEncounters-Italic;
+  src: url("font-SFAlienEncounters-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: airmoleq;
+  src: url("airmoleq.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: SUPERSCR;
+  src: url("font-SUPERSCR.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: alphbeta;
+  src: url("font-alphbeta.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: windows;
+  src: url("font-windows.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: astronbw;
+  src: url("astronbw.ttf") format("truetype");
+}
