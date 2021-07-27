@@ -1,6 +1,12 @@
 :root {
-  --text-mask-image: url("./gif/pixel-art9.webp");
+  --text-mask-image: url("./pixel-art9.webp");
 }
+
+.neon-ring > div {
+	background: var(--text-mask-image);
+	mask: var(--text-mask-image);
+}
+
 
 /* ──────────────────────────────────────────────────────────────────────────────── */
 
