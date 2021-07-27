@@ -3,8 +3,8 @@
 }
 
 .neon-ring > div {
-	background: var(--text-mask-image);
-	mask: var(--text-mask-image);
+	background: url(./pixel-art9.webp);
+	mask: url(./pixel-art9.webp);
 }
 
 
