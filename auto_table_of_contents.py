@@ -1,9 +1,66 @@
+"""
+TODO:
+    https://docs.gitlab.com/ee/user/markdown.html#gitlab-specific-references
+"""
+
 import sys
 import os
 NEWLINE = ["\n"]
 LEADER = "  "
 
-# https://docs.gitlab.com/ee/user/markdown.html#gitlab-specific-references
+
+class HTMLMarkup:
+    def __init__(self):
+        pass
+
+    def bolden(self, text):
+        return f"<strong>{text}</strong>"
+
+    def italicize(self, text):
+        return f"<em>{text}</em>"
+
+    def wrap_code(self, text):
+        return f"<pre><code>{text}</code></pre>"
+
+
+class Formatter:
+    # and add markdown="span" to the opening summary tag like this: <summary markdown="span">.
+
+    # Remember to leave a blank line after the </summary> tag and before the </details> tag, as shown in the example:
+    def __init__(self, input_file_name):
+        pass
+
+    def inline_diff(self):
+        return """- {+ addition 1 +}
+    - [+ addition 2 +]
+    - {- deletion 3 -}
+    - [- deletion 4 -]"""
+
+    def task_list(self, ul):
+        x = """- [x] Completed task
+    - [ ] Incomplete task
+    - [ ] Sub-task 1
+    - [x] Sub-task 2
+    - [ ] Sub-task 3
+
+    1. [x] Completed task
+    1. [ ] Incomplete task
+    1. [ ] Sub-task 1
+    1. [x] Sub-task 2"""
+
+
+class RelativeTicker:
+    def __init__(self, first_tier_n):
+        self.rel_tier = 1
+        self.recent = first_tier_n
+
+    def increment(self, next_tier):
+        if next_tier > self.recent:
+            self.rel_tier += 1
+            self.recent = next_tier
+        elif next_tier < self.recent:
+            self.rel_tier -= 1
+            self.recent = next_tier
 
 
 class Section:
@@ -60,55 +117,276 @@ class Section:
             index -= 1
 
 
-class RelativeTicker:
-    def __init__(self, first_tier_n):
-        self.rel_tier = 1
-        self.recent = first_tier_n
+class SubDocument:
+    def __init__(self, lines):
+        self.title = lines[0]
+        self.reference = self.title.strip(" ").split(" ")[0].replace("\n", "")
+        self.lines = lines[1:]
+        self.toc_head = [
+            "\n",
+            f'<a name="table-of-contents-{self.reference}"/>',
+            "\n\n",
+        ]
 
-    def increment(self, next_tier):
-        if next_tier > self.recent:
-            self.rel_tier += 1
-            self.recent = next_tier
-        elif next_tier < self.recent:
-            self.rel_tier -= 1
-            self.recent = next_tier
+        self.footer_title = "###### Footnotes"
+        self.to_top_link = (
+            "\n\n-----------------------------\n\n"
+            + "<div align=\"center\" style=\"font-size:"
+            + " 11px; margin: 0; opacity:.6\"><a href=\""
+            + f"#table-of-contents-{self.reference}"
+            + "\">Top (目次)</a></div>\n "
+        )
+        self.to_absolute_top_link = (
+            "\n\n-----------------------------\n\n"
+            + "<div align=\"center\" style=\"font-size:"
+            + " 11px; margin: 0; opacity:.6\"><a href=\""
+            + "#table-of-contents"
+            + "\">Very Top (目次)</a></div>\n\n\n"
+        )
+
+        self.sections = []
+        self.toc = []
+        self.footnotes = []
+
+        self.parse_sections()
+        self.create_toc()
+
+    def join_footer(self):
+        if len(self.footnotes) > 0:
+            return (
+                [self.footer_title]
+                + NEWLINE
+                + self.footnotes
+                + NEWLINE
+            )
+        return []
+
+    def get_output(self):
+        out = (
+            [self.title]
+            + NEWLINE
+            + self.toc_head
+            + NEWLINE
+            + self.toc
+            + NEWLINE
+            + self.content
+            + NEWLINE
+            + self.join_footer()
+            + NEWLINE
+            + [self.to_absolute_top_link]
+        )
+        # if len(self.content) > 150:
+        #      out = [self.to_top_link]
+        return out
+
+    def footnote(self, text, index):
+        start = f"{text} [^{index}]"
+        end = f"[^footnote-{index}]"
+        self.footnotes.append(end + "\n")
+        return start
+
+    def toc_decoration(self, section, ticker):
+        decoration = {
+            0: f"**__{section.upper()}__**",
+            1: f"**{section.upper()}**",
+            2: f"***{section.capitalize()}***",
+            3: f"{section.capitalize()}",
+            4: f"*{section.capitalize()}*",
+            5: f"{section.lower()}",
+            6: f"*{section.lower()}*",
+            7: f"{section.lower().replace(' ', '-')}"
+        }
+        return decoration[ticker.rel_tier]
+
+    def tabs(self, count):
+        return (count - 1) * LEADER
+
+    def create_toc(self):
+        if not self.sections:
+            return []
+
+        ticker = RelativeTicker(self.sections[0].tier)
+        for section in self.sections:
+            self.toc.append(
+                f"{self.tabs(ticker.rel_tier)}- "
+                + f"[{self.toc_decoration(section.title, ticker)}]"
+                + f"(#{section.url})\n"
+            )
+
+    def parse_sections(self):
+        self.content = []
+        inline_code = False
+        for index, line in enumerate(self.lines):
+            if line.startswith("```"):
+                inline_code = not inline_code
+            if line.startswith("#") and not inline_code:
+                section = Section(line, self.lines, index)
+                if section.need_href:
+                    self.content.append(section.href_html)
+                self.sections.append(section)
+
+            self.content.append(line)
 
 
-def formatted_footer(original_work):
-    return """\n\n\n-----------------------------\n\n<div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div>\n""" if not original_work else """---
+class CollapsibleSection:
+    def __init__(self, first_line, all_lines, first_line_index):
+        self.first_line = first_line
+        self.title = self.parse_title(first_line)
 
-#### Footnotes
+        self.tier = first_line.count("#")
+        self.url = self.encode_href(self.title)
+        self.href_html = self.format_href(self.url)
+        self.need_href = self.href_already_exists(
+            all_lines,
+            first_line_index
+        )
 
-[A-Z Index of Commands](https://ss64.com/bash/)
+        self.all_lines = all_lines
+        self.start_index = first_line_index
+        self.summary_open = [
+            "\n<p>\n",
+            "\n",
+            "\n<details>\n",
+            '<summary markdown="span">**',
+            self.title.replace("#", ""),
+            "**</summary>\n"
+        ]
+        self.summary_close = [
+            "\n\n",
+            "\n</details>\n",
+            "\n</p>\n\n"
+        ]
 
-  <div align="center" style="text-align: center; font-family: monospace; allign: center">
-    Made with <g-emoji class="g-emoji" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">
-  <img class="emoji" alt="heart" height="20" width="20" src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png"></g-emoji> <a href="https://www.bymyself.life">bymyself</a>
-  </div>
-  
-<div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div> """
+        # Init.
+        self.parse_content()
+
+    def get_output(self):
+        return (
+            [self.href_html if self.need_href else "\n\n"]
+            + [self.first_line]
+            + NEWLINE
+            + self.summary_open
+            + NEWLINE
+            + self.content
+            + NEWLINE
+            + self.summary_close
+            + NEWLINE
+        )
+
+    def parse_content(self):
+        self.end_index = self.start_index + 1
+        top_section_id = "#" * self.tier
+
+        while (
+            self.end_index < len(self.all_lines)
+            and top_section_id not in self.all_lines[self.end_index] 
+        ):
+            self.end_index += 1
+        subdoc = SubDocument(self.all_lines[self.start_index - 1 : self.end_index])
+        self.content = subdoc.get_output()
+
+    def parse_title(self, line):
+        title = line[:]
+        exclude = ["#"]
+        strip_chars = ["\n", " "]
+        for char in exclude:
+            title = title.replace(char, "")
+        for char in strip_chars:
+            title = title.strip(char)
+
+        return title  # uneccessary
+
+    def encode_href(self, text, extra=[], replace_options={}):
+        exclude_list = ["\"", "\'", "`", "\\", "/"]
+        replace_map = {
+            " ": "-"
+        }
+        for char in exclude_list + extra:
+            text = text.replace(char, "")
+
+        replace_map.update(replace_options)
+        for char, after in replace_map.items():
+            text = text.replace(char, after)
+        return text
+
+    def format_href(self, url):
+        hyperlink = f'<a name="{url}"/>'
+        return "\n\n" + hyperlink + "\n\n"
+
+    def href_already_exists(self, lines, start_index):
+        index = start_index
+        while index > 0:
+            curr_line = lines[index - 1]
+            if (
+                len(curr_line.strip("\n")) > 2
+                and "-------" not in curr_line
+            ):
+                return (
+                    True if "<a name=" in curr_line
+                    else False
+                )
+            index -= 1
 
 
 class MDDocument:
-    def __init__(self, file_name, options):
+    def __init__(self, file_name, options={}):
         self.config = {
-            "backup_loc": "here"
+            "backup_loc": "here",
+            "original work": True,
+            "backup": True
         }
         self.config.update(options)
+        self.file = file_name
 
         self.lines = self.no_whitespace(
-            open(file_name, "r")
+            open(self.file, "r")
             .readlines()
         )
+        if self.config["backup"]:
+            self.backup()
 
-        title, content = slice_title(lines)
-        sections, content = parse_sections(content)
+        self.toc_head = [
+            '<a name="table-of-contents"/>\n',
+            "\n",
+            "###### Table of Contents\n"
+            "\n"
+        ]
+
+        # self.config_tag = '{::options parse_block_html="true" /}\n'
+        self.config_tag = ''
+
+        self.footer_decoration = ""
+        if self.config["original work"]:
+            self.footer_decoration += (
+                '<div align="center" style="text-align: '
+                + 'center; font-family: monospace; allign: center">\n'
+                + 'Made with <g-emoji class="g-emoji" alias="heart" '
+                + 'fallback-src="'
+                + 'https://github.githubassets.com/images/icons/emoji/unicode/2764.png">'
+                + '\n   <img class="emoji" alt="heart" height="20" width="20" src="'
+                + 'https://github.githubassets.com/images/icons/emoji/unicode/2764.png">'
+                + '</g-emoji>\n <a href="https://www.bymyself.life">bymyself</a>'
+                + '</div>\n\n<div align="center" style="font-size: 11px; margin: 0; '
+                + 'opacity:.6"> <a href="#table-of-contents">Top (目次)</a>\n</div>'
+            )
+        else:
+            self.footer_decoration += (
+                "\n\n\n-----------------------------\n\n"
+                + "<div align=\"center\" style=\"font-size:"
+                + " 11px; margin: 0; opacity:.6\"><a href=\""
+                + "#table-of-contents\">Top (目次)</a></div>\n "
+            )
+
+        self.output = []
+        self.sections = []
+        self.title = ""
+        self.toc = []
 
         # "+++" if toml, ";;;" if json, "---php" if php.
         self.front_matter_delim = "---"
         self.front_matter = [
             self.front_matter_delim,
-            f"title: About Front Matter",
+            f"title: {self.title}",
             f"permalink: ",
             f"published: ",
             f"category: ",
@@ -118,29 +396,9 @@ class MDDocument:
             self.front_matter_delim
         ]
 
-        joined = (
-            NEWLINE
-            + title
-            + NEWLINE
-            + create_toc(sections)
-            + NEWLINE
-            + content
-            + NEWLINE
-            + [formatted_footer(original_work)]
-            + NEWLINE
-        )
-        write(
-            joined,
-            file_name
-        )
-
-    def formatted_header():
-        return [
-            '<a name="table-of-contents"/>\n',
-            "\n",
-            "###### Table of Contents\n"
-            "\n",
-        ]
+        self.slice_title()
+        self.parse_sections()
+        self.create_toc()
 
     def no_whitespace(self, lines):
         ret = []
@@ -148,9 +406,23 @@ class MDDocument:
             ret.append(line.strip(" "))
         return ret
 
-    def write(self, lines, file_name):
-        test = open(file_name, "w")
-        for line in lines:
+    def overwrite(self):
+        final = (
+            [self.config_tag]
+            + self.title
+            + NEWLINE
+            + self.toc_head
+            + NEWLINE
+            + self.toc
+            + NEWLINE
+            + self.output
+            + NEWLINE
+            + [self.footer_decoration]
+            + NEWLINE
+            + NEWLINE
+        )
+        test = open(self.file, "w")
+        for line in final:
             test.write(line)
         test.close()
 
@@ -170,110 +442,63 @@ class MDDocument:
     def tabs(self, count):
         return (count - 1) * LEADER
 
-    def create_toc(self, sections):
-        ticker = RelativeTicker(sections[0].tier)
-        for section in sections:
-            ret.append(
-                f"{tabs(ticker.rel_tier)}- "
-                + f"[{toc_decoration(section.title, ticker)}]"
+    def create_toc(self):
+        ticker = RelativeTicker(self.sections[0].tier)
+        for section in self.sections:
+            self.toc.append(
+                f"{self.tabs(ticker.rel_tier)}- "
+                + f"[{self.toc_decoration(section.title, ticker)}]"
                 + f"(#{section.url})\n"
             )
 
-        return ret
-
-    def backup(self, file_name):
-        parts = file_name.split("/")
+    def backup(self):
+        parts = self.file.split("/")
         backup_file = os.path.join(
-            *(parts[:-1] + ["BACKUP-" + os.path.basename(file_name)])
+            *(parts[:-1] + ["BACKUP-" + os.path.basename(self.file)])
         )
-        self.write(
-            open(file_name, "r").readlines(),
-            backup_file
-        )
+        backup_file = open(backup_file, "w")
+        for line in self.lines:
+            backup_file.write(line)
+        backup_file.close()
 
-    def parse_sections(self, lines):
-        sections = []
-        ret_lines = []
+    def parse_sections(self):
         inline_code = False
-        for index, line in enumerate(lines):
+        index = 0
+        bound = len(self.lines)
+        while index < bound:
+            line = self.lines[index]
+
             if line.startswith("```"):
                 inline_code = not inline_code
+
             if line.startswith("#") and not inline_code:
-                section = Section(line, lines, index)
-                if section.need_href:
-                    ret_lines.append(section.href_html)
-                    sections.append(section)
-            ret_lines.append(line)
-        return sections, ret_lines
+                section = CollapsibleSection(line, self.lines, index)
+                self.output += section.get_output()
+                
+                self.sections.append(
+                    section
+                )
+                index = section.end_index
 
-    def slice_title(self, lines):
+            else:
+                index += 1
+                self.output.append(line)
+
+    def slice_title(self):
         i = 0
-        while not lines[i].startswith("#"):
+        while not self.lines[i].startswith("#"):
             i += 1
-        while lines[i] and lines[i] != "\n":
+        while self.lines[i] and self.lines[i] != "\n":
             i += 1
-        title, content = lines[:i], lines[i:]
-        title.append("\n")
-        return title, content
+        self.title, self.content = self.lines[:i], self.lines[i:]
+        self.title.append("\n")
 
 
-class HTMLMarkup:
-    def __init__(self):
-        pass
-
-    def bolden(self, text):
-        return f"<strong>{text}</strong>"
-
-    def italicize(self, text):
-        return f"<em>{text}</em>"
-
-    def wrap_code(self, text):
-        return f"<pre><code>{text}</code></pre>"
-
-
-class Formatter:
-    # If your Markdown isn’t rendering correctly, try adding {::options parse_block_html="true" /} to the top of the page,
-    # and add markdown="span" to the opening summary tag like this: <summary markdown="span">.
-
-    # Remember to leave a blank line after the </summary> tag and before the </details> tag, as shown in the example:
-    def __init__(self, input_file_name):
-        self.footnotes = []
-
-    def footnote(self, text, index):
-        start = f"{text} [^{index}]"
-        end = f"[^footnote-{index}]"
-        return start, end
-
-
-def inline_diff():
-    return """- {+ addition 1 +}
-- [+ addition 2 +]
-- {- deletion 3 -}
-- [- deletion 4 -]"""
-
-
-def auto_toc():
-    return "[[_TOC_]]"
-
-
-def task_list(ul):
-    x = """- [x] Completed task
-- [ ] Incomplete task
-  - [ ] Sub-task 1
-  - [x] Sub-task 2
-  - [ ] Sub-task 3
-
-1. [x] Completed task
-1. [ ] Incomplete task
-   1. [ ] Sub-task 1
-   1. [x] Sub-task 2"""
-    pass
-
-
-def main(file_name=False, original_work=False, create_backup=False):
-    if not file_name:
-        file_name = sys.argv[1]
+def main():
+    file_name = sys.argv[1]
+    formatted = MDDocument(file_name)
+    formatted.overwrite()
 
 
 if __name__ == "__main__":
-    main(create_backup=True)
+    main()
