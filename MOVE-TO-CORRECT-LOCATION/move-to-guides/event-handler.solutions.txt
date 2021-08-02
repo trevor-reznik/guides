@@ -1,0 +1,114 @@
+Object.getOwnPropertyNames(HTMLElement.prototype)
+
+
+//
+// All those names are forbidden with inline event handlers.
+//
+// Proof:
+const div = document.querySelector("div");
+function translate() { console.log("translate 👍") };
+div.setAttribute("onclick", "translate()");
+div.click() // Simulate click.
+
+// Won't work with any of those names:
+function title() { console.log("title 👍") };
+div.setAttribute("onclick", "title()");
+div.click();
+function lang() { console.log("lang 👍") };
+div.setAttribute("onclick", "lang()");
+div.click();
+function dir() { console.log("dir 👍") };
+div.setAttribute("onclick", "dir()");
+div.click();
+
+
+
+
+//
+// Solutions
+//
+div.removeAttribute("onclick")
+
+// 1.1 addEventListener() method.
+div.addEventListener("click", translate);
+
+// Adding listeners this way may be better if you want to add multiple listeners to single Events. Otherwise, you can't set multiple functions as the value for an HTML attribute inline or with setAttribute(). 
+
+// 1.2 Anonymous functions declared inside of addEventListner arg. "this" will still reference the event target, and less memory usage and don't have to worry about namespace.
+div.addEventListener("click", function() {console.log("anonymous functions 👍")});
+
+// 1.3 Best practice = Using that with event delegation. Event delegation is when you bind the listener to a container much higher in the DOM and add conditionals based on the event.target. This way you can dynamically change the page without having to rebind listeners. And it requires less memory because triggered events will bubble all the way up the chain.
+div.parentElement.parentElement.addEventListener("click", function(event) {
+let target = event.target;
+if (target.tagName == "DIV") { console.log("delegation 👍") }});
+
+// 2. Arrow function expressions - if you want compact inline handlers still, or you want to access the function's parent obj using "this", or you don't want the function to be hoisted and instead want to control the timing of the binding.
+div.onclick = () => {console.log("arrow functions 👍")};
+
+// 3. jQuery's on is really simple to remember.
+translate = () => { console.log("jquery 👍") };
+jQuery(div).on("click", translate)
+
+div.click();
+
+-----------------
+
+
+
+
+
+
+
+// During rendering the browser creates nodes by using class constructors like:
+HTMLDivElement.prototype.constructor
+
+// The constructor will use the HTMLElement interface -- which is a static object type with these attributes:
+Object.getOwnPropertyNames(HTMLElement.prototype)
+
+
+// The browser rendering this: <div onclick="translate()"> triggers the div constructor and passes the custom onclick attribute. The same as:
+let div = document.createElement("div");
+function translate() { console.log("👍") };
+div.setAttribute("onclick", "translate()");
+div
+
+// div's "onclick" value is a function declared inside the constructor like this:
+// onclick = (event) => { translate() };
+getEventListeners(div).click[0]
+
+// Declaring it inside another function forms a closure, wherein the body of the onclick inner function is bundled with references to the lexical scope of the constructor outer functions.
+// Look at the [[Scopes]] scope chain for the onclick function:
+getEventListeners(div).click[0]
+
+
+// The first scope in the chain is <div onclick="translate()">. So, when possible, references inside onclick() will be resolved to variables in that div-scope before the global-scope
+// The error occurs because the HTMLElement interface implemented to create the div has a translate property:
+Object.getOwnPropertyNames(HTMLElement.prototype).includes("translate")
+
+// So onclick's "translate" is resolved to the "translate" reference in the constructor, which points at a Boolean
+// "translate" is supposed to point at the translate property of the window object (that's where our functions are kept).
+window.translate
+
+// Instead it's a bool, and it tries to call the bool object because of the parentheses we put in "translate()". But:
+Object.getOwnPropertyNames(Boolean.prototype).includes("call")
+
+// So that casues the TypeError
+div.click();
+
+// this is what's happening:
+let x = true;
+x()
+
+
+
+// Solution: document.addEventListener() or jQuery.on() because their handlers are not HTML element attributes i guess:
+div.addEventListener("click", translate);
+getEventListeners(div).click[1]
+
+// Doesn't change the html element attribute:
+div.getAttribute("onclick")
+
+ the scope of a function is defined by a scope chain, or list of objects, that is searched, in turn, for variable definitions. When a variable x is looked up or resolved in a normal function, JavaScript first looks for a local variable or argument by checking the call object of the function for a property of that name. If no such property is found, JavaScript proceeds to the next object in the scope chain: the global object. It checks the properties of the global object to see if the variable is a global variable. Event handlers defined as HTML attributes have a more complex scope chain than this. The head of the scope chain is the call object. Any arguments passed to the event handler are defined here (we'll see later in this chapter that in some advanced event models, event handlers are passed an argument), as are any local variables declared in the body of the event handler. The next object in an event handler's scope chain isn't the global object, however; it is the object that triggered the event handler. So, for example, suppose you use an 
+ tag to define a Button object in an HTML form and then use the onclick attribute to define an event handler. If the code for the event handler uses a variable named form, that variable is resolved to the form property of the Button object. This can be a useful shortcut when writing event handlers as HTML attributes. The scope chain of an event handler does not stop with the object that defines the handler: it proceeds up the containment hierarchy. For the onclick event handler described earlier, the scope chain begins with the call object of the handler function. Then it proceeds to the Button object, as we've discussed. After that, it continues up the HTML element containment hierarchy and includes, at a minimum, the HTML
+element that contains the button and the Document object that contains the form. The precise composition of the scope chain has never been standardized and is implementation-dependent. Netscape 6 and Mozilla include all containing objects (even things such as
+tags), while IE 6 sticks to a more minimal set that includes the target element, plus the containing Form object (if any) and the Document object. Regardless of the browser, the final object in the scope chain is the Window object, as it always is in client-side JavaScript. Having the target object in the scope chain of an event handler can be a useful shortcut. But having an extended scope chain that includes other document elements can be a nuisance. Consider, for example, that both the Window and Document objects define methods named open( ). If you use the identifier open without qualification, you are almost always referring to the window.open( ) method. In an event handler defined as an HTML attribute, however, the Document object is in the scope chain before the Window object, and using open by itself refers to the document.open( ) method. Similarly, consider what would happen if you added a property named window to a Form object (or defined an input field with name="window"). Then, if you define an event handler within the form that uses the expression window.open( ), the identifier window resolves to the property of the Form object rather than the global Window object, and event handlers within the form have no easy way to refer to the global Window object or to call the window.open( ) method! docstore.mik.ua/orelly/webprog/jscript/ch19_01.htm

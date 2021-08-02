@@ -1,66 +1,77 @@
-
-
 import sys
+import os
+NEWLINE = ["\n"]
+LEADER = "  "
+
+# https://docs.gitlab.com/ee/user/markdown.html#gitlab-specific-references
 
 
-def generate(lines):
-    section_tiers = {}
-    section_hyperlinks = {}
+class Section:
+    def __init__(self, first_line, all_lines, first_line_index):
+        self.title = self.parse_title(first_line)
+        self.tier = first_line.count("#")
+        self.url = self.encode_href(self.title)
+        self.href_html = self.format_href(self.url)
+        self.need_href = self.href_already_exists(
+            all_lines,
+            first_line_index
+        )
 
-    ret_lines = []
-    inline_code = False
-    for index, line in enumerate(lines):
+    def parse_title(self, line):
+        title = line[:]
+        exclude = ["#"]
+        strip_chars = ["\n", " "]
+        for char in exclude:
+            title = title.replace(char, "")
+        for char in strip_chars:
+            title = title.strip(char)
 
-        if line.strip().startswith("```"):
-            inline_code = not inline_code
+        return title  # uneccessary
 
-        if line.strip().startswith("#") and not inline_code:
-            title = line.strip("\n").strip().replace("#", "").strip()
-            tier = line.count("#")
-            section_tiers[title] = tier
+    def encode_href(self, text, extra=[], replace_options={}):
+        exclude_list = ["\"", "\'", "`", "\\", "/"]
+        replace_map = {
+            " ": "-"
+        }
+        for char in exclude_list + extra:
+            text = text.replace(char, "")
 
-            url = title.replace(" ", "-").lower().replace("\"", "").replace(
-                "\'", "").replace("`", "").replace("\\", "").replace("/", "")
-            section_hyperlinks[title] = url
+        replace_map.update(replace_options)
+        for char, after in replace_map.items():
+            text = text.replace(char, after)
+        return text
 
-            hyperlink = f'<a name="{url}"/>'
+    def format_href(self, url):
+        hyperlink = f'<a name="{url}"/>'
+        return "\n\n" + hyperlink + "\n\n"
 
-            try:
-                previous_lines = [
-                    lines[index-1],
-                    lines[index-2],
-                    lines[index-3],
-                ]
-            except IndexError:
-                try:
-                    previous_lines = [
-                        lines[index-1],
-                    ]
-                except IndexError:
-                    pass
-
-            hyper_exists = False
-            for prev in previous_lines:
-                if "<a name=" in prev:
-                    hyper_exists = prev[9:].split('"')[0]
-                    section_hyperlinks[title] = hyper_exists
-
-            if not hyper_exists:
-                ret_lines.append(hyperlink)
-                ret_lines.append("\n")
-                ret_lines.append("\n")
-        ret_lines.append(line)
-
-    return ret_lines, section_tiers, section_hyperlinks
+    def href_already_exists(self, lines, start_index):
+        index = start_index
+        while index > 0:
+            curr_line = lines[index - 1]
+            if (
+                len(curr_line.strip("\n")) > 2
+                and "-------" not in curr_line
+            ):
+                return (
+                    True if "<a name=" in curr_line
+                    else False
+                )
+            index -= 1
 
 
-def formatted_header():
-    return [
-        '<a name="table-of-contents"/>\n',
-        "\n",
-        "###### Table of Contents\n"
-        "\n",
-    ]
+class RelativeTicker:
+    def __init__(self, first_tier_n):
+        self.rel_tier = 1
+        self.recent = first_tier_n
+
+    def increment(self, next_tier):
+        if next_tier > self.recent:
+            self.rel_tier += 1
+            self.recent = next_tier
+        elif next_tier < self.recent:
+            self.rel_tier -= 1
+            self.recent = next_tier
 
 
 def formatted_footer(original_work):
@@ -78,42 +89,72 @@ def formatted_footer(original_work):
 <div align="center" style="font-size: 11px; margin: 0; opacity:.6"><a href="#table-of-contents">Top (目次)</a></div> """
 
 
-def write_new(lines, file_name):
-    test = open(file_name, "w")
-    for line in lines:
-        test.write(line)
+class MDDocument:
+    def __init__(self, file_name, options):
+        self.config = {
+            "backup_loc": "here"
+        }
+        self.config.update(options)
 
-    test.close()
+        self.lines = self.no_whitespace(
+            open(file_name, "r")
+            .readlines()
+        )
 
+        title, content = slice_title(lines)
+        sections, content = parse_sections(content)
 
-def slice_title(lines):
-    i = 0
-    while not lines[i].strip().startswith("#"):
-        i += 1
-    while lines[i] != "\n":
-        i += 1
-    title, content = lines[:i], lines[i:]
-    title.append("\n")
-    return title, content
+        # "+++" if toml, ";;;" if json, "---php" if php.
+        self.front_matter_delim = "---"
+        self.front_matter = [
+            self.front_matter_delim,
+            f"title: About Front Matter",
+            f"permalink: ",
+            f"published: ",
+            f"category: ",
+            f"tags: ",
+            f"file: {file_name}",
+            f"language: ",
+            self.front_matter_delim
+        ]
 
+        joined = (
+            NEWLINE
+            + title
+            + NEWLINE
+            + create_toc(sections)
+            + NEWLINE
+            + content
+            + NEWLINE
+            + [formatted_footer(original_work)]
+            + NEWLINE
+        )
+        write(
+            joined,
+            file_name
+        )
 
-def create_table_contents(tiers, urls):
-    ret = formatted_header()
+    def formatted_header():
+        return [
+            '<a name="table-of-contents"/>\n',
+            "\n",
+            "###### Table of Contents\n"
+            "\n",
+        ]
 
-    LEADER = "  "
-    cur_tier = False
-    relative_tier = 1
+    def no_whitespace(self, lines):
+        ret = []
+        for line in lines:
+            ret.append(line.strip(" "))
+        return ret
 
-    for index, (section, tier) in enumerate(tiers.items()):
-        if not cur_tier:
-            cur_tier = tier
-        if tier > cur_tier:
-            relative_tier += 1
-            cur_tier = tier
-        elif tier < cur_tier:
-            relative_tier -= 1
-            cur_tier = tier
+    def write(self, lines, file_name):
+        test = open(file_name, "w")
+        for line in lines:
+            test.write(line)
+        test.close()
 
+    def toc_decoration(self, section, ticker):
         decoration = {
             0: f"**__{section.upper()}__**",
             1: f"**{section.upper()}**",
@@ -124,49 +165,114 @@ def create_table_contents(tiers, urls):
             6: f"*{section.lower()}*",
             7: f"{section.lower().replace(' ', '-')}"
         }
-        line = f"{(relative_tier-1)*LEADER}- [{decoration[abs(relative_tier)]}](#{urls[section]})\n"
-        ret.append(line)
+        return decoration[ticker.rel_tier]
 
-    return ret
+    def tabs(self, count):
+        return (count - 1) * LEADER
+
+    def create_toc(self, sections):
+        ticker = RelativeTicker(sections[0].tier)
+        for section in sections:
+            ret.append(
+                f"{tabs(ticker.rel_tier)}- "
+                + f"[{toc_decoration(section.title, ticker)}]"
+                + f"(#{section.url})\n"
+            )
+
+        return ret
+
+    def backup(self, file_name):
+        parts = file_name.split("/")
+        backup_file = os.path.join(
+            *(parts[:-1] + ["BACKUP-" + os.path.basename(file_name)])
+        )
+        self.write(
+            open(file_name, "r").readlines(),
+            backup_file
+        )
+
+    def parse_sections(self, lines):
+        sections = []
+        ret_lines = []
+        inline_code = False
+        for index, line in enumerate(lines):
+            if line.startswith("```"):
+                inline_code = not inline_code
+            if line.startswith("#") and not inline_code:
+                section = Section(line, lines, index)
+                if section.need_href:
+                    ret_lines.append(section.href_html)
+                    sections.append(section)
+            ret_lines.append(line)
+        return sections, ret_lines
+
+    def slice_title(self, lines):
+        i = 0
+        while not lines[i].startswith("#"):
+            i += 1
+        while lines[i] and lines[i] != "\n":
+            i += 1
+        title, content = lines[:i], lines[i:]
+        title.append("\n")
+        return title, content
 
 
-def backup(file_name):
-    # create backup
-    import os
-    parts = file_name.split("/")
-    backup_file = os.path.join(
-        *(parts[:-1] + ["BACKUP-" + os.path.basename(file_name)])
-    )
-    write_new(
-        open(file_name, "r").readlines(),
-        backup_file
-    )
+class HTMLMarkup:
+    def __init__(self):
+        pass
+
+    def bolden(self, text):
+        return f"<strong>{text}</strong>"
+
+    def italicize(self, text):
+        return f"<em>{text}</em>"
+
+    def wrap_code(self, text):
+        return f"<pre><code>{text}</code></pre>"
+
+
+class Formatter:
+    # If your Markdown isn’t rendering correctly, try adding {::options parse_block_html="true" /} to the top of the page,
+    # and add markdown="span" to the opening summary tag like this: <summary markdown="span">.
+
+    # Remember to leave a blank line after the </summary> tag and before the </details> tag, as shown in the example:
+    def __init__(self, input_file_name):
+        self.footnotes = []
+
+    def footnote(self, text, index):
+        start = f"{text} [^{index}]"
+        end = f"[^footnote-{index}]"
+        return start, end
+
+
+def inline_diff():
+    return """- {+ addition 1 +}
+- [+ addition 2 +]
+- {- deletion 3 -}
+- [- deletion 4 -]"""
+
+
+def auto_toc():
+    return "[[_TOC_]]"
+
+
+def task_list(ul):
+    x = """- [x] Completed task
+- [ ] Incomplete task
+  - [ ] Sub-task 1
+  - [x] Sub-task 2
+  - [ ] Sub-task 3
+
+1. [x] Completed task
+1. [ ] Incomplete task
+   1. [ ] Sub-task 1
+   1. [x] Sub-task 2"""
+    pass
 
 
 def main(file_name=False, original_work=False, create_backup=False):
     if not file_name:
         file_name = sys.argv[1]
-    if create_backup:
-        backup(file_name)
-    lines = open(file_name, "r").readlines()
-    title, content = slice_title(lines)
-    content, tiers, urls = generate(content)
-    NEWLINE = ["\n"]
-    joined = (
-        NEWLINE
-        + title
-        + NEWLINE
-        + create_table_contents(tiers, urls)
-        + NEWLINE
-        + content
-        + NEWLINE
-        + [formatted_footer(original_work)]
-        + NEWLINE
-    )
-    write_new(
-        joined,
-        file_name
-    )
 
 
 if __name__ == "__main__":
