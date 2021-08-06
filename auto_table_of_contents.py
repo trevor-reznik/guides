@@ -64,26 +64,31 @@ class RelativeTicker:
 
 
 class Section:
-    def __init__(self, first_line, all_lines, first_line_index):
-        self.title = self.parse_title(first_line)
+    def __init__(self, first_line, all_lines, start_index):
+        self.start_index = start_index
+        self.all_lines = all_lines
+        self.slice_title()
+        self.parse_title()
         self.tier = first_line.count("#")
-        self.url = self.encode_href(self.title)
+
+        self.url = self.encode_href(self.formatted_title)
         self.href_html = self.format_href(self.url)
-        self.need_href = self.href_already_exists(
-            all_lines,
-            first_line_index
-        )
+        self.need_href = self.href_already_exists()
 
-    def parse_title(self, line):
-        title = line[:]
-        exclude = ["#"]
+    def slice_title(self):
+        i = self.start_index
+        while not self.all_lines[i].startswith("#") and i < 3:
+            i += 1
+        while self.all_lines[i] and self.all_lines[i] != "\n":
+            i += 1
+        self.title = "".join(self.all_lines[:i]).replace("#", "").strip().strip("\n").strip()
+        self.content = self.all_lines[i:]
+
+    def parse_title(self):
         strip_chars = ["\n", " "]
-        for char in exclude:
-            title = title.replace(char, "")
+        self.formatted_title = (self.title).replace("#", "")
         for char in strip_chars:
-            title = title.strip(char)
-
-        return title  # uneccessary
+            self.formatted_title = self.formatted_title.strip(char)
 
     def encode_href(self, text, extra=[], replace_options={}):
         exclude_list = ["\"", "\'", "`", "\\", "/"]
@@ -102,10 +107,10 @@ class Section:
         hyperlink = f'<a name="{url}"/>'
         return "\n\n" + hyperlink + "\n\n"
 
-    def href_already_exists(self, lines, start_index):
-        index = start_index
+    def href_already_exists(self):
+        index = self.start_index
         while index > 0:
-            curr_line = lines[index - 1]
+            curr_line = self.all_lines[index - 1]
             if (
                 len(curr_line.strip("\n")) > 2
                 and "-------" not in curr_line
@@ -115,17 +120,17 @@ class Section:
                     else False
                 )
             index -= 1
+        return False
 
 
 class SubDocument:
     def __init__(self, lines):
         self.title = lines[0]
-        self.reference = self.title.strip(" ").split(" ")[0].replace("\n", "")
+        self.reference = self.title.strip(" ").split(" ")[1].replace("\n", "")
         self.lines = lines[1:]
         self.toc_head = [
-            "\n",
             f'<a name="table-of-contents-{self.reference}"/>',
-            "\n\n",
+            "\n"
         ]
 
         self.footer_title = "###### Footnotes"
@@ -220,6 +225,8 @@ class SubDocument:
             if line.startswith("```"):
                 inline_code = not inline_code
             if line.startswith("#") and not inline_code:
+                if index > 150:
+                    self.content.append(self.to_top_link)
                 section = Section(line, self.lines, index)
                 if section.need_href:
                     self.content.append(section.href_html)
@@ -231,70 +238,38 @@ class SubDocument:
 class CollapsibleSection:
     def __init__(self, first_line, all_lines, first_line_index):
         self.first_line = first_line
-        self.title = self.parse_title(first_line)
-
         self.tier = first_line.count("#")
-        self.url = self.encode_href(self.title)
-        self.href_html = self.format_href(self.url)
-        self.need_href = self.href_already_exists(
-            all_lines,
-            first_line_index
-        )
-
+        self.title = first_line.replace("\n", "").replace("#", "").strip()
         self.all_lines = all_lines
         self.start_index = first_line_index
         self.summary_open = [
-            "\n<p>\n",
             "\n",
             "\n<details>\n",
-            '<summary markdown="span">**',
-            self.title.replace("#", ""),
-            "**</summary>\n"
+            '   <summary><b> ',
+            self.first_line.replace("#", "").strip(),
+            " </b></summary>"
         ]
         self.summary_close = [
             "\n\n",
             "\n</details>\n",
-            "\n</p>\n\n"
         ]
 
+        self.url = self.encode_href(self.title)
+        
         # Init.
         self.parse_content()
 
     def get_output(self):
         return (
-            [self.href_html if self.need_href else "\n\n"]
-            + [self.first_line]
-            + NEWLINE
+            NEWLINE
             + self.summary_open
+            + NEWLINE
             + NEWLINE
             + self.content
             + NEWLINE
             + self.summary_close
             + NEWLINE
         )
-
-    def parse_content(self):
-        self.end_index = self.start_index + 1
-        top_section_id = "#" * self.tier
-
-        while (
-            self.end_index < len(self.all_lines)
-            and top_section_id not in self.all_lines[self.end_index] 
-        ):
-            self.end_index += 1
-        subdoc = SubDocument(self.all_lines[self.start_index - 1 : self.end_index])
-        self.content = subdoc.get_output()
-
-    def parse_title(self, line):
-        title = line[:]
-        exclude = ["#"]
-        strip_chars = ["\n", " "]
-        for char in exclude:
-            title = title.replace(char, "")
-        for char in strip_chars:
-            title = title.strip(char)
-
-        return title  # uneccessary
 
     def encode_href(self, text, extra=[], replace_options={}):
         exclude_list = ["\"", "\'", "`", "\\", "/"]
@@ -309,23 +284,17 @@ class CollapsibleSection:
             text = text.replace(char, after)
         return text
 
-    def format_href(self, url):
-        hyperlink = f'<a name="{url}"/>'
-        return "\n\n" + hyperlink + "\n\n"
+    def parse_content(self):
+        self.end_index = self.start_index + 1
+        top_section_id = "#" * self.tier
 
-    def href_already_exists(self, lines, start_index):
-        index = start_index
-        while index > 0:
-            curr_line = lines[index - 1]
-            if (
-                len(curr_line.strip("\n")) > 2
-                and "-------" not in curr_line
-            ):
-                return (
-                    True if "<a name=" in curr_line
-                    else False
-                )
-            index -= 1
+        while (
+            self.end_index < len(self.all_lines)
+            and top_section_id not in self.all_lines[self.end_index] 
+        ):
+            self.end_index += 1
+        subdoc = SubDocument(self.all_lines[self.start_index : self.end_index])
+        self.content = subdoc.get_output()
 
 
 class MDDocument:
@@ -352,8 +321,7 @@ class MDDocument:
             "\n"
         ]
 
-        # self.config_tag = '{::options parse_block_html="true" /}\n'
-        self.config_tag = ''
+        self.config_tag = '{::options parse_block_html="true" /}\n'
 
         self.footer_decoration = ""
         if self.config["original work"]:
