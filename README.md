@@ -28,7 +28,20 @@ echo "py C:\Users\$USERNAME\open_guide.py" > C:\Users\$USERNAME\guide.bat   # Wi
 ### [PgUp & PgDn & End](os/ubuntu-usage.md#workspaces)
 ### [VScode Hotkeys](apps/vscode.md#custom-hotkeys)
 
+### JS Practices
+- Nullish coalescing over `||`
+- No unecessary ternarys
+
+
 ### Finish Later:
+
+
+
+- [5 Must Know JavaScript Features That Almost Nobody Knows](https://www.youtube.com/watch?v=v2tJ3nzXh8I)
+- [How to Apply a Color Palette to Your Design](https://www.youtube.com/watch?v=eXcKOqviLE0)
+- [Tagged Template Literals - The Magic Behind Styled Components](https://dev.to/dekel/tagged-template-literals-the-magic-behind-styled-components-2f2c)
+- [Top 10 VS Code Extensions for Web Development (2020)](https://www.youtube.com/watch?v=_aWDQVxZP6A)
+- [React Hooks Course - All React Hooks Explained](https://www.youtube.com/watch?v=LlvBzyy-558)
 - [Understanding React's Rendering Process](https://youtu.be/i793Qm6kv3U?t=218)
 - [Simple userland rootkit – a case study](https://blog.malwarebytes.com/threat-analysis/2016/12/simple-userland-rootkit-a-case-study/)
 - [Shellcode Analysis](https://en.wikipedia.org/wiki/Shellcode)

@@ -1,25 +1,283 @@
 
 
-# Types
+# JavaScript Tricks
+
+<!-- TOC -->
+
+- [JavaScript Tricks](#javascript-tricks)
+    - [Boolean Toggling](#boolean-toggling)
+            - [Bitwise XOR Assignment](#bitwise-xor-assignment)
+    - [Zipping Arrays](#zipping-arrays)
+            - [Same Length](#same-length)
+            - [Different Length](#different-length)
+    - [Curried Functions](#curried-functions)
+    - [For Loop without Initializing Iterator Variable](#for-loop-without-initializing-iterator-variable)
+    - [Nullish coalescing operator ??](#nullish-coalescing-operator-)
+    - [Destructuring](#destructuring)
+            - [Destructuring Functions](#destructuring-functions)
+            - [Destructuring Classes](#destructuring-classes)
+            - [Destructuring Generators](#destructuring-generators)
+            - [Destructuring Maps](#destructuring-maps)
+    - [Concatting Object](#concatting-object)
+    - [Do While](#do-while)
+    - [Reminders](#reminders)
+            - [forEach](#foreach)
+    - [Window Methods](#window-methods)
+            - [prompt](#prompt)
+    - [Array Methods](#array-methods)
+            - [Array reduce](#array-reduce)
+    - [Events](#events)
+            - [Event Types](#event-types)
+            - [EventTarget Methods](#eventtarget-methods)
+                    - [addEventListner](#addeventlistner)
+    - [Table Methods](#table-methods)
+    - [Decorators](#decorators)
+            - [Class Member Decorators](#class-member-decorators)
+    - [Async](#async)
+    - [Callback Functions](#callback-functions)
+            - [Example](#example)
+    - [Higher Order Functions](#higher-order-functions)
+    - [Lambda Functions](#lambda-functions)
+            - [this](#this)
+            - [Differences & Limitations](#differences--limitations)
+            - [Example Breakdown](#example-breakdown)
+    - [Variable Types](#variable-types)
+    - [DOM Overview](#dom-overview)
+                - [HTML Tag Components](#html-tag-components)
+
+<!-- /TOC -->
 
 
-<a name="table-of-contents"/>
+## Boolean Toggling
 
-###### Table of Contents
+People forget to:
 
-- [**ASYNC**](#async)
-- [**CALLBACK FUNCTIONS**](#callback-functions)
-  - [***Example***](#example)
-- [**HIGHER ORDER FUNCTIONS**](#higher-order-functions)
-- [**LAMBDA FUNCTIONS**](#lambda-functions)
-  - [***`this`***](#this)
-  - [***Differences & limitations:***](#differences-&-limitations)
-  - [***Example breakdown***](#example-breakdown)
-- [**VARIABLE TYPES**](#variable-types)
-- [**DOM OVERVIEW**](#dom-overview)
-  - [***Html tag components***](#html-tag-components)
+```javascript
+value = !value
+```
+
+Don't use unecessary ternarys. . . 
+
+```javascript
+value = value ? false : true
+// replace with
+vale = !value
+```
+
+#### Bitwise XOR Assignment
+
+The bitwise XOR assignment operator `^=` uses the binary representation of both operands, does a bitwise XOR operation on them and assigns the result to the variable.
 
 
+```javascript
+a ^= true
+```
+
+```javascript
+let a = 5;      // 00000000000000000000000000000101
+a ^= 3;         // 00000000000000000000000000000011
+
+console.log(a); // 00000000000000000000000000000110
+// expected output: 6
+```
+
+
+
+
+## Zipping Arrays
+
+#### Same Length
+
+```javascript
+const zip = (a, b) => a.map((k, i) => [k, b[i]]);
+```
+
+#### Different Length
+
+```javascript
+const zip = (a, b) => Array.from(Array(Math.max(b.length, a.length)), (_, i) => [a[i], b[i]]);
+```
+
+```javascript
+const zip = (a, b) => Array(Math.max(b.length, a.length)).fill().map((_,i) => [a[i], b[i]]);
+```
+
+
+
+## Curried Functions
+
+https://javascript.info/currying-partials
+
+
+## For Loop without Initializing Iterator Variable
+
+```javascript
+let iter = 5
+for (; iter < 8; iter++) {
+  console.log(iter)
+}
+```
+
+> 5
+
+> 6
+
+> 7
+
+
+
+
+## Nullish coalescing operator `??`
+
+The nullish coalescing operator `??` is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+
+This can be contrasted with the logical OR `||` operator, which returns the right-hand side operand if the left operand is any falsy value, not only null or undefined. 
+
+In other words, if you use `||` to provide some default value to another variable `foo`, you may encounter unexpected behaviors if you consider some falsy values as usable (e.g., '' or 0). See below for more examples.
+
+The nullish coalescing operator has the fifth-lowest operator precedence, directly lower than `||` and directly higher than the conditional (ternary) operator.
+
+## Destructuring
+
+
+```javascript
+const avengers = {
+  operation: 'Assemble',
+  members: [
+    { ironMan: 'Tony Stark' },
+    { captainAmerica: 'Steve Rogers' },
+    { blackWidow: 'Natasha Romanoff' }
+  ]};
+```
+
+```javascript
+const { operation, members } = avengers;
+```
+
+```javascript
+const { operation, members:[, cap] } = avengers;
+```
+
+#### Destructuring Functions
+
+```javascript
+function x(options) {
+  let defaults = {
+    ...
+  }
+  Object.assign(defaults, x)
+}
+```
+
+```javascript
+function requiredParam(param) {
+  throw new Error(Error: Required parameter ${param} is missing);
+}
+
+function createAvenger ({ avengerName = requiredParam('avengerName'), realName = 'unknown' } = {}) {
+  return {
+    avengerName,
+    realName
+  }
+};
+```
+
+#### Destructuring Classes
+
+
+```javascript
+class x {
+  constructor(options) {
+    let defaults = {
+      ...
+    }
+    Object.assign(defaults, options)
+    Object.assign(this, defaults)
+  }
+}
+```
+
+#### Destructuring Generators
+
+```javascript
+function* fibonacci() {
+  let a = 0;
+  let b = 1;
+
+  while (true) { 
+    yield a;
+    [a, b] = [b, a + b];
+  }
+}
+
+const fib = fibonacci();
+
+const first   = fib.next().value; // 0
+const second  = fib.next().value; // 1
+const third   = fib.next().value; // 1
+const fourth  = fib.next().value; // 2
+const fifth   = fib.next().value; // 3
+const sixth   = fib.next().value; // 5
+const seventh = fib.next().value; // 8
+
+// Output seventh:
+seventh;
+```
+
+#### Destructuring Maps
+
+```javascript
+const map = new Map();
+let output = [];
+
+map.set('ironMan', 'Tony Stark');
+map.set('captainAmerica', 'Steve Rogers');
+map.set('blackWidow', 'Natasha Romanoff');
+
+for (const [key, value] of map) {
+  output.push(key + " is " + value);
+}
+
+// Output:
+// ironMan is Tony Stark
+// captainAmerica is Steve Rogers
+// blackWidow is Natasha Romanoff
+
+output;
+```
+
+
+## Concatting Object
+
+1. Use the spread operator `...`
+2. Use the `Object.assign` method
+
+```javascript
+let employee = {
+    ...person,
+    ...job
+};
+```
+
+
+## Do While
+
+The do...while statement creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once.
+
+```javascript
+do
+   statement
+while (condition);
+```
+
+
+`statement`
+> A statement that is executed at least once and is re-executed each time the condition evaluates to true. To execute multiple statements within the loop, use a block statement ({ ... }) to group those statements.
+
+`condition`
+> An expression evaluated after each pass through the loop. If condition evaluates to true, the statement is re-executed. When condition evaluates to false, control passes to the statement following the do...while.
+
+[More Examples](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while)
 
 <a name="reminders"/>
 

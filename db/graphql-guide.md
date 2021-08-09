@@ -1,5 +1,38 @@
 # GraphQL
 
+ https://graphql.org/
+
+ https://www.howtographql.com/
+
+
+GraphQL the query language doesn't know about resolvers, it's just a query language. You write GraphQL queries, you ask for fields, all is well.
+
+When you come to write a GraphQL server, you need to respond to queries. That means, you need to fetch your data from somewhere, and prepare it to be sent back in the response from the GraphQL server. This is what the resolvers are for. You make a resolver for each data type, and make resolver functions to resolve the fields on that type. Typically you only need to write resolver functions for fields that need to be computed (e.g. if you need to calculate a value, or go fetch some data from an API / database). That might not make sense just yet, but come back to that after you've read the rest of this.
+
+I'm not sure, but your confusion here might be coming from you expecting GraphQL to be just one thing, like MySQL or Postgres or something - it's not. You make a GraphQL server, and you choose how to implement the data-fetching logic.
+
+Let's say you have a basic blog, and you're writing a GraphQL server that you'll call to fetch the data. Let's keep it simple and say there are 2 data types, Post and Person. A Post has an author, which is a Person.
+
+For that, your schema might look something like this:
+
+```
+graphql type Query { post(id: ID!): Post }
+
+type Post { id: ID! title: String! author: Person! content: String! }
+
+type Person { id: ID! name: String! }
+```
+
+So you can fetch a specific Post using the root Query type. And on a Post you can fetch the author (a Person).
+
+Resolver functions are what you use to say "when someone asks for this field, on this type, this is the data that will be returned". So you'll have a resolver for your root query type, and you'll have a resolver function for that post field (post(id: ID!): Post above). That resolver function will return a Post. So maybe it'll go off to some API or your database and go and fetch that post by ID.
+
+Now, when the GraphQL server gets that Post back, it's data might not look like your schema above. The author might just be an ID in your database, so you'd also make a resolver for your Post type, and add a resolver function for the author field. This can then use the post data you got back from the database and go fetch the author by ID. (This links back to what I was saying earlier, you shouldn't need to write resolver functions for the other fields if they're returned as-is and the field names are the same as in your schema).
+
+Resolver functions are only executed if needed too. So if someone executed a query and they wanted the post but didn't ask for the author, then the author resolver wouldn't be executed.
+
+If you still don't get it, you should just try to make a GraphQL server. There are plenty of beginner tutorials. I'm pretty confident that if you just make a basic server and play around with i
+
 <a name="table-of-contents"/>
 
 ##### Table of Contents
@@ -744,4 +777,6 @@ catch (err) {
 }
 ```
 
+
+-----------------
 

@@ -32,6 +32,7 @@
   - [Comment Box](#comment-box)
 - [Colors](https://github.com/trevor-reznik/guides/tree/master/colors)
   - [HSL](#hsl)
+- [Transparency](#transparency)
 - [Design Philosophies](#design-philosophies)
   - [material](#material)
 
@@ -53,6 +54,48 @@
  - firefox debugger advantages
  - opening page in all browsers simulatensouly with local server host
  - https://css-tricks.com/the-difference-between-nth-child-and-nth-of-type/
+
+
+# Transparency
+
+
+#### 8-digit Hex Codes
+
+```css
+.element {
+
+  /* This is green */
+  background: rgb(0, 255, 0);
+
+  /* It's the same as this */
+  background: #00ff00;
+
+  /* We could make it 50% transparent like this */
+  background: rgba(0, 255, 0, 0.5);
+
+  /* Or, with an alpha hex like this */
+  background: #00ff0080;
+
+}
+```
+
+The AA part is a hex representation of 0-100 is like:
+
+```
+0 = 00
+1 = 03
+2 = 05
+…
+9 = 17
+…
+10 = 1A
+11 = 1C
+12 = 1F
+…
+99 = FC
+100 = FF
+```
+
 
 
 
@@ -85,6 +128,9 @@ The `<p>` element is pushed below left floated elements (the `<p>` element do no
   box-shadow: 0 0 12px black;
 ```
 
+## Hover Effects
+
+https://ui-snippets.dev/
 
 
 <a name="design-philosophies"/>

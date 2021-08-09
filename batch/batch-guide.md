@@ -235,3 +235,11 @@ Set A/ [arithmetic here]
 ```
 
 
+## Opening
+
+#### Folders
+
+```batch
+%SystemRoot%\explorer.exe "c:\Yaya\yoyo\"
+```
+
